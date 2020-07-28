@@ -1,0 +1,393 @@
+.about-intro {
+    background-image: url('../images/transfer-2-medium.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 25px;
+    height: 60vh;
+
+    position: relative;
+    z-index: 1;
+
+    @include responsive__mode(bp__sm) {
+        background-image: url('../images/transfer-2-medium.jpg');
+        background-position: 0 25px;
+        height: 60vh;
+    }
+
+    @include responsive__mode(bp__md) {
+        background-image: url('../images/transfer-2-large.jpg');
+        background-position: 0 25%;
+        height: 50vh;
+    }
+
+    // @include responsive__mode(bp__lg) {
+    //     background-image: url('../images/transfer-2-large.jpg');
+    //     background-position: 0 25%;
+    //     height: 50vh;
+    // }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 8%;
+        left: 10%;
+    }
+
+    &__heading {
+        font-size: 3.5rem;
+        color: $grey-light-1;
+        text-transform: capitalize;
+        font-weight: 300;
+    }
+
+    &__text {
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: $grey-light-1;
+        text-transform: capitalize;
+    }
+}
+
+.about-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 8rem 3rem;
+
+    @include responsive__mode(bp__sm) {
+        flex-direction: column;
+        padding: 8rem 4rem;
+    }
+
+    @include responsive__mode(bp__md) {
+        flex-direction: row;
+        padding: 8rem 3rem;
+    }
+
+    @include responsive__mode(bp__lg) {
+        padding: 8rem 2rem;
+    }
+
+    @include responsive__mode(bp__xl) {
+        padding: 8rem 6rem;
+    }
+
+    &__content {
+        width: 100%;
+
+        @include responsive__mode(bp__sm) {
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        @include responsive__mode(bp__md) {
+            width: 45%;
+        }
+    }
+
+    &__content1 {
+        margin-bottom: 2.5rem;
+
+        @include responsive__mode(bp__md) {
+            margin-bottom: 0;
+
+            width: 45%;
+        }
+
+        @include responsive__mode(bp__lg) {
+            margin-bottom: 0;
+
+            width: 50%;
+        }
+
+        @include responsive__mode(bp__xl) {
+            margin-bottom: 0;
+
+            width: 45%;
+        }
+    }   
+
+    &__imgContainer {
+        position: relative;
+        z-index: -1;
+        width: 100%;
+
+        &::before {
+            @include overlay;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    &__image {
+        align-self: top;
+    }
+
+    &__heading {
+        text-transform: capitalize;
+        font-size: 3rem;
+        font-weight: 500;
+        color: $grey-dark-0;
+        margin-bottom: 0.6rem;
+    }
+
+    &__text {
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: $grey-dark-2;
+        text-align: justify;
+        line-height: 3rem;
+    }
+}
+
+.about-highlight {
+    padding: 0 3rem 8rem 3rem;
+    text-align: center;
+
+    @include responsive__mode(bp__sm) {
+        padding: 0 2rem 8rem 2rem;
+        text-align: center;
+    }
+
+    @include responsive__mode(bp__md) {
+        padding: 0 6rem 8rem 3rem;
+        text-align: center;
+    }
+
+    @include responsive__mode(bp__lg) {
+        padding: 0 2rem 8rem 2rem;
+        text-align: center;
+    }
+
+    @include responsive__mode(bp__xl) {
+        padding: 0 6rem 8rem 6rem;
+        text-align: center;
+    }
+
+    &__heading {
+        text-transform: capitalize;
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: 0.6rem;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 3rem;
+            margin-bottom: 0.6rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: $grey-dark-2;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+
+        @include responsive__mode(bp__sm) {
+            width: 80%;
+            font-size: 1.7rem;
+        }
+
+        @include responsive__mode(bp__lg) {
+            width: 60%;
+        }
+    }
+
+    &__qualities {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__quality {
+        width: 95%;
+        margin: 0 auto 4rem auto;
+        box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.3);
+        padding: 2rem 2.5rem;
+        transition: transform 0.3s;
+
+        @include responsive__mode(bp__sm) {
+            width: 45%;
+        }
+
+        @include responsive__mode(bp__md) {
+            width: 40%;
+        }
+
+        @include responsive__mode(bp__lg) {
+            width: 30%;
+        }
+
+        &--icon {
+            width: 6rem;
+            height: 6rem;
+            fill: $secondary-color-dark;
+        }
+
+        &--heading {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin: 1.5rem 0;
+            font-weight: 500;
+            color: $grey-dark-0;
+
+            @include responsive__mode(bp__sm) {
+                font-size: 2rem;
+            }
+
+            @include responsive__mode(bp__md) {
+                font-size: 2.2rem;
+            }
+        }
+
+        &--text {
+            font-size: 1.5rem;
+            line-height: 3rem;
+            text-align: justify;
+            text-justify: distribute;
+            color: $grey-dark-2;
+        }
+
+        &:hover {
+            transform: none;
+
+            @include responsive__mode(bp__xl) {
+                transform: scale(1.02);
+            }
+        }
+    }
+}
+
+.about-testimonial {
+    padding: 8rem 3rem 4rem 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    margin-bottom: 12rem;
+
+    background-image: url('../images/services-image-medium.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &::before {
+        @include overlay;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: -1;
+    }
+
+    @include responsive__mode(bp__sm) {
+        padding: 8rem 3rem 4rem 3rem;
+        background-image: url('../images/services-image-medium.jpg');
+    }
+
+    @include responsive__mode(bp__md) {
+        padding: 8rem 6rem 4rem 6rem;
+        background-image: url('../images/services-image-large.jpg');
+    }
+
+    &__heading {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: $grey-light-1;
+    }
+
+    &__content {
+        // position: relative;
+        // z-index: 0;
+
+        &--text {
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 2.3rem;
+            width: 80%;
+            color: $grey-light-1;
+            margin: 0 auto;
+
+            @include responsive__mode(bp__lg) {
+                width: 60%;
+            }
+
+            @include responsive__mode(bp__xl) {
+                width: 30%;
+            }
+        }
+
+        &--name {
+            font-size: 1.6rem;
+            color: $grey-light-1;
+            margin-top: 2rem;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                width: 4rem;
+                height: 1px;
+                background: $primary-color-dark;
+                margin-right: 0.5rem;
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                width: 4rem;
+                height: 1px;
+                background: $primary-color-dark;
+                margin-left: 0.5rem;
+            }
+        }
+
+        &--icon {
+            width: 6rem;
+            height: 6rem;
+            fill: $primary-color-bright;
+        }
+
+        // &--icon1 {
+        //     position: absolute;
+        //     top: -2rem;
+        //     left: 0;
+        //     z-index: 5;
+
+        //     @include responsive__mode(bp__sm) {
+        //         left: 38rem;
+        //     }
+        // }
+
+        // &--icon2 {
+        //     position: absolute;
+        //     bottom: 5rem;
+        //     right: 0;
+        //     z-index: -1;
+
+        //     @include responsive__mode(bp__sm) {
+        //         right: 37rem;
+        //     }
+        // }
+    }
+}
+
+.carousel .slide {
+    background: none !important;
+}

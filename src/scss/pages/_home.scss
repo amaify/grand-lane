@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+.intro {
+    background-image: url("../images/home-large.jpg");
+    background-repeat: none;
+    background-size: cover;
+    
+    height: 70vh;
+    width: 100%;
+    position: relative;
+
+    z-index: 1;
+
+    @include responsive__mode(bp__sm) {
+        height: 75vh;
+    }
+
+    @include responsive__mode(bp__md) {
+        height: 90vh;
+    }
+
+    @include responsive__mode(bp__xl) {
+        height: 80vh
+    }
+
+    &::before{
+        @include overlay;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+
+    &-items {
+        @include absolute_centering;
+        text-align: center;
+        padding: 0 2rem;
+        width: 100%;
+
+        @include responsive__mode(bp__sm){
+            padding: 0;
+        }
+    }
+
+    &-heading {
+        text-align: center;
+        color: #fff;
+        font-weight: 300;
+        text-transform: uppercase;
+
+        & span {
+            display: block;
+        }
+
+        &__brand {
+            font-size: 4rem;
+            text-transform: capitalize;
+            font-family: 'Tangerine', cursive;
+        }
+
+        &__desc2 {
+            font-size: 3rem;
+            margin-top: 1rem;
+        }
+
+        @include responsive__mode(bp__sm){
+
+            &__brand {
+                font-size: 4.5rem;
+            }
+
+            &__desc2 {
+                font-size: 3.5rem;
+                margin-top: 0;
+            }
+        }
+
+        @include responsive__mode(bp__md) {
+
+            &__brand {
+                font-size: 5rem;
+            }
+
+            &__desc2 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @include responsive__mode(bp__lg) {
+            &__brand {
+                font-size: 6rem;
+            }
+
+            &__desc2 {
+                font-size: 4rem;
+            }
+        }
+    }
+}
+
+.desc {
+    text-align: center;
+    padding: 8rem 2.5rem;
+
+    @include responsive__mode(bp__sm){
+        padding: 5rem 4rem;
+    }
+
+    @include responsive__mode(bp__md) {
+        padding: 6rem 3rem;
+    }
+
+    @include responsive__mode(bp__lg) {
+        padding: 4rem 3rem;
+    }
+
+    @include responsive__mode(bp__xl) {
+        padding: 8rem 6rem;
+    }
+
+    &-heading {
+        text-transform: capitalize;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: $grey-dark-0;
+        font-weight: 400;
+
+        @include responsive__mode(bp__md) {
+            font-size: 3.5rem;
+            margin-bottom: 0;
+        }
+    }
+
+    &-text {
+        width: 100%;
+        font-size: 1.8rem;
+        margin: 0 auto 3rem auto;
+        color: $grey-dark-2;
+        text-align: justify;
+        line-height: 3rem;
+
+        @include responsive__mode(bp__sm){
+            width: 85%;
+            text-align: justify-all;
+        }
+
+        @include responsive__mode(bp__md) {
+            width: 80%;
+            text-align: justify-all;
+        }
+
+        @include responsive__mode(bp__lg) {
+            width: 60%;
+            text-align: center;
+        }
+    }
+
+    &-svg {
+        width: 4rem;
+        height: 4rem;
+        fill: $secondary-color-bright;
+        display: inline-block;
+        vertical-align: middle;
+        transition: all 0.3s;
+
+        // @include responsive__mode(bp__sm){
+        //     width: 3%;
+        //     height: 3%;
+        // }
+    }
+
+    &-mark {
+
+        @include responsive__mode(bp__sm) {
+            margin-bottom: 2rem;
+        }
+
+        &__text {
+            font-size: 1.8rem;
+            text-transform: capitalize;
+            color: $grey-dark-1;
+
+            display: block;
+            margin: 1.5rem 0;
+
+            & span {
+                margin: 0 0.5rem;
+            }
+
+            @include responsive__mode(bp__sm) {
+                font-size: 1.8rem;
+                text-transform: capitalize;
+                color: $grey-dark-1;
+
+                display: inline;
+                margin: 0 2.5rem;
+
+                & span {
+                    margin: 0 0.5rem;
+                }
+            }
+
+            @include responsive__mode(bp__md) {
+                margin: 0 4.5rem;
+            }
+        }
+    }
+}
+
+.services {
+    text-align: center;
+    padding: 0 2rem 4rem 2rem;
+
+    @include responsive__mode(bp__sm){
+        text-align: center;
+        padding: 2.5rem 2rem 4rem 2rem;
+    }
+
+    @include responsive__mode(bp__md){
+        text-align: center;
+        padding: 3rem 3rem 4rem 3rem;
+    }
+
+    @include responsive__mode(bp__lg){
+        text-align: center;
+        padding: 4rem 3rem;
+    }
+
+    @include responsive__mode(bp__xl){
+        text-align: center;
+        padding: 8rem 6rem;
+    }
+
+    &-header {
+        font-size: 3rem;
+        color: $grey-dark-0;
+        text-transform: capitalize;
+        margin-bottom: 1rem;
+        font-weight: 400;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+
+        @include responsive__mode(bp__sm) {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &-image {
+        position: relative;
+        width: 100%;
+        margin: 0 auto 2rem auto;
+        cursor: pointer;
+        backface-visibility: hidden;
+        transition: all 0.3s;
+
+        @include responsive__mode(bp__sm) {
+            width: 46%;
+            margin: 0 auto 2rem auto;
+        }
+
+        @include responsive__mode(bp__md) {
+            width: 48%;
+            margin: 0 auto 1.6rem auto;
+        }
+
+        @include responsive__mode(bp__lg) {
+            width: 30%;
+            margin: 0 auto 4rem auto;
+        }
+
+        &__text {
+            @include absolute_centering;
+
+            color: $grey-light-1;
+            font-size: 2.5rem;
+            width: 100%;
+            font-weight: 300;
+
+            @include responsive__mode(bp__sm) {
+                font-size: 2rem;
+            }
+
+            @include responsive__mode(bp__xl) {
+                font-size: 2.5rem;
+            }
+        }
+
+        
+        & img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        &::before {
+            @include overlay;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        &:hover {
+            box-shadow: none;
+            transform: none;
+        }
+
+        @include responsive__mode(bp__xl) {
+            &:hover {
+                box-shadow: $shadow-dark;
+                transform: scale(1.05);
+            }
+        }
+    }
+}

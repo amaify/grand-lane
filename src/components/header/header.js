@@ -1,0 +1,44 @@
+import React, { Component } from "react";
+
+import MobileNav from "../navigation/mobileNavigation/mobileNav";
+import MainNav from "../navigation/mainNavigation/mainNav";
+
+class Header extends Component {
+  componentDidMount() {
+    window.addEventListener("scroll", () => {
+      const isTop = window.scrollY > 100;
+      const header = document.getElementById("header");
+      if (header) {
+        if (isTop) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", () => null);
+  }
+
+  render() {
+    const { isAuth, logoutHandler, drawerToggle } = this.props;
+    return (
+      <header id="header" className="header">
+        <MainNav
+          className="header-main"
+          isAuth={isAuth}
+          logoutHandler={logoutHandler}
+        />
+        <MobileNav
+          drawerToggle={drawerToggle}
+          isAuth={isAuth}
+          logoutHandler={logoutHandler}
+        />
+      </header>
+    );
+  }
+}
+
+export default Header;

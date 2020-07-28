@@ -1,0 +1,80 @@
+.stripe-checkout {
+    background: $grey-light-4;
+    padding: 1rem 2rem;
+    // margin: 0 auto;
+    width: 100%;
+
+    // @include responsive__mode(bp__md) {
+    //     width: 100%;
+    // }
+
+    & label {
+        font-size: 2rem;
+        color: $grey-dark-0;
+    }
+
+    & div {
+        margin-bottom: 0.5rem;
+    }
+
+    &__input {
+
+        & label {
+            display: block;
+        }
+
+        & input {
+            border: none;
+            outline: none;
+            background: $grey-dark-0;
+            padding: 0.8rem 0.6rem;
+            color: #ffffff;
+            width: 100%;
+
+            &::placeholder {
+                color: #aab7c4;
+                opacity: 1;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__btn {
+        background: $grey-dark-0;
+        padding: 0.8rem 0.6rem;
+    }
+
+    & button {
+        background: $secondary-color-bright;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        color: $grey-light-3;
+        padding: 0.8rem 1.2rem;
+        margin-top: 2.5rem;
+
+        font-size: 1.7rem;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 1.4rem;
+            padding: 0.6rem 0.9rem;
+        }
+
+        @include responsive__mode(bp__md) {
+            font-size: 1.7rem;
+            padding: 0.8rem 1.2rem;
+        }
+
+        &:hover,
+        &:active {
+            background: $secondary-color-dark;
+        }
+
+        &:disabled {
+            background: grey;
+            cursor: not-allowed;
+        }
+    }
+}

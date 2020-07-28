@@ -1,0 +1,125 @@
+.checkout {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    margin-top: 6rem;
+    justify-content: center;
+
+    @include responsive__mode(bp__sm) {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    @include responsive__mode(bp__md) {
+        // padding: 4rem 8rem;
+        margin-top: 0;
+    }
+
+    @include responsive__mode(bp__lg) {
+        padding: 4rem 8rem;
+    }
+
+    &-content {
+        width: 100%;
+
+        @include responsive__mode(bp__sm) {
+            width: 45%;
+        }
+
+        &__details {
+            // margin-right: auto;
+
+            &--heading {
+                font-size: 2.5rem;
+                color: $grey-dark-1;
+                font-weight: 300;
+
+                @include responsive__mode(bp__md) {
+                    font-size: 3rem;
+                }
+            }
+
+            &--price {
+                font-size: 3.5rem;
+                color: $grey-dark-0;
+            }
+
+            &--text {
+                font-size: 2.5rem;
+                color: $grey-dark-2;
+                margin-top: 2rem;
+            }
+
+            &--image {
+                width: 100%;
+
+                @include responsive__mode(bp__sm) {
+                    width: 80%;
+                }
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
+            }
+
+            // &::after {
+            //     content: '';
+            //     width: 1px;
+            //     height: 100%;
+            //     background: $secondary-color-bright;
+            //     display: inline-block;
+            // }
+        }
+
+        &__card {
+            margin-top: 3rem;
+
+            @include responsive__mode(bp__sm) {
+                margin-top: 0;
+            }
+
+            &--heading {
+                font-size: 3rem;
+                color: $grey-dark-1;
+                font-weight: 300;
+                margin-bottom: 1rem;
+                text-align: center;
+
+                @include responsive__mode(bp__sm) {
+                    font-size: 2.5rem;
+                }
+
+                &::before, &::after {
+                    content: '';
+                    width: 10%;
+                    height: 1px;
+                    background: $secondary-color-bright;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                &::after {
+                    margin-left: 0.5rem;
+                }
+
+                &::before {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+.divider {
+    background: $secondary-color-bright;
+    opacity: 0.3;
+    width: 1px;
+    display: none;
+    margin: 0 5rem;
+
+    @include responsive__mode(bp__sm) {
+        display: block;
+    }
+}

@@ -1,0 +1,187 @@
+.footer {
+    background: $grey-dark-0;
+    text-align: center;
+    padding: 4rem 0 0 0;
+
+    width: 100%;
+
+    @include responsive__mode(bp__sm) {
+        width: auto;
+    }
+
+    &-logo {
+        text-decoration: none;
+        color: $grey-light-4;
+        font-size: 3rem;
+    }
+
+    &-contact {
+        margin-top: 1.5rem;
+
+        @include responsive__mode(bp__sm) {
+            margin-top: 3rem;
+        }
+    }
+
+    &-text {
+        color: $grey-light-4;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+
+        &__icon {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        &__desc {
+            display: inline;
+            vertical-align: top;
+            margin-left: 1rem;
+            word-break: break-all;
+        }
+
+        @include responsive__mode(bp__sm) {
+
+        }
+    }
+
+    &-social {
+        margin-top: 2.5rem;
+
+        & svg {
+            margin: 0 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            fill: $grey-light-4;
+
+            &:hover {
+                fill: $secondary-color-bright;
+            }
+        }
+    }
+
+    &-links {
+        margin-top: 2.5rem;
+        
+        &__items {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style: none;
+
+            @include responsive__mode(bp__sm) {
+                flex-direction: row;
+            }
+
+            & li {
+                margin: 0.8rem 0;
+
+                & a {
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                    color: $grey-light-4;
+                    transition: all 0.3s;
+
+                    &.active {
+                        color: $primary-color-bright;
+                    }
+
+                    &:hover,
+                    &:active {
+                        color: $primary-color-bright;
+                    }
+                }
+
+                @include responsive__mode(bp__sm) {
+                    margin: 0 1.5rem;
+                }
+            }
+        }
+    }
+
+    &-base {
+        background: $grey-dark-4;
+        padding: 0.8rem 0;
+        margin-top: 2.5rem;
+
+        &__text {
+            color: $grey-light-4;
+            font-size: 1.5rem;
+        }
+    }
+
+    &-svg {
+        width: 2rem;
+        height: 2rem;
+        fill: $primary-color-bright;
+    }
+}
+
+.action {
+    text-align: center;
+    background-image: url("../images/timelapse-large.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 0;
+
+    @include responsive__mode(bp__md) {
+        padding: 5rem 0;
+    }
+
+    &::before {
+        @include overlay;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+
+    &-heading {
+        text-transform: capitalize;
+        margin-bottom: 3rem;
+        color: $grey-light-1;
+        font-weight: 300;
+        width: 100%;
+
+        & span {
+            display: block;
+        }
+
+        &__main {
+            margin-bottom: 1rem;
+            font-size: 3rem;
+
+            @include responsive__mode(bp__sm) {
+                font-size: 4rem;
+            }
+            
+        }
+
+        &__sub1 {
+            font-size: 1.5rem;
+
+            @include responsive__mode(bp__md) {
+                font-size: 2rem;
+            }
+        }
+
+        &__sub2 {
+            font-size: 1.5rem;
+
+            @include responsive__mode(bp__md) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &-call {
+        color: $grey-light-1;
+        font-size: 1.5rem;
+        font-weight: 300;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 2rem;
+        }
+    }
+}

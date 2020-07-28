@@ -1,0 +1,202 @@
+.service-intro {
+    background-image: url('../images/testimonial-2-medium.jpg');
+    background-repeat: none;
+    background-size: cover;
+    background-position: 50% 25px;
+    height: 60vh;
+
+    position: relative;
+    z-index: 1;
+
+    @include responsive__mode(bp__sm) {
+        background-image: url('../images/testimonial-2-large.jpeg');
+        background-position: 0 25%;
+        height: 50vh;
+    }
+
+    &::before {
+        @include overlay;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 8%;
+        left: 10%;
+
+        &--heading {
+            font-size: 3.5rem;
+            color: $grey-light-1;
+            text-transform: capitalize;
+            font-weight: 300;
+        }
+
+        &--text {
+            font-size: 1.8rem;
+            color: $grey-light-1;
+            font-weight: 300;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.service-contents {
+    padding: 4rem 2rem;
+
+    @include responsive__mode(bp__sm) {
+        padding: 4rem 1.5rem;
+    }
+
+    @include responsive__mode(bp__md) {
+        padding: 4rem 2rem;
+    }
+
+    @include responsive__mode(bp__lg) {
+        padding: 5rem 3rem;
+    }
+
+    @include responsive__mode(bp__xl) {
+        padding: 8rem 6rem;
+    }
+
+    &__heading {
+        font-size: 3rem;
+        text-transform: capitalize;
+        color: $grey-dark-1;
+        font-weight: 500;
+        margin-bottom: 3rem;
+        text-align: center;
+
+        @include responsive__mode(bp__sm) {
+            margin-bottom: 2.5rem;
+        }
+
+        @include responsive__mode(bp__md) {
+            font-size: 4rem;
+            margin-bottom: 5.5rem;
+        }
+    }
+}
+
+.service-content {
+
+    @include responsive__mode(bp__sm) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    @include responsive__mode(bp__md) {
+        display: block;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8rem;
+
+        &:nth-of-type(even){
+            flex-direction: column;
+        }
+
+        @include responsive__mode(bp__sm) {
+            flex-direction: column;
+            width: 46%;
+            margin: 0 auto 5rem auto;
+
+            &:nth-of-type(even){
+                flex-direction: column;
+            }
+        }
+
+        @include responsive__mode(bp__md) {
+            flex-direction: row;
+            width: 100%;
+
+            &:nth-of-type(even){
+                flex-direction: row-reverse;
+            }
+        }
+
+        &--content {
+            width: 100%;
+            margin: 0 auto;
+
+            @include responsive__mode(bp__sm) {
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            @include responsive__mode(bp__md) {
+                width: 45%;
+                margin: 0 auto;
+            }
+
+            @include responsive__mode(bp__lg) {
+                width: 45%;
+                margin: 0 auto;
+            }
+
+            @include responsive__mode(bp__xl) {
+                width: 40%;
+                margin: 0 auto;
+            }
+        }
+
+        &--image {
+            position: relative;
+            align-self: top;
+
+            // @include responsive__mode(bp__lg) {
+            //     align-self: top;
+            // }
+        }
+
+        &--heading {
+            text-transform: uppercase;
+            font-size: 2rem;
+            color: $grey-dark-0;
+            margin-bottom: 0.6rem;
+            margin-top: 1rem;
+            font-weight: 500;
+
+            @include responsive__mode(bp__sm) {
+                font-size: 2.2rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            @include responsive__mode(bp__md) {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+                margin-top: 0;
+            }
+        }
+
+        &--text {
+            font-size: 1.5rem;
+            color: $grey-dark-2;
+            font-weight: 400;
+            text-align: justify;
+            line-height: 3rem;
+        }
+    }
+
+    &__image {
+        position: relative;
+        align-self: center;
+
+        &::before {
+            @include overlay;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+}

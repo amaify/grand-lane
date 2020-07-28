@@ -1,0 +1,259 @@
+.button-primary {
+    width: 14rem;
+    border-radius: 8px;
+    border: 1px solid $grey-light-1;
+    outline: none;
+    display: inline-block;
+    background: transparent;
+    text-align: center;
+
+    padding: 0.8rem 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include responsive__mode(bp__sm) {
+        width: 14rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    &__text {
+        font-size: 1.6rem;
+        color: $grey-light-1;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 1rem;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &:hover,
+    &:active {
+        background: $primary-color-bright;
+        border: 1px solid $primary-color-bright;
+
+        & .svg {
+            transform: translateX(20%);
+        }
+    }
+}
+
+.button-secondary {
+    width: 14rem;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    background: $primary-color-bright;
+    text-align: center;
+
+    padding: 0.8rem 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include responsive__mode(bp__sm) {
+        width: 14rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    @include responsive__mode(bp__md) {
+        width: 16rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    &__text {
+        font-size: 1.6rem;
+        color: $grey-light-1;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 1.7rem;
+        }
+
+        @include responsive__mode(bp__md) {
+            font-size: 2rem;
+        }
+    }
+
+    &:hover,
+    &:active{
+        background: $primary-color-dark;
+
+        & .svg {
+            transform: translateX(20%);
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: #ccc;
+        border: none;
+
+        &:hover,
+        &:active,
+        &:link {
+            background: #ccc;
+            border: none;
+
+            & .svg {
+                transform: none;
+            }
+        }
+    }
+
+    &:enabled {
+        animation-name: enable;
+        animation-duration: 0.3s;
+        animation-direction: forwards;
+        transition: animation 0.3s;
+    }
+
+}
+
+.button-mobile {
+    width: 12rem;
+    border-radius: 8px;
+    border: 1px solid $secondary-color-bright;
+    outline: none;
+    background: $secondary-color-bright;
+
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &__text {
+        font-size: 1.5rem;
+        color: $grey-light-1;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 0.8rem;
+    }
+
+    &:hover,
+    &:active {
+        & .svg {
+            transform: translateX(20%);
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.button-select {
+    width: 12rem;
+    border-radius: 8px;
+    border: 1px solid $secondary-color-bright;
+    outline: none;
+    background: $secondary-color-bright;
+
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &__text {
+        font-size: 1.5rem;
+        color: $grey-light-1;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 0.8rem;
+    }
+
+    &:hover,
+    &:active {
+        border: 1px solid $secondary-color-dark;
+        background: $secondary-color-dark;
+
+        & .svg {
+            transform: translateX(20%);
+        }
+    }
+
+}
+
+.button-auth {
+    width: 12rem;
+    border-radius: 2px;
+    border: 1px solid $secondary-color-bright;
+    outline: none;
+    display: inline-block;
+    background: $secondary-color-bright;
+    text-align: center;
+
+    padding: 0.6rem 0;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include responsive__mode(bp__sm) {
+        width: 13rem;
+        padding: 0.5rem 0;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        color: $grey-light-1;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 1rem;
+
+        @include responsive__mode(bp__sm) {
+            font-size: 1.7rem;
+        }
+
+        @include responsive__mode(bp__md) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:link {
+        background: $secondary-color-dark;
+        border: 1px solid $secondary-color-dark;
+
+        & .svg {
+            transform: translateX(20%);
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: #ccc;
+        border-color: #ccc;
+
+        &:hover,
+        &:active,
+        &:link {
+            background: #ccc;
+            border-color: #ccc;
+
+            & .svg {
+                transform: none;
+            }
+        }
+    }
+
+    &:enabled {
+        animation-name: enable;
+        animation-duration: 0.3s;
+        animation-direction: forwards;
+        transition: animation 0.3s;
+    }
+
+}
+
+@keyframes enable {
+    0% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,43 @@
+.header {
+
+    @include responsive__mode(bp__md){
+        padding: 2rem 2.5rem;
+        background: none;
+        transition: all 0.01s;
+    }
+
+    &-main {
+        display: none;
+
+        @include responsive__mode(bp__sm){
+            display: block;
+        }
+    }
+
+    &-mobile {
+
+        @include responsive__mode(bp__sm){ 
+            display: none;
+        }
+    }    
+}
+
+
+@include responsive__mode(bp__md) {
+    .scrolled {
+        position: fixed;
+        background-color: #199e7d;
+        width: 100%;
+        // padding: 1rem 0;
+        max-width: 1440px;
+        z-index: 10;
+        top: 0;
+        left: 50%;
+        transform: translate(-50.03%, 0);
+    
+        & nav {
+            padding: 0 2.5rem;
+        }
+    }
+
+}
