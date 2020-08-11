@@ -686,6 +686,23 @@ html {
   word-break: break-all;
 }
 
+.footer-text a {
+  text-decoration: none;
+  background: #199e7d;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-transform: capitalize;
+  color: #f0eeee;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+@media only screen and (min-width: 780px) {
+  .footer-text a:hover, .footer-text a:active {
+    background: #10644f;
+  }
+}
+
 .footer-social {
   margin-top: 2.5rem;
 }
@@ -854,6 +871,10 @@ html {
   .action-call {
     font-size: 2rem;
   }
+}
+
+#driver {
+  margin-top: 2rem;
 }
 
 .nav-main {
@@ -1067,6 +1088,16 @@ html {
 .nav-side-items__auth li a.active {
   background: #3f80e5;
   border: 1px solid #3f80e5;
+}
+
+.nav-side-items__auth li button {
+  border: 1px solid #fff;
+  border-radius: 6px;
+  padding: 0.4rem 1.2rem;
+  background: transparent;
+  font-size: 1.7rem;
+  color: #faf9f9;
+  cursor: pointer;
 }
 
 .mobile {
@@ -1290,7 +1321,6 @@ html {
   font-size: 1.8rem;
   font-weight: 400;
   color: #777;
-  text-align: justify;
   line-height: 3rem;
 }
 
@@ -1437,8 +1467,6 @@ html {
 .about-highlight__quality--text {
   font-size: 1.5rem;
   line-height: 3rem;
-  text-align: justify;
-  text-justify: distribute;
   color: #777;
 }
 
@@ -3792,28 +3820,24 @@ html {
   font-size: 1.8rem;
   margin: 0 auto 3rem auto;
   color: #777;
-  text-align: justify;
   line-height: 3rem;
 }
 
 @media only screen and (min-width: 600px) {
   .desc-text {
     width: 85%;
-    text-align: justify-all;
   }
 }
 
 @media only screen and (min-width: 780px) {
   .desc-text {
     width: 80%;
-    text-align: justify-all;
   }
 }
 
 @media only screen and (min-width: 920px) {
   .desc-text {
     width: 60%;
-    text-align: center;
   }
 }
 
@@ -4276,7 +4300,6 @@ html {
   font-size: 1.5rem;
   color: #777;
   font-weight: 400;
-  text-align: justify;
   line-height: 3rem;
 }
 

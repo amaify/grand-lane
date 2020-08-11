@@ -14,7 +14,7 @@ import VanImage from "../../images/business-van.png";
 class SelectVehicle extends Component {
   state = {
     price: 0,
-    selectedVehicle: ""
+    selectedVehicle: "",
   };
 
   onSubmitHandlerOne() {
@@ -22,7 +22,7 @@ class SelectVehicle extends Component {
     this.setState(
       {
         price: Number(priceValue),
-        selectedVehicle: "Business Sedan"
+        selectedVehicle: "Business Sedan",
       },
       () => {
         localStorage.setItem("vehicle", this.state.selectedVehicle);
@@ -37,7 +37,7 @@ class SelectVehicle extends Component {
     this.setState(
       {
         price: Number(priceValue),
-        selectedVehicle: "Business Van/SUV"
+        selectedVehicle: "Business Van/SUV",
       },
       () => {
         localStorage.setItem("vehicle", this.state.selectedVehicle);
@@ -65,7 +65,7 @@ class SelectVehicle extends Component {
     let selectVehicle = (
       <Fragment>
         <Helmet>
-          <title>Select a Ride | GrandLane Chauffeur Services</title>
+          <title>Select a Ride - GrandLane Services</title>
         </Helmet>
         <BookingInfo />
 

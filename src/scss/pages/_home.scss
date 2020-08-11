@@ -134,22 +134,18 @@
         font-size: 1.8rem;
         margin: 0 auto 3rem auto;
         color: $grey-dark-2;
-        text-align: justify;
         line-height: 3rem;
 
         @include responsive__mode(bp__sm){
             width: 85%;
-            text-align: justify-all;
         }
 
         @include responsive__mode(bp__md) {
             width: 80%;
-            text-align: justify-all;
         }
 
         @include responsive__mode(bp__lg) {
             width: 60%;
-            text-align: center;
         }
     }
 
@@ -160,11 +156,6 @@
         display: inline-block;
         vertical-align: middle;
         transition: all 0.3s;
-
-        // @include responsive__mode(bp__sm){
-        //     width: 3%;
-        //     height: 3%;
-        // }
     }
 
     &-mark {

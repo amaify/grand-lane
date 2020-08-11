@@ -9,8 +9,8 @@ const navigation = {
     { id: "about", text: "About", link: "/about" },
     { id: "services", text: "Services", link: "/services" },
     { id: "rates", text: "Service Rates", link: "/rates" },
-    { id: "contact", text: "Contact", link: "/contact" }
-  ]
+    { id: "contact", text: "Contact", link: "/contact" },
+  ],
 };
 
 const footer = () => {
@@ -41,8 +41,12 @@ const footer = () => {
             <SVGIcon name="mail" className="footer-svg" />
           </span>
           <span className="footer-text__desc">
-            booking&#64;grandlanechauffeurs.com.au
+            booking&#64;grandlane.com.au
           </span>
+        </p>
+
+        <p className="footer-text" id="driver">
+          <a href="tel:+2348139544732">call now to become a driver</a>
         </p>
       </div>
       <div className="footer-social">
@@ -55,7 +59,7 @@ const footer = () => {
       </div>
       <div className="footer-links">
         <ul className="footer-links__items">
-          {navigation.data.map(items => (
+          {navigation.data.map((items) => (
             <li key={items.id}>
               <NavLink to={items.link} exact>
                 {items.text}

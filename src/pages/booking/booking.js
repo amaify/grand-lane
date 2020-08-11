@@ -27,7 +27,7 @@ class Booking extends Component {
       time,
       date,
       hour,
-      service
+      service,
     });
   }
   render() {
@@ -35,7 +35,7 @@ class Booking extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>New Reservation | GrandLane Chauffeur Services</title>
+          <title>New Reservation - GrandLane Services</title>
         </Helmet>
         <section className="booking">
           <Header
@@ -51,7 +51,7 @@ class Booking extends Component {
 
         <section className="booking-information">
           <h3 className="booking-information__heading">reserve now</h3>
-          <BookingForm submitForm={e => this.onSubmit(e)} />
+          <BookingForm submitForm={(e) => this.onSubmit(e)} />
         </section>
 
         <Footer />

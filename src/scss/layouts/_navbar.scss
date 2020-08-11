@@ -176,7 +176,6 @@
         }
 
         &__links {
-            // margin-bottom: 3rem;
 
             & li {
                 margin: 0.7rem 0;
@@ -206,15 +205,15 @@
                     }
                 }
 
-                // & button {
-                //     border: 1px solid #fff;
-                //     border-radius: 6px;
-                //     padding: 0.4rem 1.2rem;
-                //     background: transparent;
-                //     font-size: 1.7rem;
-                //     color: $grey-light-1;
-                //     cursor: pointer;
-                // }
+                & button {
+                    border: 1px solid #fff;
+                    border-radius: 6px;
+                    padding: 0.4rem 1.2rem;
+                    background: transparent;
+                    font-size: 1.7rem;
+                    color: $grey-light-1;
+                    cursor: pointer;
+                }
             }
         }
     }

@@ -15,26 +15,26 @@ class ForgotPassword extends Component {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, email]
-      }
+        validators: [required, email],
+      },
     },
     formIsValid: false,
     errMessage: false,
     showMessage: null,
     showInfo: false,
     success: false,
-    loading: false
+    loading: false,
   };
 
   validateForm = () => {
     const { passwordForm } = this.state;
     this.setState({
-      formIsValid: passwordForm.email.valid
+      formIsValid: passwordForm.email.valid,
     });
   };
 
   inputChangeHandler = (input, value) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let isValid = true;
       for (const validator of prevState.passwordForm[input].validators) {
         isValid = isValid && validator(value);
@@ -44,8 +44,8 @@ class ForgotPassword extends Component {
         [input]: {
           ...prevState.passwordForm[input],
           valid: isValid,
-          value: value
-        }
+          value: value,
+        },
       };
       let formIsValid = true;
       for (const inputName in updatedForm) {
@@ -53,21 +53,21 @@ class ForgotPassword extends Component {
       }
       return {
         passwordForm: updatedForm,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       };
     });
   };
 
-  inputBlurHandler = input => {
-    this.setState(prevState => {
+  inputBlurHandler = (input) => {
+    this.setState((prevState) => {
       return {
         passwordForm: {
           ...prevState.passwordForm,
           [input]: {
             ...prevState.passwordForm[input],
-            touched: true
-          }
-        }
+            touched: true,
+          },
+        },
       };
     });
   };
@@ -85,24 +85,24 @@ class ForgotPassword extends Component {
     const { passwordForm } = this.state;
 
     const inputData = {
-      email: passwordForm.email.value
+      email: passwordForm.email.value,
     };
 
     fetch("https://grand-lane.herokuapp.com/contact/forgot-password", {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(inputData)
+      body: JSON.stringify(inputData),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.statusCode === 404) {
           this.setState({
             loading: false,
             errMessage: true,
             showMessage: resData.error,
-            showInfo: true
+            showInfo: true,
           });
           setTimeout(() => {
             return this.setState({ showInfo: false });
@@ -115,14 +115,14 @@ class ForgotPassword extends Component {
             errMessage: false,
             showMessage: resData.message,
             showInfo: true,
-            success: true
+            success: true,
           });
         } else {
           this.setState({
             loading: false,
             errMessage: true,
             showMessage: resData.message,
-            showInfo: true
+            showInfo: true,
           });
           setTimeout(() => {
             return this.setState({ showInfo: false });
@@ -130,12 +130,12 @@ class ForgotPassword extends Component {
           this.resetFormHandler();
         }
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           loading: false,
           errMessage: true,
           showMessage: err.message,
-          showInfo: true
+          showInfo: true,
         });
         setTimeout(() => {
           return this.setState({ showInfo: false });
@@ -150,7 +150,7 @@ class ForgotPassword extends Component {
       showInfo,
       errMessage,
       showMessage,
-      success
+      success,
     } = this.state;
 
     let loadingState = (
@@ -162,7 +162,7 @@ class ForgotPassword extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Forgot Password | GrandLane Chauffeur Services</title>
+          <title>Forgot Password - GrandLane Services</title>
         </Helmet>
         <section className="forgotPassword">
           <Header
@@ -175,7 +175,7 @@ class ForgotPassword extends Component {
           <form
             action=""
             className="forgotPassword-form"
-            onSubmit={e => this.submitFormHandler(e)}
+            onSubmit={(e) => this.submitFormHandler(e)}
           >
             <div className="forgotPassword-form__header">
               <SVGIcon
@@ -202,7 +202,7 @@ class ForgotPassword extends Component {
                 <input
                   className={[
                     !passwordForm["email"].valid ? "invalid" : "valid",
-                    passwordForm["email"].touched ? "touched" : "untouched"
+                    passwordForm["email"].touched ? "touched" : "untouched",
                   ].join(" ")}
                   type="email"
                   name="email"
@@ -210,7 +210,7 @@ class ForgotPassword extends Component {
                   required
                   placeholder="james.madisson@aedc.com"
                   value={passwordForm.email.value}
-                  onChange={e =>
+                  onChange={(e) =>
                     this.inputChangeHandler("email", e.target.value)
                   }
                   onBlur={this.inputBlurHandler.bind(this, "email")}

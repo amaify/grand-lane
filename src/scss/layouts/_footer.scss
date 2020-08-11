@@ -40,8 +40,21 @@
             word-break: break-all;
         }
 
-        @include responsive__mode(bp__sm) {
+        & a {
+            text-decoration: none;
+            background: #199e7d;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            text-transform: capitalize;
+            color: $grey-light-3;
+            transition: all 0.3s;
 
+            @include responsive__mode(bp__md) {
+                &:hover,
+                &:active {
+                    background: #10644f;
+                }
+            }
         }
     }
 
@@ -184,4 +197,8 @@
             font-size: 2rem;
         }
     }
+}
+
+#driver {
+    margin-top: 2rem;
 }

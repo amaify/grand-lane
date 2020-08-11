@@ -14,7 +14,7 @@ import {
   useElements,
   CardNumberElement,
   CardCvcElement,
-  CardExpiryElement
+  CardExpiryElement,
 } from "@stripe/react-stripe-js";
 //////////////
 import Header from "../../components/header/header";
@@ -37,7 +37,7 @@ function Checkout(props) {
     customerName: `${localStorage.getItem("firstName")} ${localStorage.getItem(
       "lastName"
     )}`,
-    customerEmail: localStorage.getItem("email")
+    customerEmail: localStorage.getItem("email"),
   });
 
   const removeItemsFromStorage = () => {
@@ -126,18 +126,18 @@ function Checkout(props) {
             distance
           }
         }
-      `
+      `,
     };
     fetch("https://grand-lane.herokuapp.com/graphql", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + props.token,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(graphqlQuery)
+      body: JSON.stringify(graphqlQuery),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.errors && resData.errors[0].status === 401) {
           throw new Error("Not Authenticated");
         }
@@ -149,7 +149,7 @@ function Checkout(props) {
         props.history.replace("/booking-successful");
         removeItemsFromStorage();
       })
-      .catch(err => {
+      .catch((err) => {
         setDataLoading(false);
         setShowInfo(true);
         setErrorMessage(err.message);
@@ -166,28 +166,28 @@ function Checkout(props) {
     const [errMessage, setMessage] = useState(null);
     const [billing, setBillingDetails] = useState({
       name: "",
-      email: ""
+      email: "",
     });
 
-    const changeCardNumber = e => {
+    const changeCardNumber = (e) => {
       if (e.complete) {
         return;
       }
     };
 
-    const changeCardCvc = e => {
+    const changeCardCvc = (e) => {
       if (e.complete) {
         return;
       }
     };
 
-    const changeCardExpiry = e => {
+    const changeCardExpiry = (e) => {
       if (e.complete) {
         setcardInfo(false);
       }
     };
 
-    const handleSubmit = async event => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
       setPayment(true);
 
@@ -196,12 +196,12 @@ function Checkout(props) {
       if (props.isAuth) {
         billingDetails = {
           name: products.customerName,
-          email: products.customerEmail
+          email: products.customerEmail,
         };
       } else {
         billingDetails = {
           name: billing.name,
-          email: billing.email
+          email: billing.email,
         };
       }
 
@@ -211,8 +211,8 @@ function Checkout(props) {
           customerName: products.customerName,
           email: products.customerEmail,
           price: products.price,
-          productBy: products.productBy
-        }
+          productBy: products.productBy,
+        },
       };
 
       let clientSecret;
@@ -220,17 +220,17 @@ function Checkout(props) {
         method: "POST",
         body: JSON.stringify(productData),
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       })
-        .then(response => response.json())
-        .then(resData => {
+        .then((response) => response.json())
+        .then((resData) => {
           if (resData.statusCode === 500) {
             throw new Error(resData.message);
           }
           clientSecret = resData.data;
         })
-        .catch(err => {
+        .catch((err) => {
           setError(true);
           setMessage(err.message);
           setPayment(false);
@@ -245,7 +245,7 @@ function Checkout(props) {
       const { paymentMethod } = await stripe.createPaymentMethod({
         type: "card",
         card: elements.getElement(CardNumberElement),
-        billing_details: billingDetails
+        billing_details: billingDetails,
       });
       if (paymentMethod === undefined) {
         setPayment(false);
@@ -256,7 +256,7 @@ function Checkout(props) {
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: paymentMethod.id,
         receipt_email: productData.product.email,
-        setup_future_usage: "off_session"
+        setup_future_usage: "off_session",
       });
       if (!result.error) {
         setPayment(false);
@@ -278,14 +278,14 @@ function Checkout(props) {
           color: "#fff",
           iconColor: "#fff",
           "::placeholder": {
-            color: "#aab7c4"
-          }
+            color: "#aab7c4",
+          },
         },
         invalid: {
           color: "#f3094f",
-          iconColor: "#f3094f"
-        }
-      }
+          iconColor: "#f3094f",
+        },
+      },
     };
 
     let loadingState = (
@@ -311,10 +311,10 @@ function Checkout(props) {
                   id="name"
                   autoComplete="name"
                   value={billing.name}
-                  onChange={e => {
+                  onChange={(e) => {
                     setBillingDetails({
                       ...billing,
-                      name: e.target.value
+                      name: e.target.value,
                     });
                   }}
                   placeholder="James Madisson"
@@ -329,10 +329,10 @@ function Checkout(props) {
                   id="email"
                   autoComplete="email"
                   value={billing.email}
-                  onChange={e =>
+                  onChange={(e) =>
                     setBillingDetails({
                       ...billing,
-                      email: e.target.value
+                      email: e.target.value,
                     })
                   }
                   placeholder="james.madisson@yahoo.com"
@@ -345,7 +345,7 @@ function Checkout(props) {
             <label htmlFor="cardNumber">Card Number</label>
             <CardNumberElement
               className="stripe-checkout__btn"
-              onChange={e => changeCardNumber(e)}
+              onChange={(e) => changeCardNumber(e)}
               options={options}
             />
           </div>
@@ -354,7 +354,7 @@ function Checkout(props) {
             <label htmlFor="cvc">Cvc</label>
             <CardCvcElement
               className="stripe-checkout__btn"
-              onChange={e => changeCardCvc(e)}
+              onChange={(e) => changeCardCvc(e)}
               options={options}
             />
           </div>
@@ -363,7 +363,7 @@ function Checkout(props) {
             <label htmlFor="expiryDate">Expiry Date</label>
             <CardExpiryElement
               className="stripe-checkout__btn"
-              onChange={e => changeCardExpiry(e)}
+              onChange={(e) => changeCardExpiry(e)}
               options={options}
             />
           </div>
@@ -419,7 +419,7 @@ function Checkout(props) {
   return (
     <Fragment>
       <Helmet>
-        <title>{`Order For - ${products.name} | GrandLane Chauffeur Services`}</title>
+        <title>{`Order For - ${products.name} - GrandLane Services`}</title>
       </Helmet>
       <section className="forgotPassword">
         <Header drawerToggle={props.sideDrawerToggle} isAuth={props.isAuth} />

@@ -11,7 +11,7 @@ class Orders extends Component {
     ridesId: JSON.parse(localStorage.getItem("myRidesId")) || [],
     loading: false,
     errMessage: null,
-    error: false
+    error: false,
   };
 
   componentDidMount() {
@@ -32,18 +32,18 @@ class Orders extends Component {
                     }
                 }
             }
-          `
+          `,
     };
     fetch("https://grand-lane.herokuapp.com/graphql", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + token,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(graphqlQuery)
+      body: JSON.stringify(graphqlQuery),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.errors && resData.errors[0].status === 401) {
           throw new Error("Not Authorized!");
         }
@@ -53,10 +53,10 @@ class Orders extends Component {
         );
         this.setState({
           ridesId: resData.data.getRides.rides,
-          loading: false
+          loading: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ loading: false, errMessage: err.message, error: true });
       });
   };
@@ -82,7 +82,7 @@ class Orders extends Component {
             <p>No Orders Yet</p>
           )
         ) : (
-          ridesId.map(ride => (
+          ridesId.map((ride) => (
             <li className="orders-list__item" key={ride._id}>
               <span>Order &mdash; </span>
               <NavLink to={`/orders/${ride._id}`} exact>
@@ -97,7 +97,7 @@ class Orders extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Orders | GrandLane Chauffeur Services</title>
+          <title>Orders - GrandLane Services</title>
         </Helmet>
         <section className="orders">
           <Header

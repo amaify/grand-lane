@@ -16,31 +16,31 @@ class Signup extends Component {
         value: "",
         valid: false,
         touched: false,
-        validators: [required]
+        validators: [required],
       },
 
       lastName: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required]
+        validators: [required],
       },
 
       email: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, email]
+        validators: [required, email],
       },
 
       password: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, length({ min: 5 })]
-      }
+        validators: [required, length({ min: 5 })],
+      },
     },
-    formIsValid: false
+    formIsValid: false,
   };
 
   validateForm = () => {
@@ -51,12 +51,12 @@ class Signup extends Component {
         signupForm.lastName.valid &&
         signupForm.email.valid &&
         signupForm.password.valid &&
-        signupForm.confirmPassword.valid
+        signupForm.confirmPassword.valid,
     });
   };
 
   inputChangeHandler = (input, value) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let isValid = true;
       for (const validator of prevState.signupForm[input].validators) {
         isValid = isValid && validator(value);
@@ -66,8 +66,8 @@ class Signup extends Component {
         [input]: {
           ...prevState.signupForm[input],
           valid: isValid,
-          value: value
-        }
+          value: value,
+        },
       };
       let formIsValid = true;
       for (const inputName in updatedForm) {
@@ -75,21 +75,21 @@ class Signup extends Component {
       }
       return {
         signupForm: updatedForm,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       };
     });
   };
 
-  inputBlurHandler = input => {
-    this.setState(prevState => {
+  inputBlurHandler = (input) => {
+    this.setState((prevState) => {
       return {
         signupForm: {
           ...prevState.signupForm,
           [input]: {
             ...prevState.signupForm[input],
-            touched: true
-          }
-        }
+            touched: true,
+          },
+        },
       };
     });
   };
@@ -100,7 +100,7 @@ class Signup extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Register | GrandLane Chauffeur Services</title>
+          <title>Register - GrandLane Services</title>
         </Helmet>
         <section className="signup">
           <Header
@@ -123,12 +123,12 @@ class Signup extends Component {
             ) : null}
             <form
               className="contact-form__contents auth-form"
-              onSubmit={e =>
+              onSubmit={(e) =>
                 signupHandler(e, {
                   firstName: signupForm.firstName.value,
                   lastName: signupForm.lastName.value,
                   email: signupForm.email.value,
-                  password: signupForm.password.value
+                  password: signupForm.password.value,
                 })
               }
             >

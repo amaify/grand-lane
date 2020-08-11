@@ -18,35 +18,35 @@ class Contact extends Component {
         value: "",
         valid: false,
         touched: false,
-        validators: [required]
+        validators: [required],
       },
 
       email: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, email]
+        validators: [required, email],
       },
 
       number: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required]
+        validators: [required],
       },
 
       comment: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required]
-      }
+        validators: [required],
+      },
     },
     formIsValid: false,
     loading: false,
     errMsg: false,
     showInfo: false,
-    errMessage: null
+    errMessage: null,
   };
 
   validateForm = () => {
@@ -56,11 +56,11 @@ class Contact extends Component {
         contactForm.name.valid &&
         contactForm.email.valid &&
         contactForm.number.valid &&
-        contactForm.comment.valid
+        contactForm.comment.valid,
     });
   };
 
-  submitHandler = event => {
+  submitHandler = (event) => {
     event.preventDefault();
     this.setState({ loading: true });
 
@@ -69,20 +69,20 @@ class Contact extends Component {
       name: contactForm.name.value,
       email: contactForm.email.value,
       number: contactForm.number.value,
-      comment: contactForm.comment.value
+      comment: contactForm.comment.value,
     };
 
     fetch("https://grand-lane.herokuapp.com/contact/contact-us", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(res => {
+      .then((res) => {
         return res.json();
       })
-      .then(response => {
+      .then((response) => {
         if (response.status === "success") {
           this.setState({ loading: false, formIsValid: false, showInfo: true });
           setTimeout(() => {
@@ -96,12 +96,12 @@ class Contact extends Component {
           }, 6000);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           errMsg: true,
           errMessage: err.message,
           loading: false,
-          showInfo: true
+          showInfo: true,
         });
         setTimeout(() => {
           this.setState({ showInfo: false });
@@ -124,7 +124,7 @@ class Contact extends Component {
   };
 
   inputChangeHandler = (input, value) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let isValid = true;
       for (const validator of prevState.contactForm[input].validators) {
         isValid = isValid && validator(value);
@@ -134,8 +134,8 @@ class Contact extends Component {
         [input]: {
           ...prevState.contactForm[input],
           valid: isValid,
-          value: value
-        }
+          value: value,
+        },
       };
       let formIsValid = true;
       for (const inputName in updatedForm) {
@@ -143,21 +143,21 @@ class Contact extends Component {
       }
       return {
         contactForm: updatedForm,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       };
     });
   };
 
-  inputBlurHandler = input => {
-    this.setState(prevState => {
+  inputBlurHandler = (input) => {
+    this.setState((prevState) => {
       return {
         contactForm: {
           ...prevState.contactForm,
           [input]: {
             ...prevState.contactForm[input],
-            touched: true
-          }
-        }
+            touched: true,
+          },
+        },
       };
     });
   };
@@ -179,7 +179,7 @@ class Contact extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Contact Us | GrandLane Chauffeur Services</title>
+          <title>Contact Us - GrandLane Services</title>
         </Helmet>
         <section className="contact">
           <Header
@@ -205,7 +205,7 @@ class Contact extends Component {
             ) : null}
             <form
               className="contact-form__contents contact-form__button"
-              onSubmit={e => this.submitHandler(e)}
+              onSubmit={(e) => this.submitHandler(e)}
             >
               <Input
                 label="Name"
@@ -287,7 +287,7 @@ class Contact extends Component {
               <SVGIcon name="mail" className="contact-data__content--icon" />
               <h3 className="contact-data__content--heading">email</h3>
               <p className="contact-data__content--text">
-                booking&#64;grandlanechauffeurs.com.au
+                booking&#64;grandlane.com.au
               </p>
             </div>
 

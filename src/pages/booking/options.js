@@ -24,7 +24,7 @@ class Options extends Component {
       showInfo: false,
       paymentInfo: false,
       guest: false,
-      setOptions: false
+      setOptions: false,
     };
   }
 
@@ -32,14 +32,14 @@ class Options extends Component {
     this._isMounted = false;
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     e.preventDefault();
 
     const target = e.target;
     const value = target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -61,8 +61,8 @@ class Options extends Component {
       this.props.history.push({
         pathname: "/checkout",
         state: {
-          guest: this.state.guest
-        }
+          guest: this.state.guest,
+        },
       });
     });
   }
@@ -87,7 +87,7 @@ class Options extends Component {
 
     this.props.history.push({
       pathname: "/checkout",
-      state: { guest: this.state.guest }
+      state: { guest: this.state.guest },
     });
   }
 
@@ -101,7 +101,7 @@ class Options extends Component {
       dataLoading,
       errMessage,
       showInfo,
-      setOptions
+      setOptions,
     } = this.state;
 
     let date = localStorage.getItem("date");
@@ -133,7 +133,7 @@ class Options extends Component {
 
           <form
             className="additional-info__form"
-            onSubmit={e => this.handleSubmitData(e)}
+            onSubmit={(e) => this.handleSubmitData(e)}
           >
             <Input
               label="Flight Number"
@@ -224,7 +224,7 @@ class Options extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Extra Details | GrandLane Chauffeur Services</title>
+          <title>Extra Details - GrandLane Services</title>
         </Helmet>
         <section className="booking">
           <Header

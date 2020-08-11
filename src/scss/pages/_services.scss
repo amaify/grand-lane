@@ -148,10 +148,6 @@
         &--image {
             position: relative;
             align-self: top;
-
-            // @include responsive__mode(bp__lg) {
-            //     align-self: top;
-            // }
         }
 
         &--heading {
@@ -179,7 +175,6 @@
             font-size: 1.5rem;
             color: $grey-dark-2;
             font-weight: 400;
-            text-align: justify;
             line-height: 3rem;
         }
     }

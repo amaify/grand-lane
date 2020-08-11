@@ -15,7 +15,7 @@ const BookingSuccess = ({ sideDrawerToggle, isAuth, logoutHandler }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Booking Successful | GrandLane Chauffeur Services</title>
+        <title>Booking Successful - GrandLane Services</title>
       </Helmet>
       <section className="forgotPassword">
         <Header

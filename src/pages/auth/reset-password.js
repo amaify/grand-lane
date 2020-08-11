@@ -15,26 +15,26 @@ class ResetPassword extends Component {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, length({ min: 5 })]
-      }
+        validators: [required, length({ min: 5 })],
+      },
     },
     formIsValid: false,
     errMessage: false,
     showMessage: null,
     showInfo: false,
     success: false,
-    loading: false
+    loading: false,
   };
 
   validateForm = () => {
     const { passwordForm } = this.state;
     this.setState({
-      formIsValid: passwordForm.email.valid
+      formIsValid: passwordForm.email.valid,
     });
   };
 
   inputChangeHandler = (input, value) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let isValid = true;
       for (const validator of prevState.passwordForm[input].validators) {
         isValid = isValid && validator(value);
@@ -44,8 +44,8 @@ class ResetPassword extends Component {
         [input]: {
           ...prevState.passwordForm[input],
           valid: isValid,
-          value: value
-        }
+          value: value,
+        },
       };
       let formIsValid = true;
       for (const inputName in updatedForm) {
@@ -53,21 +53,21 @@ class ResetPassword extends Component {
       }
       return {
         passwordForm: updatedForm,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       };
     });
   };
 
-  inputBlurHandler = input => {
-    this.setState(prevState => {
+  inputBlurHandler = (input) => {
+    this.setState((prevState) => {
       return {
         passwordForm: {
           ...prevState.passwordForm,
           [input]: {
             ...prevState.passwordForm[input],
-            touched: true
-          }
-        }
+            touched: true,
+          },
+        },
       };
     });
   };
@@ -87,24 +87,24 @@ class ResetPassword extends Component {
     const { passwordForm } = this.state;
     const inputData = {
       newPassword: passwordForm.password.value,
-      resetLink: token
+      resetLink: token,
     };
 
     fetch("https://grand-lane.herokuapp.com/contact/reset-password", {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(inputData)
+      body: JSON.stringify(inputData),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.statusCode === 404) {
           this.setState({
             loading: false,
             showInfo: true,
             errMessage: true,
-            showMessage: resData.error
+            showMessage: resData.error,
           });
 
           setTimeout(() => {
@@ -117,7 +117,7 @@ class ResetPassword extends Component {
             errMessage: false,
             showMessage: resData.message,
             showInfo: true,
-            success: true
+            success: true,
           });
           console.log(resData);
         } else {
@@ -125,7 +125,7 @@ class ResetPassword extends Component {
             loading: false,
             errMessage: true,
             showMessage: resData.message,
-            showInfo: true
+            showInfo: true,
           });
           setTimeout(() => {
             return this.setState({ showInfo: false });
@@ -133,7 +133,7 @@ class ResetPassword extends Component {
           this.resetFormHandler();
         }
       })
-      .catch(err => err);
+      .catch((err) => err);
   }
 
   render() {
@@ -143,7 +143,7 @@ class ResetPassword extends Component {
       showInfo,
       errMessage,
       showMessage,
-      success
+      success,
     } = this.state;
 
     let loadingState = (
@@ -156,7 +156,7 @@ class ResetPassword extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Password Reset | GrandLane Chauffeur Services</title>
+          <title>Password Reset - GrandLane Services</title>
         </Helmet>
         <section className="forgotPassword">
           <Header
@@ -168,7 +168,7 @@ class ResetPassword extends Component {
         <section className="forgotPassword__container">
           <form
             className="forgotPassword-form"
-            onSubmit={e => this.newPasswordHandler(e)}
+            onSubmit={(e) => this.newPasswordHandler(e)}
           >
             <div className="forgotPassword-form__header">
               <SVGIcon
@@ -195,7 +195,7 @@ class ResetPassword extends Component {
                 <input
                   className={[
                     !passwordForm["password"].valid ? "invalid" : "valid",
-                    passwordForm["password"].touched ? "touched" : "untouched"
+                    passwordForm["password"].touched ? "touched" : "untouched",
                   ].join(" ")}
                   type="password"
                   name="password"
@@ -203,7 +203,7 @@ class ResetPassword extends Component {
                   required
                   placeholder="password"
                   value={passwordForm.password.value}
-                  onChange={e =>
+                  onChange={(e) =>
                     this.inputChangeHandler("password", e.target.value)
                   }
                   onBlur={this.inputBlurHandler.bind(this, "password")}

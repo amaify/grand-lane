@@ -14,11 +14,11 @@ import Event from "../../images/events-2-medium.jpg";
 import Tour from "../../images/testimonial-2-medium.jpg";
 import WeddingTransfer from "../../images/events-medium.jpg";
 
-const home = props => {
+const home = (props) => {
   return (
     <div className="home">
       <Helmet>
-        <title>Home | GrandLane Chauffeur Services</title>
+        <title>Home - GrandLane Services</title>
       </Helmet>
       <section className="intro">
         <Header

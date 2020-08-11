@@ -12,11 +12,11 @@ import SVGIcon from "../../components/svgIcons/svg";
 
 import AboutImage from "../../images/about-image-medium.jpg";
 
-const about = props => {
+const about = (props) => {
   return (
     <Fragment>
       <Helmet>
-        <title>About | GrandLane Chauffeur Services</title>
+        <title>About - GrandLane Services</title>
       </Helmet>
       <section className="about-intro">
         <Header

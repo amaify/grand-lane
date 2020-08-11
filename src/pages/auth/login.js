@@ -16,28 +16,28 @@ class Login extends Component {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, email]
+        validators: [required, email],
       },
 
       password: {
         value: "",
         valid: false,
         touched: false,
-        validators: [required, length({ min: 5 })]
-      }
+        validators: [required, length({ min: 5 })],
+      },
     },
-    formIsValid: false
+    formIsValid: false,
   };
 
   validateForm = () => {
     const { loginForm } = this.state;
     this.setState({
-      formIsValid: loginForm.email.valid && loginForm.password.valid
+      formIsValid: loginForm.email.valid && loginForm.password.valid,
     });
   };
 
   inputChangeHandler = (input, value) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let isValid = true;
       for (const validator of prevState.loginForm[input].validators) {
         isValid = isValid && validator(value);
@@ -47,8 +47,8 @@ class Login extends Component {
         [input]: {
           ...prevState.loginForm[input],
           valid: isValid,
-          value: value
-        }
+          value: value,
+        },
       };
       let formIsValid = true;
       for (const inputName in updatedForm) {
@@ -56,21 +56,21 @@ class Login extends Component {
       }
       return {
         loginForm: updatedForm,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       };
     });
   };
 
-  inputBlurHandler = input => {
-    this.setState(prevState => {
+  inputBlurHandler = (input) => {
+    this.setState((prevState) => {
       return {
         loginForm: {
           ...prevState.loginForm,
           [input]: {
             ...prevState.loginForm[input],
-            touched: true
-          }
-        }
+            touched: true,
+          },
+        },
       };
     });
   };
@@ -81,7 +81,7 @@ class Login extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Login | GrandLane Chauffeur Services</title>
+          <title>Login - GrandLane Services</title>
         </Helmet>
         <section className="login">
           <Header drawerToggle={sideDrawerToggle} isAuth={isAuth} />
@@ -101,10 +101,10 @@ class Login extends Component {
             ) : null}
             <form
               className="contact-form__contents auth-form"
-              onSubmit={e =>
+              onSubmit={(e) =>
                 loginHandler(e, {
                   email: loginForm.email.value,
-                  password: loginForm.password.value
+                  password: loginForm.password.value,
                 })
               }
             >
