@@ -49,6 +49,7 @@ const footer = () => {
           <a href="tel:+2348139544732">call now to become a driver</a>
         </p>
       </div>
+
       <div className="footer-social">
         <Link to="facebook">
           <SVGIcon name="facebook" className="footer-svg" />
@@ -57,6 +58,7 @@ const footer = () => {
           <SVGIcon name="instagram" className="footer-svg" />
         </Link>
       </div>
+
       <div className="footer-links">
         <ul className="footer-links__items">
           {navigation.data.map((items) => (

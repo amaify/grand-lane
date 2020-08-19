@@ -114,7 +114,7 @@ class SelectVehicle extends Component {
                   <p className="price price-value" id="sedan-value">
                     {sedanPrice}
                   </p>
-                  <p className="price">USD</p>
+                  <p className="price">AUD</p>
                 </div>
                 <p className="dets">All Prices Include VAT, Fees & Tip.</p>
                 <button
@@ -171,7 +171,7 @@ class SelectVehicle extends Component {
                   <p className="price price-value" id="van-value">
                     {vanPrice}
                   </p>
-                  <p className="price">USD</p>
+                  <p className="price">AUD</p>
                 </div>
                 <p className="dets">All Prices Include VAT, Fees & Tip.</p>
                 <button

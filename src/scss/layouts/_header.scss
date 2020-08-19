@@ -26,9 +26,10 @@
 @include responsive__mode(bp__md) {
     .scrolled {
         position: fixed;
-        background-color: #199e7d;
+        // background-color: #199e7d;
+        background-color: $primary-color-bright;
         width: 100%;
-        max-width: 1440px;
+        max-width: 1920px;
         z-index: 10;
         top: 0;
         left: 50%;

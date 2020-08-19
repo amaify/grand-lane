@@ -51,6 +51,7 @@ const home = (props) => {
           will cater to all your requirements. Our highly trained chauffeurs are
           dedicated to delivering you safely to your desired destination.
         </p>
+
         <div className="desc-mark">
           <p className="desc-mark__text">
             <span>
@@ -65,12 +66,13 @@ const home = (props) => {
             <span>Affordable Pricing</span>
           </p>
         </div>
+
         <Button btnName="Learn More" theme="secondary" link="/about"></Button>
       </section>
 
       <section className="services">
         <h2 className="services-header">our services</h2>
-        <div className="services-content">
+        <article className="services-content">
           <div className="services-image">
             <p className="services-image__text">Airport Transfer</p>
             <img src={AirportTransfer} alt="Airport Transfer Service" />
@@ -100,7 +102,7 @@ const home = (props) => {
             <p className="services-image__text">Wedding Car Hire</p>
             <img src={WeddingTransfer} alt="A Wedding Event" />
           </div>
-        </div>
+        </article>
 
         <Button
           theme="secondary"

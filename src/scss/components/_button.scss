@@ -42,10 +42,11 @@
 
 .button-secondary {
     width: 14rem;
-    border-radius: 4px;
+    border-radius: 8px;
     display: inline-block;
     vertical-align: middle;
     background: $primary-color-bright;
+    text-decoration: none;
     text-align: center;
 
     padding: 0.8rem 1rem;
@@ -55,19 +56,19 @@
 
     @include responsive__mode(bp__sm) {
         width: 14rem;
-        padding: 0.4rem 0.6rem;
+        // padding: 0.4rem 0.6rem;
     }
 
     @include responsive__mode(bp__md) {
         width: 16rem;
-        padding: 0.4rem 0.8rem;
+        padding: 1rem 0.8rem;
     }
 
     &__text {
         font-size: 1.6rem;
         color: $grey-light-1;
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         margin-right: 1rem;
 
         @include responsive__mode(bp__sm) {
@@ -117,9 +118,10 @@
 .button-mobile {
     width: 12rem;
     border-radius: 8px;
-    border: 1px solid $secondary-color-bright;
+    // border: 1px solid $secondary-color-bright;
     outline: none;
-    background: $secondary-color-bright;
+    // background: $secondary-color-bright;
+    background: #e72e7b;
 
     padding: 0.6rem 1rem;
     cursor: pointer;
@@ -127,7 +129,8 @@
 
     &__text {
         font-size: 1.5rem;
-        color: $grey-light-1;
+        // color: $grey-light-1;
+        color: #f0f0f0;
         display: inline-block;
         vertical-align: top;
         margin-right: 0.8rem;

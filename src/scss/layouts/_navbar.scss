@@ -36,12 +36,12 @@
                     transition: all 0.3s;
 
                     &.active {
-                        color: $primary-color-bright;
+                        color: $secondary-color-bright;
                     }
 
                     &:hover,
                     &:active {
-                        color: $primary-color-bright;
+                        color: $secondary-color-bright;
                     }
                 }
 
@@ -66,15 +66,16 @@
                     transition: all 0.3s;
 
                     &.active {
-                        background: $primary-color-bright;
-                        border: 1px solid $primary-color-bright;
+                        // background: $primary-color-bright;
+                        border: 1px solid $secondary-color-dark;
+                        color: $secondary-color-dark;
                     }
 
                     &:hover,
                     &:active {
-                        background: $primary-color-bright;
-                        border: 1px solid $primary-color-bright;
-                        color: $grey-light-1;
+                        // background: $primary-color-bright;
+                        border: 1px solid $secondary-color-dark;
+                        color: $secondary-color-dark;
                         cursor: pointer;
                     }
 
@@ -121,12 +122,14 @@
 
     & a {
         text-transform: capitalize;
-        background: #5d2999;
+        // background: #5d2999;
+        background: #e72e7b;
         padding: 0.5rem 0.8rem;
         border-radius: 2px;
 
         &.active {
-            background: #38195c;
+            // background: #38195c;
+            background: #a8235a;
             color: $grey-light-1;
         }
 
@@ -135,7 +138,8 @@
 
             &:hover,
             &:active {
-                background: #38195c;
+                // background: #38195c;
+                background: #a8235a;
                 color: $grey-light-1;
             }
         }

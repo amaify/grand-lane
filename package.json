@@ -26,7 +26,7 @@
     "react-reveal": "^1.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "react-slideshow-image": "^2.0.1",
     "react-stripe-checkout": "^2.6.3"
   },
@@ -36,7 +36,9 @@
       "--disable-setuid-sandbox"
     ]
   },
-  "plugins" : ["file-loader"],
+  "plugins": [
+    "file-loader"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
