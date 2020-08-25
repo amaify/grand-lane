@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import SVGIcon from "../../components/svgIcons/svg";
 
-const button = props => {
+const Button = (props) => {
   return !props.link ? (
     <button
       className={"button-" + props.theme}
@@ -37,4 +37,4 @@ const button = props => {
   );
 };
 
-export default button;
+export default Button;

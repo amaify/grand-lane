@@ -3,6 +3,8 @@ import React from "react";
 const bookingInfo = () => {
   let date = localStorage.getItem("date");
   let time = localStorage.getItem("time");
+  let transferType = localStorage.getItem("serviceType");
+  let hours = localStorage.getItem("hours");
   let details = JSON.parse(localStorage.getItem("distance"));
 
   return (
@@ -18,14 +20,22 @@ const bookingInfo = () => {
             destination &mdash;{" "}
             <span>{details.distance.destination_addresses}</span>
           </li>
-          <li>
-            duration &amp; distance &mdash;
-            <span>
-              {" "}
-              {details.distance.rows[0].elements[0].duration.text} &ndash;{" "}
-              {details.distance.rows[0].elements[0].distance.text}
-            </span>
-          </li>
+          {transferType !== "Hourly Service" ? (
+            <li>
+              duration &amp; distance &mdash;
+              <span>
+                {" "}
+                {
+                  details.distance.rows[0].elements[0].duration.text
+                } &ndash; {details.distance.rows[0].elements[0].distance.text}
+              </span>
+            </li>
+          ) : (
+            <li>
+              Number of Hours &mdash;
+              <span> {hours}</span>
+            </li>
+          )}
           <li>
             date &amp; time &mdash;{" "}
             <span>

@@ -12,7 +12,7 @@ import SVGIcon from "../../components/svgIcons/svg";
 
 import AboutImage from "../../images/about-image-medium.jpg";
 
-const about = (props) => {
+const About = (props) => {
   return (
     <Fragment>
       <Helmet>
@@ -34,21 +34,36 @@ const about = (props) => {
 
       <section className="about-desc">
         <div className="about-desc__content about-desc__content1">
-          <h3 className="about-desc__heading">about us</h3>
-          <p className="about-desc__text">
+          <h3
+            className="about-desc__heading"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
+            about us
+          </h3>
+          <p
+            className="about-desc__text"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             GrandLane Chauffeurs has been taking people places for years. We
-            specialise in transport for airport transfers, corporate events,
-            weddings, live concerts, sight- seeing tours and a variety of other
-            related services. We keep customer satisfaction at the forefront of
-            our priorities. You can rely on us for a prompt and efficient
-            service. All our chauffeurs are licensed and hired after rigorous
-            background checks. They have extensive knowledge of the shortest
-            routes to take you to your desired location. When you book a
-            vehicle, you can expect our chauffeur to come on time, look
-            impeccable and drop you off at your destination on time.
+            specialize in airport transfers, corporate transfers, weddings, live
+            concerts, sight- seeing tours and a variety of other related
+            services. We keep customer satisfaction at the forefront of our
+            priorities. You can rely on us for a prompt and efficient service.
+            All our chauffeurs are licensed and hired after rigorous background
+            checks. They have extensive knowledge of the shortest routes to
+            take.
           </p>
         </div>
-        <div className="about-desc__content about-desc__image">
+        <div
+          className="about-desc__content about-desc__image"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+          data-aos-delay="500"
+        >
           <div className="about-desc__content about-desc__imgContainer">
             <img src={AboutImage} alt="A man in a car" />
           </div>
@@ -56,14 +71,31 @@ const about = (props) => {
       </section>
 
       <section className="about-highlight">
-        <h2 className="about-highlight__heading">why choose us?</h2>
-        <p className="about-highlight__text">
+        <h2
+          className="about-highlight__heading"
+          data-aos="fade-down"
+          data-aos-duration="2000"
+          data-aos-delay="500"
+        >
+          why choose us?
+        </h2>
+        <p
+          className="about-highlight__text"
+          data-aos="fade-right"
+          data-aos-duration="2000"
+          data-aos-delay="500"
+        >
           GrandLane Chauffeurs is Melbourne’s most trusted and professional
           chauffeur service offering chauffeured luxury cars for all occasions
           and airport transfer services.
         </p>
         <div className="about-highlight__qualities">
-          <div className="about-highlight__quality">
+          <div
+            className="about-highlight__quality"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             <SVGIcon
               className="about-highlight__quality--icon"
               name="satisfaction"
@@ -75,7 +107,12 @@ const about = (props) => {
               meet the demand of each client.
             </p>
           </div>
-          <div className="about-highlight__quality">
+          <div
+            className="about-highlight__quality"
+            data-aos="fade-down"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             <SVGIcon className="about-highlight__quality--icon" name="safety" />
             <h3 className="about-highlight__quality--heading">safety</h3>
             <p className="about-highlight__quality--text">
@@ -85,7 +122,12 @@ const about = (props) => {
               relax and enjoy the ride.
             </p>
           </div>
-          <div className="about-highlight__quality">
+          <div
+            className="about-highlight__quality"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             <SVGIcon
               className="about-highlight__quality--icon"
               name="dollarSign"
@@ -98,7 +140,12 @@ const about = (props) => {
               affordable price.
             </p>
           </div>
-          <div className="about-highlight__quality">
+          <div
+            className="about-highlight__quality"
+            data-aos="flip-left"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             <SVGIcon
               className="about-highlight__quality--icon"
               name="rightCheck"
@@ -111,7 +158,12 @@ const about = (props) => {
               you to where you need to be without any delay whatsoever.
             </p>
           </div>
-          <div className="about-highlight__quality">
+          <div
+            className="about-highlight__quality"
+            data-aos="flip-up"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             <SVGIcon className="about-highlight__quality--icon" name="star" />
             <h3 className="about-highlight__quality--heading">quality</h3>
             <p className="about-highlight__quality--text">
@@ -120,7 +172,12 @@ const about = (props) => {
               we deliver on our promise.
             </p>
           </div>
-          <div className="about-highlight__quality">
+          <div
+            className="about-highlight__quality"
+            data-aos="flip-right"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
             <SVGIcon className="about-highlight__quality--icon" name="clock" />
             <h3 className="about-highlight__quality--heading">
               available 24/7
@@ -132,11 +189,13 @@ const about = (props) => {
           </div>
         </div>
 
-        <Button
-          btnName="Book Now"
-          theme="secondary"
-          link="/reservation"
-        ></Button>
+        <div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">
+          <Button
+            btnName="Book Now"
+            theme="secondary"
+            link="/reservation"
+          ></Button>
+        </div>
       </section>
 
       <section className="about-testimonial">
@@ -216,4 +275,4 @@ const about = (props) => {
   );
 };
 
-export default about;
+export default About;

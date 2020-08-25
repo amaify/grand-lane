@@ -11,7 +11,7 @@ import Wedding from "../../images/events-medium.jpg";
 import Daily from "../../images/testimonial-2-medium.jpg";
 import Winery from "../../images/winery-2-medium.jpg";
 
-const service = props => {
+const Service = (props) => {
   return (
     <Fragment>
       <Helmet>
@@ -30,7 +30,12 @@ const service = props => {
       <section className="service-contents">
         <h2 className="service-contents__heading">our services</h2>
         <div className="service-content">
-          <article className="service-content__container">
+          <article
+            className="service-content__container"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            data-aos-delay="300"
+          >
             <div className="service-content__container--content service-content__container--image">
               <figure className="service-content__image">
                 <img
@@ -58,7 +63,12 @@ const service = props => {
             </div>
           </article>
 
-          <article className="service-content__container">
+          <article
+            className="service-content__container"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-delay="300"
+          >
             <div className="service-content__container--content service-content__container--image">
               <figure className="service-content__image">
                 <img
@@ -81,14 +91,19 @@ const service = props => {
                 every time you choose us. GrandLane Chauffeurs offers luxurious
                 chauffeur driven pick and drop service in luxury cars for
                 corporate executives, VIPs and other business professionals in
-                Melbourne. With well-trained, chauffeurs on board, you can count
-                on us for convenient, comfortable and impeccable corporate
-                transport service whenever you want.
+                Melbourne. With well-trained chauffeurs on board, you can count
+                on us for a convenient, and comfortable corporate transfer
+                service whenever you want.
               </p>
             </div>
           </article>
 
-          <article className="service-content__container">
+          <article
+            className="service-content__container"
+            data-aos="flip-up"
+            data-aos-duration="2000"
+            data-aos-delay="300"
+          >
             <div className="service-content__container--content service-content__container--image">
               <figure className="service-content__image">
                 <img src={Event} alt="A Decorated Table in an event." />
@@ -103,7 +118,7 @@ const service = props => {
                 memorable as possible, but running out of ideas? Why not
                 consider the luxurious touch of a chauffeur-driven luxury car to
                 give the occasion that little extra VIP feeling? Whatever your
-                special occasion, at GrandLane Chauffeurs we offer an exclusive
+                special occasion; At GrandLane Chauffeurs we offer an exclusive
                 service tailor-made for you, coming to pick you up from your
                 location and delivering you wherever you need to be in style and
                 comfort with minimum hassle; and then back to your original
@@ -112,7 +127,12 @@ const service = props => {
             </div>
           </article>
 
-          <article className="service-content__container">
+          <article
+            className="service-content__container"
+            data-aos="flip-down"
+            data-aos-duration="2000"
+            data-aos-delay="300"
+          >
             <div className="service-content__container--content service-content__container--image">
               <figure className="service-content__image">
                 <img src={Wedding} alt="Wedding rings on a bible." />
@@ -130,13 +150,17 @@ const service = props => {
                 hitch. It's perfectly normal to feel overwhelmed and even have
                 some jittery feelings right up to the altar, but at GrandLane
                 Chauffeurs, we make sure that the whole event runs smoothly,
-                ensuring that everyone is where they need to be, when they need
-                to be.
+                ensuring that everyone is where they need to be, when needed.
               </p>
             </div>
           </article>
 
-          <article className="service-content__container">
+          <article
+            className="service-content__container"
+            data-aos="flip-left"
+            data-aos-duration="2000"
+            data-aos-delay="300"
+          >
             <div className="service-content__container--content service-content__container--image">
               <figure className="service-content__image">
                 <img
@@ -152,21 +176,26 @@ const service = props => {
               <p className="service-content__container--text">
                 With so much to see and do in and around Melbourne, taking a
                 tour around the city with a professional tour guide is one smart
-                way to pack as many sights into your itinerary as possible. At
+                way to get as many sights into your itinerary as possible. At
                 first glance, open-topped buses might seem ideal, but their
                 convenience is matched only by the fact that you're being packed
                 like sardines with noisy tourists and their bored kids; and
                 there's no chance of lingering for a little while longer at
-                landmarks. That's less than ideal, and at GrandLane Chauffeurs
-                we've remedied that with our own luxurious take on Melbourne
-                Tours. We love our beautiful city and we want to show it off to
-                you. Our Luxury Chauffeur Drive gives you the ultimate freedom
-                to explore Sydney's iconic landmarks at a pace that suits you.
+                landmarks. That's less than ideal. At GrandLane Chauffeurs we've
+                remedied that with our own luxurious take on Melbourne Tours. We
+                love our beautiful city and we want to show it off to you. Our
+                Luxury Chauffeur Drive gives you the ultimate freedom to explore
+                Sydney's iconic landmarks at a pace that suits you.
               </p>
             </div>
           </article>
 
-          <article className="service-content__container">
+          <article
+            className="service-content__container"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+            data-aos-delay="300"
+          >
             <div className="service-content__container--content service-content__container--image">
               <figure className="service-content__image">
                 <img src={Winery} alt="A Glass of Wine on top of a wood." />
@@ -199,4 +228,4 @@ const service = props => {
   );
 };
 
-export default service;
+export default Service;

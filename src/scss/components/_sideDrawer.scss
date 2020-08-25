@@ -10,7 +10,7 @@
     transform: translateX(-110%);
     transition: transform 0.3s;
     z-index: 102;
-    // overflow-y: scroll;
+    overflow-y: scroll;
 
     @include responsive__mode(bp__sm) {
         width: 40%;

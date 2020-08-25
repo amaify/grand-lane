@@ -107,6 +107,7 @@ class Options extends Component {
     let date = localStorage.getItem("date");
     let time = localStorage.getItem("time");
     let details = JSON.parse(localStorage.getItem("distance"));
+    let transferType = localStorage.getItem("serviceType");
 
     let loadingState = (
       <Fragment>
@@ -120,45 +121,49 @@ class Options extends Component {
         <BookingInfo />
 
         <section className="additional-info">
-          <div className="additional-info__content">
-            <h3 className="additional-info__content--heading">
-              airport pickup details
-            </h3>
-            <p className="additional-info__content--text">
-              Enter your flight number so our we can track your flight status
-              and pick you up when you arrive, even if there was a delay in your
-              flight.
-            </p>
-          </div>
-
+          {transferType !== "Airport Transfer" ? null : (
+            <div className="additional-info__content">
+              <h3 className="additional-info__content--heading">
+                airport pickup details
+              </h3>
+              <p className="additional-info__content--text">
+                Enter your flight number so we can track your flight status and
+                pick you up when you arrive.
+              </p>
+            </div>
+          )}
           <form
             className="additional-info__form"
             onSubmit={(e) => this.handleSubmitData(e)}
           >
-            <Input
-              label="Flight Number"
-              name="flightNumber"
-              placeholder="BA2490"
-              control="input"
-              type="text"
-              id="flight-details"
-              value={flightNumber}
-              onChange={this.handleChange.bind(this)}
-            />
+            {transferType !== "Airport Transfer" ? null : (
+              <Fragment>
+                <Input
+                  label="Flight Number"
+                  name="flightNumber"
+                  placeholder="BA2490"
+                  control="input"
+                  type="text"
+                  id="flight-details"
+                  value={flightNumber}
+                  onChange={this.handleChange.bind(this)}
+                />
+                <Input
+                  label="Pickup Sign"
+                  name="pickupSign"
+                  placeholder="James Madisson"
+                  control="input"
+                  type="text"
+                  id="pickup-sign"
+                  value={pickupSign}
+                  onChange={this.handleChange.bind(this)}
+                />
+              </Fragment>
+            )}
 
             <h3 className="additional-info__form--heading">
               additional information
             </h3>
-            <Input
-              label="Pickup Sign"
-              name="pickupSign"
-              placeholder="James Madisson"
-              control="input"
-              type="text"
-              id="pickup-sign"
-              value={pickupSign}
-              onChange={this.handleChange.bind(this)}
-            />
             <Input
               label="Phone Number"
               name="phoneNumber"
@@ -180,9 +185,8 @@ class Options extends Component {
               onChange={this.handleChange.bind(this)}
             />
             <p className="special-request">
-              Any specail requests (Child Car Seats, ...)? Help us provide you
-              with a better service by adding a special request. Make your
-              requests in the note box
+              Any specail requests (Child Car Seats, ...)? Help us serve you
+              better by making a request in the note box.
             </p>
 
             <button type="submit">Proceed to Checkout</button>
@@ -233,7 +237,7 @@ class Options extends Component {
             logoutHandler={logoutHandler}
           />
           <div className="booking-intro">
-            <h2 className="booking-intro__heading">details</h2>
+            <h2 className="booking-intro__heading">extra details</h2>
             <p className="booking-intro__text">we can't wait to serve you</p>
           </div>
         </section>

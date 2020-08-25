@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import loadable from "@loadable/component";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import SideDrawer from "./components/navigation/mobileToggle/sideDrawer";
 import Backdrop from "./components/backdrop/backdrop";
@@ -27,11 +29,12 @@ class App extends Component {
       userId: null,
       token: null,
       error: null,
-      showInfo: false
+      showInfo: false,
     };
   }
 
   componentDidMount() {
+    AOS.init({});
     this.loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`
     );
@@ -68,7 +71,7 @@ class App extends Component {
     }
   }
 
-  loadScript = url => {
+  loadScript = (url) => {
     let script = document.createElement("script");
     script.type = "text/javascript";
 
@@ -77,7 +80,7 @@ class App extends Component {
   };
 
   toggleHandler = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
@@ -91,24 +94,24 @@ class App extends Component {
     this.setState({ authLoading: true, showModal: true });
     const data = {
       origin: locationData.origin,
-      destination: locationData.destination
+      destination: locationData.destination,
     };
     const timeData = {
       date: locationData.date,
       time: locationData.time,
       hours: locationData.hour,
-      serviceType: locationData.service
+      serviceType: locationData.service,
     };
 
     fetch("https://grand-lane.herokuapp.com/contact/distance", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(res => res.json())
-      .then(resData => {
+      .then((res) => res.json())
+      .then((resData) => {
         if (resData.distance.status === "OK") {
           this.setState({
             distance: resData,
@@ -117,7 +120,7 @@ class App extends Component {
             hours: timeData.hours,
             serviceType: timeData.serviceType,
             authLoading: false,
-            showModal: false
+            showModal: false,
           });
 
           localStorage.setItem("sedanPrice", resData.sedan);
@@ -143,12 +146,12 @@ class App extends Component {
           this.props.history.push("/reservation/select-vehicle");
         }
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           authLoading: false,
           showInfo: true,
           error: err.message,
-          showModal: false
+          showModal: false,
         });
       });
   };
@@ -166,16 +169,16 @@ class App extends Component {
                 lastName
               }
             }
-        `
+        `,
     };
 
     fetch("https://grand-lane.herokuapp.com/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(graphqlQuery)
+      body: JSON.stringify(graphqlQuery),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.errors && resData.errors[0].status === 422) {
           throw new Error("E-mail address already taken");
         }
@@ -186,15 +189,15 @@ class App extends Component {
         this.setState({
           isAuth: false,
           authLoading: false,
-          showModal: false
+          showModal: false,
         });
         this.props.history.replace("/login");
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           authLoading: false,
           error: err,
-          showModal: false
+          showModal: false,
         });
       });
   };
@@ -215,16 +218,16 @@ class App extends Component {
            lastName
          }
        }
-      `
+      `,
     };
 
     fetch("https://grand-lane.herokuapp.com/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(graphqlQuery)
+      body: JSON.stringify(graphqlQuery),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.errors && resData.errors[0].status === 422) {
           throw new Error("User does not exist");
         }
@@ -238,7 +241,7 @@ class App extends Component {
           token: resData.data.login.token,
           userId: resData.data.login.userId,
           authLoading: false,
-          showModal: false
+          showModal: false,
         });
         localStorage.setItem("token", resData.data.login.token);
         localStorage.setItem("userId", resData.data.login.userId);
@@ -260,19 +263,19 @@ class App extends Component {
         localStorage.setItem("expiryDate", expiryDate.toISOString());
         this.setAutoLogout(remainingMilliseconds);
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           isAuth: false,
           error: err,
           showModal: false,
-          authLoading: false
+          authLoading: false,
         });
       });
   };
   //END OF CODE FOR LOGIN FUNCTIONALITY
 
   //AUTO LOGOUT CODE
-  setAutoLogout = milliseconds => {
+  setAutoLogout = (milliseconds) => {
     setTimeout(() => {
       this.logoutHandler();
     }, milliseconds);
@@ -302,7 +305,7 @@ class App extends Component {
       position: "absolute",
       top: "50%",
       left: "50%",
-      transform: "translate(-50%, -50%)"
+      transform: "translate(-50%, -50%)",
     };
     const HomePage = loadable(() => import("./pages/home/home"), {
       fallback: (
@@ -313,7 +316,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const AboutPage = loadable(() => import("./pages/about/about"), {
@@ -325,7 +328,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const ServicePage = loadable(() => import("./pages/service/service"), {
@@ -337,7 +340,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const Contact = loadable(() => import("./pages/contact/contact"), {
@@ -349,7 +352,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const BookingPage = loadable(() => import("./pages/booking/booking"), {
@@ -361,7 +364,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const Login = loadable(() => import("./pages/auth/login"), {
@@ -373,7 +376,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const Signup = loadable(() => import("./pages/auth/signup"), {
@@ -385,7 +388,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const SelectVehicle = loadable(
@@ -399,7 +402,7 @@ class App extends Component {
             width={100}
             style={style}
           />
-        )
+        ),
       }
     );
 
@@ -412,7 +415,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const Checkout = loadable(() => import("./pages/checkout/checkout"), {
@@ -424,7 +427,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const Orders = loadable(() => import("./pages/orders/orders"), {
@@ -436,7 +439,7 @@ class App extends Component {
           width={100}
           style={style}
         />
-      )
+      ),
     });
 
     const SingleOrder = loadable(
@@ -450,7 +453,7 @@ class App extends Component {
             width={100}
             style={style}
           />
-        )
+        ),
       }
     );
 
@@ -465,7 +468,7 @@ class App extends Component {
             width={100}
             style={style}
           />
-        )
+        ),
       }
     );
 
@@ -480,7 +483,7 @@ class App extends Component {
             width={100}
             style={style}
           />
-        )
+        ),
       }
     );
 
@@ -495,7 +498,7 @@ class App extends Component {
             width={100}
             style={style}
           />
-        )
+        ),
       }
     );
 

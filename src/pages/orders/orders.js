@@ -3,7 +3,7 @@ import { NavLink, Redirect, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
+// import Footer from "../../components/footer/footer";
 import Loader from "../../components/loader/loader";
 
 class Orders extends Component {
@@ -119,7 +119,7 @@ class Orders extends Component {
             {loading ? <Loader /> : orderList}
           </ol>
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </Fragment>
     );
   }
