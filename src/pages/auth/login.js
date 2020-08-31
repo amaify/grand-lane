@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import Input from "../../components/form/input";
+import { loginHandler } from "../../store/utils/authUtility";
 
 import Button from "../../components/button/button";
 import { required, length, email } from "../../util/validators";
@@ -77,14 +80,14 @@ class Login extends Component {
 
   render() {
     const { loginForm, formIsValid } = this.state;
-    const { sideDrawerToggle, isAuth, loginHandler, error } = this.props;
+    const { error } = this.props;
     return (
       <Fragment>
         <Helmet>
-          <title>Login - GrandLane Services</title>
+          <title>Login | GrandLane Chauffeur Services</title>
         </Helmet>
         <section className="login">
-          <Header drawerToggle={sideDrawerToggle} isAuth={isAuth} />
+          <Header />
           <div className="login-intro">
             <h2 className="login-intro__heading">login</h2>
             <p className="login-intro__text">login to your account</p>
@@ -101,12 +104,15 @@ class Login extends Component {
             ) : null}
             <form
               className="contact-form__contents auth-form"
-              onSubmit={(e) =>
-                loginHandler(e, {
-                  email: loginForm.email.value,
-                  password: loginForm.password.value,
-                })
-              }
+              onSubmit={(e) => {
+                e.preventDefault();
+                const optionsRoute = this.props.optionsRoute;
+                this.props.login(
+                  loginForm.email.value,
+                  loginForm.password.value,
+                  optionsRoute
+                );
+              }}
             >
               <Input
                 control="input"
@@ -161,4 +167,20 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    error: state.authentication.error,
+    optionsRoute: state.route.optionsRoute,
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) =>
+  bindActionCreators(
+    {
+      login: (email, password, optionsRoute) =>
+        loginHandler(email, password, ownProps, optionsRoute),
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

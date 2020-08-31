@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Redirect, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
+import * as actionType from "../../store/actions/actionType";
 
 import Input from "../../components/form/booking-input";
 import Header from "../../components/header/header";
@@ -51,30 +53,26 @@ class Options extends Component {
   guestHandler() {
     const { pickupSign, phoneNumber, flightNumber, notes } = this.state;
 
-    this.setState({ setOptions: false, guest: true }, () => {
+    this.setState({ setOptions: false }, () => {
+      this.props.setGuest();
       localStorage.setItem("flightNumber", flightNumber);
       localStorage.setItem("pickupSign", pickupSign);
       localStorage.setItem("phoneNumber", phoneNumber);
       localStorage.setItem("notes", notes);
-      console.log(this.state.guest);
 
-      this.props.history.push({
-        pathname: "/checkout",
-        state: {
-          guest: this.state.guest,
-        },
-      });
+      this.props.getItems();
+      this.props.setCheckoutRoute();
+      this.props.history.push("/checkout");
     });
   }
 
   handleSubmitData(event) {
     event.preventDefault();
 
-    const { isAuth } = this.props;
-    const { pickupSign, phoneNumber, flightNumber, notes, guest } = this.state;
+    const { pickupSign, phoneNumber, flightNumber, notes } = this.state;
 
-    if (!guest) {
-      if (!isAuth) {
+    if (!this.props.guest) {
+      if (!this.props.isAuth) {
         this.setState({ setOptions: true });
         return;
       }
@@ -85,10 +83,9 @@ class Options extends Component {
     localStorage.setItem("phoneNumber", phoneNumber);
     localStorage.setItem("notes", notes);
 
-    this.props.history.push({
-      pathname: "/checkout",
-      state: { guest: this.state.guest },
-    });
+    this.props.getItems();
+    this.props.setCheckoutRoute();
+    this.props.history.push("/checkout");
   }
 
   render() {
@@ -104,9 +101,6 @@ class Options extends Component {
       setOptions,
     } = this.state;
 
-    let date = localStorage.getItem("date");
-    let time = localStorage.getItem("time");
-    let details = JSON.parse(localStorage.getItem("distance"));
     let transferType = localStorage.getItem("serviceType");
 
     let loadingState = (
@@ -217,7 +211,8 @@ class Options extends Component {
         </section>
       </Fragment>
     );
-    if (!date && !time && !details) {
+
+    if (!this.props.optionsRoute) {
       bookingOptions = (
         <Switch>
           <Redirect to="/reservation" />;
@@ -265,4 +260,19 @@ class Options extends Component {
   }
 }
 
-export default Options;
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.authentication.isAuth,
+    guest: state.payment.guest,
+    optionsRoute: state.route.optionsRoute,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setGuest: () => dispatch({ type: actionType.SET_GUEST }),
+    getItems: () => dispatch({ type: actionType.GET_ITEMS_FROM_STORAGE }),
+    setCheckoutRoute: () => dispatch({ type: actionType.NAV_CHECKOUT }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Options);

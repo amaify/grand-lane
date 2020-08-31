@@ -5,19 +5,29 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
+// import { loginReducer } from "./store/reducers/authReducer";
+// import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+// import thunk from "redux-thunk";
+import store from "./store/store";
+import { Provider } from "react-redux";
+
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
   hydrate(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
     rootElement
   );
 } else {
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
     rootElement
   );
 }

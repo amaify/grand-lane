@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionType from "./store/actions/actionType";
 import loadable from "@loadable/component";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -22,22 +24,12 @@ class App extends Component {
       pickupTime: null,
       hours: null,
       serviceType: null,
-      sideDrawerOpen: false,
-      showModal: false,
-      authLoading: false,
-      isAuth: false,
-      userId: null,
-      token: null,
       error: null,
-      showInfo: false,
     };
   }
 
   componentDidMount() {
     AOS.init({});
-    this.loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`
-    );
     const token = localStorage.getItem("token");
     const expiryDate = localStorage.getItem("expiryDate");
 
@@ -50,19 +42,17 @@ class App extends Component {
       return;
     }
 
-    const userId = localStorage.getItem("userId");
     const remainingMilliseconds =
       new Date(expiryDate).getTime() - new Date().getTime();
 
-    this.setState({ token: token, userId: userId, isAuth: true });
     this.setAutoLogout(remainingMilliseconds);
   }
 
   componentDidUpdate(prevProps) {
     const { location } = this.props;
 
-    if (location !== prevProps.location && this.state.sideDrawerOpen) {
-      this.setState({ sideDrawerOpen: false });
+    if (location !== prevProps.location && this.props.sideDrawerOpen) {
+      this.props.drawerClose();
     }
 
     if (location !== prevProps.location) {
@@ -71,27 +61,9 @@ class App extends Component {
     }
   }
 
-  loadScript = (url) => {
-    let script = document.createElement("script");
-    script.type = "text/javascript";
-
-    script.src = url;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  };
-
-  toggleHandler = () => {
-    this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
-  };
-
-  backdropToggle = () => {
-    this.setState({ sideDrawerOpen: false });
-  };
-
   submitLocationHandler = (e, locationData) => {
     e.preventDefault();
-    this.setState({ authLoading: true, showModal: true });
+    this.props.loading();
     const data = {
       origin: locationData.origin,
       destination: locationData.destination,
@@ -119,9 +91,8 @@ class App extends Component {
             pickupTime: timeData.time,
             hours: timeData.hours,
             serviceType: timeData.serviceType,
-            authLoading: false,
-            showModal: false,
           });
+          this.props.loadingCompleted();
 
           localStorage.setItem("sedanPrice", resData.sedan);
           localStorage.setItem("vanPrice", resData.van);
@@ -143,136 +114,14 @@ class App extends Component {
             localStorage.setItem("hours", "");
           }
 
+          this.props.setVehicleRoute();
           this.props.history.push("/reservation/select-vehicle");
         }
       })
       .catch((err) => {
-        this.setState({
-          authLoading: false,
-          showInfo: true,
-          error: err.message,
-          showModal: false,
-        });
+        this.props.submitLocationError();
       });
   };
-
-  //CODE FOR ADDING SIGNUP FUNCTIONALITY
-  signupHandler = (e, authData) => {
-    e.preventDefault();
-    this.setState({ authLoading: true, showModal: true });
-
-    const graphqlQuery = {
-      query: `
-            mutation {
-              createUser(userInput: {firstName: "${authData.firstName}", lastName: "${authData.lastName}", email: "${authData.email}", password: "${authData.password}"}){
-                firstName
-                lastName
-              }
-            }
-        `,
-    };
-
-    fetch("https://grand-lane.herokuapp.com/graphql", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(graphqlQuery),
-    })
-      .then((response) => response.json())
-      .then((resData) => {
-        if (resData.errors && resData.errors[0].status === 422) {
-          throw new Error("E-mail address already taken");
-        }
-
-        if (resData.errors) {
-          throw new Error("User creation failed.");
-        }
-        this.setState({
-          isAuth: false,
-          authLoading: false,
-          showModal: false,
-        });
-        this.props.history.replace("/login");
-      })
-      .catch((err) => {
-        this.setState({
-          authLoading: false,
-          error: err,
-          showModal: false,
-        });
-      });
-  };
-  //END OF CODE FOR SIGNUP FUNCTIONALITY
-
-  //CODE FOR ADDING LOGIN FUNCTIONALITY
-  loginHandler = (e, authData) => {
-    e.preventDefault();
-    this.setState({ authLoading: true, showModal: true });
-    const graphqlQuery = {
-      query: `
-       {
-         login(email: "${authData.email}", password: "${authData.password}"){
-           token
-           userId
-           email
-           firstName
-           lastName
-         }
-       }
-      `,
-    };
-
-    fetch("https://grand-lane.herokuapp.com/graphql", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(graphqlQuery),
-    })
-      .then((response) => response.json())
-      .then((resData) => {
-        if (resData.errors && resData.errors[0].status === 422) {
-          throw new Error("User does not exist");
-        }
-
-        if (resData.errors) {
-          throw new Error("Username or Password is Incorrect");
-        }
-
-        this.setState({
-          isAuth: true,
-          token: resData.data.login.token,
-          userId: resData.data.login.userId,
-          authLoading: false,
-          showModal: false,
-        });
-        localStorage.setItem("token", resData.data.login.token);
-        localStorage.setItem("userId", resData.data.login.userId);
-        localStorage.setItem("email", resData.data.login.email);
-        localStorage.setItem("firstName", resData.data.login.firstName);
-        localStorage.setItem("lastName", resData.data.login.lastName);
-
-        const details = JSON.parse(localStorage.getItem("distance"));
-        if (details) {
-          return this.props.history.push("/reservation/options");
-        }
-
-        this.props.history.replace("/");
-
-        const remainingMilliseconds = 60 * 60 * 1000;
-        const expiryDate = new Date(
-          new Date().getTime() + remainingMilliseconds
-        );
-        localStorage.setItem("expiryDate", expiryDate.toISOString());
-        this.setAutoLogout(remainingMilliseconds);
-      })
-      .catch((err) => {
-        this.setState({
-          isAuth: false,
-          error: err,
-          showModal: false,
-          authLoading: false,
-        });
-      });
-  };
-  //END OF CODE FOR LOGIN FUNCTIONALITY
 
   //AUTO LOGOUT CODE
   setAutoLogout = (milliseconds) => {
@@ -282,22 +131,10 @@ class App extends Component {
   };
   //END OF AUTO LOGOUT CODE
 
-  //CODE FOR LOGOUT
-  logoutHandler = () => {
-    this.setState({ isAuth: false, token: null });
-    localStorage.clear();
-    this.props.history.replace("/");
-  };
-  //END OF CODE FOR LOGOUT
-
-  closeModal = () => {
-    this.setState({ showInfo: false });
-  };
-
   render() {
     let backDrop;
-    if (this.state.sideDrawerOpen || this.state.authLoading) {
-      backDrop = <Backdrop click={this.backdropToggle} />;
+    if (this.props.sideDrawerOpen || this.props.authPending) {
+      backDrop = <Backdrop />;
     }
 
     /////////////////// CODE FOR LOADABLE COMPONENT ///////////
@@ -504,14 +341,6 @@ class App extends Component {
 
     let routes = (
       <RouteComponent
-        isAuth={this.state.isAuth}
-        token={this.state.token}
-        userId={this.state.userId}
-        toggleHandler={this.toggleHandler}
-        logoutHandler={this.logoutHandler}
-        error={this.state.error}
-        loginHandler={this.loginHandler}
-        signupHandler={this.signupHandler}
         submitLocationHandler={this.submitLocationHandler}
         HomePage={HomePage}
         AboutPage={AboutPage}
@@ -532,17 +361,12 @@ class App extends Component {
     );
     return (
       <div className="App">
-        {routes}
         <Fragment>
-          <SideDrawer
-            show={this.state.sideDrawerOpen}
-            close={this.backdropToggle}
-            isAuth={this.state.isAuth}
-            logoutHandler={this.logoutHandler}
-          />
-          {this.state.showInfo ? (
+          {routes}
+          <SideDrawer />
+          {this.props.locationError ? (
             <div className="booking-error">
-              <Backdrop />
+              <Backdrop click={this.props.closeModal} />
               <div className="booking-error__content">
                 <p className="booking-error__content--text">
                   Network error occured when trying to establish connection with
@@ -550,7 +374,7 @@ class App extends Component {
                 </p>
                 <button
                   className="booking-error__content--btn"
-                  onClick={this.closeModal}
+                  onClick={this.props.closeModal}
                 >
                   Close
                 </button>
@@ -558,11 +382,32 @@ class App extends Component {
             </div>
           ) : null}
           {backDrop}
-          {this.state.showModal ? <Modal /> : null}
+          {this.props.showModal ? <Modal /> : null}
         </Fragment>
       </div>
     );
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = (state) => {
+  return {
+    showModal: state.authentication.showModal,
+    authPending: state.authentication.authPending,
+    error: state.authentication.error,
+    locationError: state.authentication.showError,
+    sideDrawerOpen: state.sideDrawer.sideDrawerOpen,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    drawerClose: () => dispatch({ type: actionType.DRAWER_CLOSE }),
+    loading: () => dispatch({ type: actionType.LOGIN_PENDING }),
+    loadingCompleted: () => dispatch({ type: actionType.SIGNUP_SUCCESS }),
+    submitLocationError: () => dispatch({ type: actionType.SHOW_ERROR }),
+    closeModal: () => dispatch({ type: actionType.CLOSE_MODAL }),
+    setVehicleRoute: () => dispatch({ type: actionType.SELECTED_VEHICLE }),
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

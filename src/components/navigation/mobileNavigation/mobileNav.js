@@ -6,11 +6,11 @@ import Button from "../../button/button";
 
 import "../../../scss/main.css";
 
-const mobileNav = ({ drawerToggle }) => {
+const mobileNav = () => {
   return (
     <nav className="mobile">
       <div className="mobile-content">
-        <ToggleBtn drawerToggle={drawerToggle} className="mobile-btn" />
+        <ToggleBtn className="mobile-btn" />
         <Logo />
         <Button btnName="Book Now" theme="mobile" link="/reservation"></Button>
       </div>

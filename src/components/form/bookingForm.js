@@ -11,12 +11,12 @@ function BookingForm(props) {
   const autocompletionRequest = {
     bounds: [
       { lat: -37.814, lng: 144.96332 },
-      { lat: -37.816, lng: 144.9631 }
+      { lat: -37.816, lng: 144.9631 },
     ],
     componentRestrictions: {
-      country: "au"
+      country: "au",
     },
-    types: ["geocode"]
+    types: ["geocode"],
   };
 
   return (
@@ -47,10 +47,11 @@ function BookingForm(props) {
 
         <form
           className="booking-form__form"
-          onSubmit={e => props.submitForm(e)}
+          onSubmit={(e) => props.submitForm(e)}
         >
           <Input label="Pickup Location" id="pickup" />
           <GooglePlacesAutocomplete
+            apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
             autocompletionRequest={autocompletionRequest}
             inputClassName="origin"
             idPrefix="pickup"
@@ -61,7 +62,7 @@ function BookingForm(props) {
                 {suggestions.map((suggestion, index) => (
                   <li
                     className="suggestions-container__content"
-                    onClick={event => onSelectSuggestion(suggestion, event)}
+                    onClick={(event) => onSelectSuggestion(suggestion, event)}
                     key={index}
                   >
                     <p>{suggestion.description}</p>
@@ -74,6 +75,7 @@ function BookingForm(props) {
           <Input label="Destination" id="destination" />
           <GooglePlacesAutocomplete
             autocompletionRequest={autocompletionRequest}
+            apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
             inputClassName="destination"
             idPrefix="dest"
             placeholder="Address, Airport, Hotel, ..."
@@ -83,7 +85,7 @@ function BookingForm(props) {
                 {suggestions.map((suggestion, index) => (
                   <li
                     className="suggestions-container__content"
-                    onClick={event => onSelectSuggestion(suggestion, event)}
+                    onClick={(event) => onSelectSuggestion(suggestion, event)}
                     key={index}
                   >
                     <p>{suggestion.description}</p>

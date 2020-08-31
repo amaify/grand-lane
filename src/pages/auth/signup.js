@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { signupHandler, clearErrors } from "../../store/utils/authUtility";
 
 import Input from "../../components/form/input";
 import Header from "../../components/header/header";
@@ -8,7 +11,6 @@ import Footer from "../../components/footer/footer";
 
 import Button from "../../components/button/button";
 import { required, length, email } from "../../util/validators";
-
 class Signup extends Component {
   state = {
     signupForm: {
@@ -42,6 +44,12 @@ class Signup extends Component {
     },
     formIsValid: false,
   };
+
+  componentDidMount() {
+    window.onload = () => {
+      this.props.clearError();
+    };
+  }
 
   validateForm = () => {
     const { signupForm } = this.state;
@@ -96,17 +104,14 @@ class Signup extends Component {
 
   render() {
     const { signupForm } = this.state;
-    const { signupHandler, error } = this.props;
+    const { error } = this.props;
     return (
       <Fragment>
         <Helmet>
-          <title>Register - GrandLane Services</title>
+          <title>Register | GrandLane Chauffeur Services</title>
         </Helmet>
         <section className="signup">
-          <Header
-            drawerToggle={this.props.sideDrawerToggle}
-            isAuth={this.props.isAuth}
-          />
+          <Header />
           <div className="signup-intro">
             <h2 className="signup-intro__heading">sign up</h2>
             <p className="signup-intro__text">join us today</p>
@@ -123,14 +128,15 @@ class Signup extends Component {
             ) : null}
             <form
               className="contact-form__contents auth-form"
-              onSubmit={(e) =>
-                signupHandler(e, {
-                  firstName: signupForm.firstName.value,
-                  lastName: signupForm.lastName.value,
-                  email: signupForm.email.value,
-                  password: signupForm.password.value,
-                })
-              }
+              onSubmit={(e) => {
+                e.preventDefault();
+                this.props.signup(
+                  signupForm.firstName.value,
+                  signupForm.lastName.value,
+                  signupForm.email.value,
+                  signupForm.password.value
+                );
+              }}
             >
               <Input
                 control="input"
@@ -210,4 +216,20 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+const mapStateToProps = (state) => {
+  return {
+    error: state.authentication.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) =>
+  bindActionCreators(
+    {
+      signup: (firstName, lastName, email, password) =>
+        signupHandler(firstName, lastName, email, password, ownProps),
+      clearError: () => clearErrors(),
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

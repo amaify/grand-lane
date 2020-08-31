@@ -1,6 +1,8 @@
 import React, { Fragment, Component } from "react";
 import { Redirect, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
+import * as actionType from "../../store/actions/actionType";
 
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
@@ -15,41 +17,51 @@ class SelectVehicle extends Component {
   state = {
     price: 0,
     selectedVehicle: "",
+    vehicleImage: "",
   };
 
-  onSubmitHandlerOne() {
-    let priceValue = document.getElementById("sedan-value").innerHTML;
+  componentDidMount() {
+    const selectBtn = document.querySelectorAll(".selected-vehicle");
+
+    this.onSubmitHandler(selectBtn);
+  }
+
+  submitFinalValue(price, vehicleType, vehicleImage) {
     this.setState(
       {
-        price: Number(priceValue),
-        selectedVehicle: "Business Sedan",
+        price: price,
+        selectedVehicle: vehicleType,
+        vehicleImage: vehicleImage,
       },
       () => {
-        localStorage.setItem("vehicle", this.state.selectedVehicle);
         localStorage.setItem("price", this.state.price);
+        localStorage.setItem("vehicle", this.state.selectedVehicle);
+        localStorage.setItem("vehicleImage", this.state.vehicleImage);
+
+        this.props.setOptionsRoute();
         this.props.history.push("/reservation/options");
       }
     );
   }
 
-  onSubmitHandlerTwo() {
-    let priceValue = document.getElementById("van-value").innerHTML;
-    this.setState(
-      {
-        price: Number(priceValue),
-        selectedVehicle: "Business Van/SUV",
-      },
-      () => {
-        localStorage.setItem("vehicle", this.state.selectedVehicle);
-        localStorage.setItem("price", this.state.price);
-        this.props.history.push("/reservation/options");
-      }
-    );
+  onSubmitHandler(selectBtn) {
+    selectBtn.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        const priceValue = btn.parentElement.children[0].children[0].innerText;
+        const vehicleType =
+          btn.parentElement.parentElement.parentElement.firstChild.children[0]
+            .innerText;
+        const vehicleImage = btn.parentElement.parentElement.children[1].firstChild.getAttribute(
+          "src"
+        );
+        this.submitFinalValue(priceValue, vehicleType, vehicleImage);
+      });
+    });
   }
 
   render() {
     const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
-    let details = JSON.parse(localStorage.getItem("distance"));
+    // let details = JSON.parse(localStorage.getItem("distance"));
     let hours = localStorage.getItem("hours");
 
     let sedanPrice, vanPrice;
@@ -73,7 +85,7 @@ class SelectVehicle extends Component {
           <div className="booking-details__contents">
             <div className="booking-details__content">
               <h3 className="booking-details__content--heading">
-                business class
+                Business Sedan
               </h3>
               <div className="booking-details__content--elements">
                 <p className="booking-details__content--element">
@@ -117,10 +129,7 @@ class SelectVehicle extends Component {
                   <p className="price">AUD</p>
                 </div>
                 <p className="dets">All Prices Include VAT, Fees & Tip.</p>
-                <button
-                  onClick={this.onSubmitHandlerOne.bind(this)}
-                  id="sedan-select"
-                >
+                <button id="sedan-select" className="selected-vehicle">
                   Select
                 </button>
               </div>
@@ -130,7 +139,7 @@ class SelectVehicle extends Component {
           <div className="booking-details__contents">
             <div className="booking-details__content">
               <h3 className="booking-details__content--heading">
-                business van/suv
+                Business Van/SUV
               </h3>
               <div className="booking-details__content--elements">
                 <p className="booking-details__content--element">
@@ -174,10 +183,7 @@ class SelectVehicle extends Component {
                   <p className="price">AUD</p>
                 </div>
                 <p className="dets">All Prices Include VAT, Fees & Tip.</p>
-                <button
-                  onClick={this.onSubmitHandlerTwo.bind(this)}
-                  id="van-select"
-                >
+                <button id="van-select" className="selected-vehicle">
                   Select
                 </button>
               </div>
@@ -187,7 +193,7 @@ class SelectVehicle extends Component {
       </Fragment>
     );
 
-    if (!details) {
+    if (!this.props.selectVehicleRoute) {
       selectVehicle = (
         <Switch>
           <Redirect to="/reservation" />;
@@ -216,4 +222,16 @@ class SelectVehicle extends Component {
   }
 }
 
-export default SelectVehicle;
+const mapStateToProps = (state) => {
+  return {
+    selectVehicleRoute: state.route.vehicleRoute,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setOptionsRoute: () => dispatch({ type: actionType.PROVIDED_OPTIONS }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SelectVehicle);

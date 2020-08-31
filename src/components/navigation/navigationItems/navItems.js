@@ -1,27 +1,30 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import * as actionType from "../../../store/actions/actionType";
 
 const navigation = {
   data: [
-    { id: "orders", text: "Orders", link: "/orders", auth: true }
+    { id: "orders", text: "Orders", link: "/orders", auth: true },
     // { id: "admin", text: "Admin", link: "/", auth: true }
-  ]
+  ],
 };
 
 const authItems = {
   auth: [
     { id: "home", text: "Login", link: "/login", auth: false },
-    { id: "about", text: "Signup", link: "/signup", auth: false }
-  ]
+    { id: "about", text: "Signup", link: "/signup", auth: false },
+  ],
 };
 
-const navItems = props => {
+const NavItems = (props) => {
   return (
     <nav className={"nav-" + props.className}>
       <ul
         className={[
           `nav-${props.className}-items`,
-          `nav-${props.className}-items__logo`
+          `nav-${props.className}-items__logo`,
         ].join(" ")}
       >
         <li>
@@ -34,7 +37,7 @@ const navItems = props => {
       <ul
         className={[
           `nav-${props.className}-items`,
-          `nav-${props.className}-items__links`
+          `nav-${props.className}-items__links`,
         ].join(" ")}
       >
         <li>
@@ -56,8 +59,8 @@ const navItems = props => {
         </li>
 
         {navigation.data
-          .filter(item => item.auth === props.isAuth)
-          .map(item => (
+          .filter((item) => item.auth === props.isAuth)
+          .map((item) => (
             <li key={item.id}>
               <NavLink to={item.link} exact>
                 {item.text}
@@ -81,12 +84,12 @@ const navItems = props => {
       <ul
         className={[
           `nav-${props.className}-items`,
-          `nav-${props.className}-items__auth`
+          `nav-${props.className}-items__auth`,
         ].join(" ")}
       >
         {authItems.auth
-          .filter(item => item.auth === props.isAuth)
-          .map(item => (
+          .filter((item) => item.auth === props.isAuth)
+          .map((item) => (
             <li key={item.id}>
               <NavLink to={item.link} exact>
                 {item.text}
@@ -96,9 +99,9 @@ const navItems = props => {
 
         {props.isAuth && (
           <li id="logout-btn">
-            <button onClick={props.logoutHandler} className="logout-btn">
+            <Link onClick={props.onLogout} className="logout-btn" to="/">
               Logout
-            </button>
+            </Link>
           </li>
         )}
       </ul>
@@ -106,4 +109,16 @@ const navItems = props => {
   );
 };
 
-export default navItems;
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.authentication.isAuth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch({ type: actionType.LOGOUT }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavItems);

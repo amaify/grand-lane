@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { NavLink, Redirect, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
 
 import Header from "../../components/header/header";
-// import Footer from "../../components/footer/footer";
+import Footer from "../../components/footer/footer";
 import Loader from "../../components/loader/loader";
 
 class Orders extends Component {
@@ -97,7 +98,7 @@ class Orders extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Orders - GrandLane Services</title>
+          <title>Orders | GrandLane Chauffeur Services</title>
         </Helmet>
         <section className="orders">
           <Header
@@ -119,10 +120,17 @@ class Orders extends Component {
             {loading ? <Loader /> : orderList}
           </ol>
         </section>
-        {/* <Footer /> */}
+        <Footer />
       </Fragment>
     );
   }
 }
 
-export default Orders;
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.authentication.isAuth,
+    token: state.authentication.token,
+  };
+};
+
+export default connect(mapStateToProps)(Orders);

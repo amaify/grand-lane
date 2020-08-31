@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
 import SedanImage from "../../../images/business-sedan-4.jpg";
 import VanImage from "../../../images/business-van.png";
 
@@ -13,7 +14,7 @@ class SingleOrder extends Component {
     singleOrder: JSON.parse(localStorage.getItem("singleRide")) || {},
     loading: false,
     errMessage: null,
-    error: false
+    error: false,
   };
 
   componentDidMount() {
@@ -45,19 +46,19 @@ class SingleOrder extends Component {
                     serviceType
                 }
             }
-          `
+          `,
     };
 
     fetch("https://grand-lane.herokuapp.com/graphql", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + this.props.token,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(graphqlQuery)
+      body: JSON.stringify(graphqlQuery),
     })
-      .then(response => response.json())
-      .then(resData => {
+      .then((response) => response.json())
+      .then((resData) => {
         if (resData.errors && resData.errors[0].status === 422) {
           throw new Error("Ride not Found!");
         }
@@ -68,20 +69,20 @@ class SingleOrder extends Component {
         );
         this.setState({
           singleOrder: resData.data.getRide,
-          loading: false
+          loading: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         this.setState({ loading: false, errMessage: err.message });
       });
   };
 
   render() {
-    const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
+    // const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
     const { singleOrder, error } = this.state;
 
-    if (!isAuth) {
+    if (!this.props.isAuth) {
       return (
         <Switch>
           <Redirect to="/" />
@@ -195,11 +196,7 @@ class SingleOrder extends Component {
     return (
       <Fragment>
         <section className="orders">
-          <Header
-            isAuth={isAuth}
-            drawerToggle={sideDrawerToggle}
-            logoutHandler={logoutHandler}
-          />
+          <Header />
         </section>
 
         <section className="order-details">
@@ -236,4 +233,10 @@ class SingleOrder extends Component {
   }
 }
 
-export default SingleOrder;
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.authentication.isAuth,
+  };
+};
+
+export default connect(mapStateToProps)(SingleOrder);
