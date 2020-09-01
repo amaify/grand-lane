@@ -64,7 +64,7 @@ class Orders extends Component {
 
   render() {
     const { ridesId, loading, error, errMessage } = this.state;
-    const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
+    const { isAuth } = this.props;
 
     if (!isAuth) {
       return (
@@ -101,11 +101,7 @@ class Orders extends Component {
           <title>Orders | GrandLane Chauffeur Services</title>
         </Helmet>
         <section className="orders">
-          <Header
-            drawerToggle={sideDrawerToggle}
-            isAuth={isAuth}
-            logoutHandler={logoutHandler}
-          />
+          <Header />
         </section>
 
         <section className="orders-list">

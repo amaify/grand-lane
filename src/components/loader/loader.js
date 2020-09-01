@@ -1,6 +1,6 @@
 import React from "react";
 
-const loader = props => (
+const loader = () => (
   <div className="loader">
     <div />
     <div />

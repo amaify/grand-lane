@@ -25,11 +25,7 @@ const Home = (props) => {
         <title>GrandLane | Melbourne Chauffeur Service</title>
       </Helmet>
       <section className="intro">
-        <Header
-          drawerToggle={props.sideDrawerToggle}
-          isAuth={props.isAuth}
-          logoutHandler={props.logoutHandler}
-        />
+        <Header />
         {/* <div className="intro-items"> */}
 
         <article className="intro__carousel">

@@ -19,11 +19,7 @@ const About = (props) => {
         <title>About - GrandLane Services</title>
       </Helmet>
       <section className="about-intro">
-        <Header
-          drawerToggle={props.sideDrawerToggle}
-          isAuth={props.isAuth}
-          logoutHandler={props.logoutHandler}
-        />
+        <Header />
         <div className="about-intro__content">
           <h2 className="about-intro__heading">about</h2>
           <p className="about-intro__text">

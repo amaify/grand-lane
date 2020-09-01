@@ -23,19 +23,10 @@ class Header extends Component {
   }
 
   render() {
-    const { isAuth, logoutHandler, drawerToggle } = this.props;
     return (
       <header id="header" className="header">
-        <MainNav
-          className="header-main"
-          isAuth={isAuth}
-          logoutHandler={logoutHandler}
-        />
-        <MobileNav
-          drawerToggle={drawerToggle}
-          isAuth={isAuth}
-          logoutHandler={logoutHandler}
-        />
+        <MainNav />
+        <MobileNav />
       </header>
     );
   }

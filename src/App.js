@@ -119,7 +119,7 @@ class App extends Component {
         }
       })
       .catch((err) => {
-        this.props.submitLocationError();
+        this.props.submitLocationError(err);
       });
   };
 

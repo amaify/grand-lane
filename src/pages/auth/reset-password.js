@@ -159,10 +159,7 @@ class ResetPassword extends Component {
           <title>Password Reset - GrandLane Services</title>
         </Helmet>
         <section className="forgotPassword">
-          <Header
-            drawerToggle={this.props.sideDrawerToggle}
-            isAuth={this.props.isAuth}
-          />
+          <Header />
         </section>
 
         <section className="forgotPassword__container">

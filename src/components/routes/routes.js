@@ -1,16 +1,10 @@
 import React, { Fragment } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 const RouteComponent = ({
   isAuth,
-  toggleHandler,
-  token,
-  userId,
-  logoutHandler,
-  error,
-  loginHandler,
   submitLocationHandler,
-  signupHandler,
   HomePage,
   AboutPage,
   ServicePage,
@@ -25,7 +19,7 @@ const RouteComponent = ({
   Options,
   SingleOrder,
   SelectVehicle,
-  Checkout
+  Checkout,
 }) => {
   let routes;
 
@@ -33,206 +27,87 @@ const RouteComponent = ({
     ? (routes = (
         <Fragment>
           <Switch>
-            <Route
-              path="/"
-              exact
-              render={props => (
-                <HomePage
-                  {...props}
-                  isAuth={isAuth}
-                  sideDrawerToggle={toggleHandler}
-                  logoutHandler={logoutHandler}
-                />
-              )}
-            />
+            <Route path="/" exact render={(props) => <HomePage {...props} />} />
 
             <Route
               path="/about"
               exact
-              render={props => (
-                <AboutPage
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <AboutPage {...props} />}
             />
 
             <Route
               path="/services"
               exact
-              render={props => (
-                <ServicePage
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <ServicePage {...props} />}
             />
 
             <Route
               path="/contact"
               exact
-              render={props => (
-                <Contact
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <Contact {...props} />}
             />
 
             <Route
               path="/login"
               exact
-              render={props => (
-                <Login
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  loginHandler={loginHandler}
-                  error={error}
-                />
-              )}
+              render={(props) => <Login {...props} />}
             />
 
             <Route
               path="/signup"
               exact
-              render={props => (
-                <Signup
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  signupHandler={signupHandler}
-                  error={error}
-                />
-              )}
+              render={(props) => <Signup {...props} />}
             />
 
-            <Route
+            {/* <Route
               path="/orders"
               exact
-              render={props => (
-                <Orders
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                />
-              )}
+              render={(props) => <Orders {...props} />}
             />
 
             <Route
               path="/orders/:orderId"
-              render={props => (
-                <SingleOrder
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                />
-              )}
-            />
+              render={(props) => <SingleOrder {...props} />}
+            /> */}
 
             <Route
               path="/reservation"
               exact
-              render={props => (
+              render={(props) => (
                 <BookingPage
                   {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
                   submitLocation={submitLocationHandler}
-                  logoutHandler={logoutHandler}
                 />
               )}
             />
             <Route
               path="/reservation/select-vehicle"
-              render={props => (
-                <SelectVehicle
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <SelectVehicle {...props} />}
             />
 
             <Route
               path="/reservation/options"
-              render={props => (
-                <Options
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <Options {...props} />}
             />
 
             <Route
               path="/checkout"
-              render={props => (
-                <Checkout
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <Checkout {...props} />}
             />
 
             <Route
               path="/booking-successful"
-              render={props => (
-                <BookingSuccess
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <BookingSuccess {...props} />}
             />
 
             <Route
               path="/forgot-password"
-              render={props => (
-                <ForgotPassword
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <ForgotPassword {...props} />}
             />
 
             <Route
               path="/reset-password/:passwordToken"
-              render={props => (
-                <ResetPassword
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <ResetPassword {...props} />}
             />
             <Redirect to="/" />
           </Switch>
@@ -241,151 +116,66 @@ const RouteComponent = ({
     : (routes = (
         <Fragment>
           <Switch>
-            <Route
-              path="/"
-              exact
-              render={props => (
-                <HomePage
-                  {...props}
-                  isAuth={isAuth}
-                  sideDrawerToggle={toggleHandler}
-                  logoutHandler={logoutHandler}
-                />
-              )}
-            />
+            <Route path="/" exact render={(props) => <HomePage {...props} />} />
 
             <Route
               path="/about"
               exact
-              render={props => (
-                <AboutPage
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <AboutPage {...props} />}
             />
 
             <Route
               path="/services"
               exact
-              render={props => (
-                <ServicePage
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <ServicePage {...props} />}
             />
 
             <Route
               path="/contact"
               exact
-              render={props => (
-                <Contact
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <Contact {...props} />}
             />
 
             <Route
               path="/reservation"
               exact
-              render={props => (
+              render={(props) => (
                 <BookingPage
                   {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
                   submitLocation={submitLocationHandler}
-                  logoutHandler={logoutHandler}
                 />
               )}
             />
             <Route
               path="/reservation/select-vehicle"
-              render={props => (
-                <SelectVehicle
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                />
-              )}
+              render={(props) => <SelectVehicle {...props} />}
             />
 
             <Route
               path="/reservation/options"
-              render={props => (
-                <Options
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <Options {...props} />}
             />
 
             <Route
               path="/checkout"
-              render={props => (
-                <Checkout
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <Checkout {...props} />}
             />
 
             <Route
               path="/booking-successful"
-              render={props => (
-                <BookingSuccess
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                  userId={userId}
-                />
-              )}
+              render={(props) => <BookingSuccess {...props} />}
             />
 
             <Route
               path="/orders"
               exact
-              render={props => (
-                <Orders
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                />
-              )}
+              render={(props) => <Orders {...props} />}
             />
 
             <Route
               path="/orders/:orderId"
               exact
-              render={props => (
-                <SingleOrder
-                  {...props}
-                  sideDrawerToggle={toggleHandler}
-                  isAuth={isAuth}
-                  logoutHandler={logoutHandler}
-                  token={token}
-                />
-              )}
+              render={(props) => <SingleOrder {...props} />}
             />
             <Redirect to="/" />
           </Switch>
@@ -395,4 +185,10 @@ const RouteComponent = ({
   return routes;
 };
 
-export default RouteComponent;
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.authentication.isAuth,
+  };
+};
+
+export default connect(mapStateToProps)(RouteComponent);

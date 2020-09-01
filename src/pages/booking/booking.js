@@ -31,18 +31,13 @@ class Booking extends Component {
     });
   }
   render() {
-    const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
     return (
       <Fragment>
         <Helmet>
           <title>New Reservation - GrandLane Services</title>
         </Helmet>
         <section className="booking">
-          <Header
-            drawerToggle={sideDrawerToggle}
-            isAuth={isAuth}
-            logoutHandler={logoutHandler}
-          />
+          <Header />
           <div className="booking-intro">
             <h2 className="booking-intro__heading">reservations</h2>
             <p className="booking-intro__text">we can't wait to serve you</p>

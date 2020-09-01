@@ -92,6 +92,7 @@ export const loginReducer = (state = initialState, action) => {
         showError: true,
         authPending: false,
         showModal: false,
+        error: action.error,
       };
 
     case actionType.CLOSE_MODAL:

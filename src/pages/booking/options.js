@@ -89,7 +89,6 @@ class Options extends Component {
   }
 
   render() {
-    const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
     const {
       flightNumber,
       pickupSign,
@@ -226,11 +225,7 @@ class Options extends Component {
           <title>Extra Details - GrandLane Services</title>
         </Helmet>
         <section className="booking">
-          <Header
-            drawerToggle={sideDrawerToggle}
-            isAuth={isAuth}
-            logoutHandler={logoutHandler}
-          />
+          <Header />
           <div className="booking-intro">
             <h2 className="booking-intro__heading">extra details</h2>
             <p className="booking-intro__text">we can't wait to serve you</p>

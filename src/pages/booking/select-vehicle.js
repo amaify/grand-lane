@@ -60,8 +60,6 @@ class SelectVehicle extends Component {
   }
 
   render() {
-    const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
-    // let details = JSON.parse(localStorage.getItem("distance"));
     let hours = localStorage.getItem("hours");
 
     let sedanPrice, vanPrice;
@@ -203,11 +201,7 @@ class SelectVehicle extends Component {
     return (
       <Fragment>
         <section className="booking">
-          <Header
-            drawerToggle={sideDrawerToggle}
-            isAuth={isAuth}
-            logoutHandler={logoutHandler}
-          />
+          <Header />
           <div className="booking-intro">
             <h2 className="booking-intro__heading">service class</h2>
             <p className="booking-intro__text">

@@ -165,10 +165,7 @@ class ForgotPassword extends Component {
           <title>Forgot Password - GrandLane Services</title>
         </Helmet>
         <section className="forgotPassword">
-          <Header
-            drawerToggle={this.props.sideDrawerToggle}
-            isAuth={this.props.isAuth}
-          />
+          <Header />
         </section>
 
         <section className="forgotPassword__container">

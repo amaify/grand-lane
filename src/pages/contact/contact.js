@@ -163,7 +163,6 @@ class Contact extends Component {
   };
 
   render() {
-    const { sideDrawerToggle, isAuth, logoutHandler } = this.props;
     const { contactForm, formIsValid, errMsg, showInfo, loading } = this.state;
     const successMessage =
       "Message sent successfully; Thank you for contacting us.";
@@ -182,11 +181,7 @@ class Contact extends Component {
           <title>Contact Us - GrandLane Services</title>
         </Helmet>
         <section className="contact">
-          <Header
-            drawerToggle={sideDrawerToggle}
-            isAuth={isAuth}
-            logoutHandler={logoutHandler}
-          />
+          <Header />
           <div className="contact-intro">
             <h2 className="contact-intro__heading">contact</h2>
             <p className="contact-intro__text">

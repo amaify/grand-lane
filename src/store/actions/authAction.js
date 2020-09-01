@@ -52,9 +52,10 @@ export const clearError = () => {
   };
 };
 
-export const showError = () => {
+export const showError = (error) => {
   return {
     type: actionTypes.SHOW_ERROR,
+    error: error,
   };
 };
 
