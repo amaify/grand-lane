@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 30px;
-    height: 60vh;
+    height: 392.4px;
 
     position: relative;
     z-index: 1;
@@ -23,13 +23,13 @@
     &-intro {
         position: absolute;
         bottom: 8%;
-        left: 10%;
+        left: 7%;
 
         &__heading {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             color: $grey-light-1;
-            text-transform: uppercase;
-            font-weight: 400;
+            text-transform: capitalize;
+            font-weight: 300;
         }
 
         &__text {

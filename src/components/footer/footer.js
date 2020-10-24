@@ -8,7 +8,6 @@ const navigation = {
     { id: "home", text: "Home", link: "/" },
     { id: "about", text: "About", link: "/about" },
     { id: "services", text: "Services", link: "/services" },
-    { id: "rates", text: "Service Rates", link: "/rates" },
     { id: "contact", text: "Contact", link: "/contact" },
   ],
 };

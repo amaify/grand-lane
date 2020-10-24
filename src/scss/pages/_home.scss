@@ -6,7 +6,7 @@
     // background-size: cover;
     background-attachment: fixed;
     
-    height: 70vh;
+    height: 457.8px;
     width: 100%;
     position: relative;
 
@@ -39,7 +39,7 @@
         &--items {
             position: relative;
             text-align: center;
-            height: 80vh;
+            height: 457.8px;
             width: 100%;
 
             &__img {
@@ -62,6 +62,7 @@
 
             &__texts {
                 @include absolute_centering;
+                width: 100%;
                 z-index: 2;
             }
 

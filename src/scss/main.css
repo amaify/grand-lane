@@ -1149,7 +1149,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 25px;
-  height: 60vh;
+  height: 392.4px;
   position: relative;
   z-index: 1;
 }
@@ -1184,7 +1184,7 @@ html {
 .about-intro__content {
   position: absolute;
   bottom: 8%;
-  left: 10%;
+  left: 6%;
 }
 
 .about-intro__heading {
@@ -2131,7 +2131,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 30px;
-  height: 60vh;
+  height: 392.4px;
   position: relative;
   z-index: 1;
 }
@@ -2159,7 +2159,7 @@ html {
 .booking-intro {
   position: absolute;
   bottom: 8%;
-  left: 10%;
+  left: 6%;
 }
 
 .booking-intro__heading {
@@ -3332,7 +3332,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 30px;
-  height: 60vh;
+  height: 392.4px;
   position: relative;
   z-index: 1;
 }
@@ -3360,14 +3360,14 @@ html {
 .contact-intro {
   position: absolute;
   bottom: 8%;
-  left: 10%;
+  left: 7%;
 }
 
 .contact-intro__heading {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: #faf9f9;
-  text-transform: uppercase;
-  font-weight: 400;
+  text-transform: capitalize;
+  font-weight: 300;
 }
 
 .contact-intro__text {
@@ -3677,7 +3677,7 @@ html {
 
 .intro {
   background-attachment: fixed;
-  height: 70vh;
+  height: 457.8px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -3711,7 +3711,7 @@ html {
 .intro__carousel--items {
   position: relative;
   text-align: center;
-  height: 80vh;
+  height: 457.8px;
   width: 100%;
 }
 
@@ -3746,6 +3746,7 @@ html {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  width: 100%;
   z-index: 2;
 }
 
@@ -4216,7 +4217,7 @@ html {
   background-repeat: none;
   background-size: cover;
   background-position: 50% 25px;
-  height: 60vh;
+  height: 392.4px;
   position: relative;
   z-index: 1;
 }
@@ -4290,7 +4291,7 @@ html {
 }
 
 .service-contents__heading {
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-transform: capitalize;
   color: #333;
   font-weight: 500;

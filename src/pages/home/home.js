@@ -245,15 +245,11 @@ const Home = (props) => {
           </div>
           <div className="extra-contents__items">
             <SVGIcon name="chauffeur" className="extra-contents__items--icon" />
-            <p className="extra-contents__items--text">
-              over 100 professional drivers
-            </p>
+            <p className="extra-contents__items--text">professional drivers</p>
           </div>
           <div className="extra-contents__items">
             <SVGIcon name="sedan" className="extra-contents__items--icon" />
-            <p className="extra-contents__items--text">
-              over 100 latest vehicles
-            </p>
+            <p className="extra-contents__items--text">latest vehicles</p>
           </div>
           <div className="extra-contents__items">
             <SVGIcon name="charger" className="extra-contents__items--icon" />
