@@ -171,14 +171,14 @@ class Options extends Component {
               label="Notes for the Chauffeur"
               name="notes"
               control="textarea"
-              placeholder="Make Speical Requests Here"
+              placeholder="Make Special Requests Here"
               rows="5"
               cols="25"
               value={notes}
               onChange={this.handleChange.bind(this)}
             />
             <p className="special-request">
-              Any specail requests (Child Car Seats, ...)? Help us serve you
+              Any special requests (Child Car Seats, ...)? Help us serve you
               better by making a request in the note box.
             </p>
 

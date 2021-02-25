@@ -11,7 +11,7 @@ const bookingInfo = () => {
     <section className="booking-info">
       <h3 className="booking-info__heading">basic information</h3>
       <div className="booking-info__container">
-        <ul className="booking-info__container--list">
+        {!details ? <p style={{color: "#fff", fontSize: "18px"}}>No Information</p> : (<ul className="booking-info__container--list">
           <li>
             pickup location &mdash;{" "}
             <span>{details.distance.origin_addresses}</span>
@@ -42,7 +42,7 @@ const bookingInfo = () => {
               {date} &ndash; {time}
             </span>
           </li>
-        </ul>
+        </ul>)}
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ export const routeReducer = (state = initialState, action) => {
         ...state,
         vehicleRoute: false,
         optionsRoute: false,
-        checkoutRoute: false,
+        checkoutRoute: false, 
       };
     default:
       return state;

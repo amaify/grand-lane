@@ -11,16 +11,13 @@
     transition: transform 0.3s;
     z-index: 102;
     overflow-y: scroll;
-
     @include responsive__mode(bp__sm) {
         width: 40%;
     }
-
     &-close {
         cursor: pointer;
         // position: relative;
         // width: 100%;
-
         &__icon {
             width: 2rem;
             height: 2rem;
@@ -30,7 +27,6 @@
             fill: $grey-light-1;
         }
     }
-
     &.open {
         transform: translateX(0);
     }
