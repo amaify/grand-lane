@@ -1,473 +1,468 @@
-@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
-
 .intro {
-    // background-image: url("../images/home-large.jpg");
-    // background-repeat: none;
-    // background-size: cover;
-    background-attachment: fixed;
-    
-    height: 457.8px;
-    width: 100%;
-    position: relative;
+	// background-image: url("../images/home-large.jpg");
+	// background-repeat: none;
+	// background-size: cover;
+	background-attachment: fixed;
 
-    z-index: 1;
+	height: 457.8px;
+	width: 100%;
+	position: relative;
 
-    @include responsive__mode(bp__sm) {
-        height: 75vh;
-    }
+	z-index: 1;
 
-    @include responsive__mode(bp__md) {
-        height: 90vh;
-    }
+	@include responsive__mode(bp__sm) {
+		height: 75vh;
+	}
 
-    @include responsive__mode(bp__xl) {
-        height: 80vh
-    }
+	@include responsive__mode(bp__md) {
+		height: 90vh;
+	}
 
-    // &::before{
-    //     // @include overlay;
-    //     background: rgba(0, 0, 0, 0.7);
-    //     z-index: -1;
-    // }
+	@include responsive__mode(bp__xl) {
+		height: 80vh;
+	}
 
-    &__carousel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+	// &::before{
+	//     // @include overlay;
+	//     background: rgba(0, 0, 0, 0.7);
+	//     z-index: -1;
+	// }
 
-        &--items {
-            position: relative;
-            text-align: center;
-            height: 457.8px;
-            width: 100%;
+	&__carousel {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 
-            &__img {
-                width: 100%;
-                height: 100%;
+		&--items {
+			position: relative;
+			text-align: center;
+			height: 457.8px;
+			width: 100%;
 
-                & img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                }
+			&__img {
+				width: 100%;
+				height: 100%;
 
-                &::before {
-                    @include overlay;
-                    background: rgba(0, 0, 0, 0.7);
-                    z-index: 1;
-                }
-            }
+				& img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					display: block;
+				}
 
-            &__texts {
-                @include absolute_centering;
-                width: 100%;
-                z-index: 2;
-            }
+				&::before {
+					@include overlay;
+					background: rgba(0, 0, 0, 0.7);
+					z-index: 1;
+				}
+			}
 
-            @include responsive__mode(bp__sm) {
-                height: 75vh;
-            }
-        
-            @include responsive__mode(bp__md) {
-                height: 90vh;
-            }
-        
-            @include responsive__mode(bp__xl) {
-                height: 85vh
-            }
-        }
-    }
+			&__texts {
+				@include absolute_centering;
+				width: 100%;
+				z-index: 2;
+			}
 
-    &-items {
-        // @include absolute_centering;
-        // position: absolute;
-        // top: 0;
-        // left: 0;
-        text-align: center;
-        padding: 0 2rem;
-        width: 100%;
-        height: 100%;
+			@include responsive__mode(bp__sm) {
+				height: 75vh;
+			}
 
-        // &__img {
-        //     width: 100%;
-        //     height: 100%;
-        // }
+			@include responsive__mode(bp__md) {
+				height: 90vh;
+			}
 
-        // &__carousel {
-        //     // width: 100%;
-        //     // height: 100%;
+			@include responsive__mode(bp__xl) {
+				height: 85vh;
+			}
+		}
+	}
 
-        //     & img {
-        //         width: 100%;
-        //         height: 100%;
-        //         // display: block;
-        //         object-fit: cover;
-        //     }
+	&-items {
+		// @include absolute_centering;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		text-align: center;
+		padding: 0 2rem;
+		width: 100%;
+		height: 100%;
 
-        //     &::before{
-        //         // @include overlay;
-        //         background: rgba(0, 0, 0, 0.7);
-        //         z-index: 1;
-        //     }
-        // }
+		// &__img {
+		//     width: 100%;
+		//     height: 100%;
+		// }
 
-        &__texts {
-            // @include absolute_centering;
-            z-index: 2;
-        }
+		// &__carousel {
+		//     // width: 100%;
+		//     // height: 100%;
 
-        @include responsive__mode(bp__sm){
-            padding: 0;
-        }
-    }
+		//     & img {
+		//         width: 100%;
+		//         height: 100%;
+		//         // display: block;
+		//         object-fit: cover;
+		//     }
 
-    &-heading {
-        text-align: center;
-        color: #fff;
-        font-weight: 300;
-        text-transform: uppercase;
+		//     &::before{
+		//         // @include overlay;
+		//         background: rgba(0, 0, 0, 0.7);
+		//         z-index: 1;
+		//     }
+		// }
 
-        & span {
-            display: block;
-        }
+		&__texts {
+			// @include absolute_centering;
+			z-index: 2;
+		}
 
-        &__brand {
-            font-size: 4rem;
-            text-transform: capitalize;
-            font-family: 'Tangerine', cursive;
-        }
+		@include responsive__mode(bp__sm) {
+			padding: 0;
+		}
+	}
 
-        &__desc2 {
-            font-size: 2rem;
-            margin-top: 1rem;
-        }
+	&-heading {
+		text-align: center;
+		color: #fff;
+		font-weight: 300;
+		text-transform: uppercase;
 
-        @include responsive__mode(bp__sm){
+		& span {
+			display: block;
+		}
 
-            &__brand {
-                font-size: 4.5rem;
-            }
+		&__brand {
+			font-size: 4rem;
+			text-transform: capitalize;
+			font-family: "Tangerine", cursive;
+		}
 
-            &__desc2 {
-                font-size: 2.5rem;
-                margin-top: 0;
-            }
-        }
+		&__desc2 {
+			font-size: 2rem;
+			margin-top: 1rem;
+			font-family: "Nunito", sans-serif;
+		}
 
-        @include responsive__mode(bp__md) {
+		@include responsive__mode(bp__sm) {
+			&__brand {
+				font-size: 4.5rem;
+			}
 
-            &__brand {
-                font-size: 5rem;
-            }
+			&__desc2 {
+				font-size: 2.5rem;
+				margin-top: 0;
+			}
+		}
 
-            // &__desc2 {
-            //     font-size: 2.5rem;
-            // }
-        }
+		@include responsive__mode(bp__md) {
+			&__brand {
+				font-size: 5rem;
+			}
 
-        @include responsive__mode(bp__lg) {
-            &__brand {
-                font-size: 6rem;
-            }
+			// &__desc2 {
+			//     font-size: 2.5rem;
+			// }
+		}
 
-            // &__desc2 {
-            //     font-size: 2.5rem;
-            // }
-        }
-    }
+		@include responsive__mode(bp__lg) {
+			&__brand {
+				font-size: 6rem;
+			}
+
+			// &__desc2 {
+			//     font-size: 2.5rem;
+			// }
+		}
+	}
 }
 
 .desc {
-    text-align: center;
-    padding: 8rem 2.5rem;
+	text-align: center;
+	padding: 8rem 2.5rem;
 
-    @include responsive__mode(bp__sm){
-        padding: 5rem 4rem;
-    }
+	@include responsive__mode(bp__sm) {
+		padding: 5rem 4rem;
+	}
 
-    @include responsive__mode(bp__md) {
-        padding: 6rem 3rem;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 6rem 3rem;
+	}
 
-    @include responsive__mode(bp__lg) {
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__lg) {
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__xl) {
-        padding: 8rem 6rem;
-    }
+	@include responsive__mode(bp__xl) {
+		padding: 8rem 6rem;
+	}
 
-    &-heading {
-        text-transform: capitalize;
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        color: $grey-dark-0;
-        font-weight: 400;
+	&-heading {
+		text-transform: capitalize;
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: $grey-dark-0;
+		font-weight: 400;
 
-        @include responsive__mode(bp__md) {
-            font-size: 3.5rem;
-            margin-bottom: 0;
-        }
-    }
+		@include responsive__mode(bp__md) {
+			font-size: 3.5rem;
+			margin-bottom: 0;
+		}
+	}
 
-    &-text {
-        width: 100%;
-        font-size: 1.8rem;
-        margin: 0 auto 3rem auto;
-        color: $grey-dark-2;
-        line-height: 3rem;
+	&-text {
+		width: 100%;
+		font-size: 1.8rem;
+		margin: 0 auto 3rem auto;
+		color: $grey-dark-2;
+		line-height: 3rem;
 
-        @include responsive__mode(bp__sm){
-            width: 85%;
-        }
+		@include responsive__mode(bp__sm) {
+			width: 85%;
+		}
 
-        @include responsive__mode(bp__md) {
-            width: 80%;
-        }
+		@include responsive__mode(bp__md) {
+			width: 80%;
+		}
 
-        @include responsive__mode(bp__lg) {
-            width: 60%;
-        }
-    }
+		@include responsive__mode(bp__lg) {
+			width: 60%;
+		}
+	}
 
-    &-svg {
-        width: 4rem;
-        height: 4rem;
-        fill: $secondary-color-bright;
-        display: inline-block;
-        vertical-align: middle;
-        transition: all 0.3s;
-    }
+	&-svg {
+		width: 4rem;
+		height: 4rem;
+		fill: $secondary-color-bright;
+		display: inline-block;
+		vertical-align: middle;
+		transition: all 0.3s;
+	}
 
-    &-mark {
+	&-mark {
+		@include responsive__mode(bp__sm) {
+			margin-bottom: 2rem;
+		}
 
-        @include responsive__mode(bp__sm) {
-            margin-bottom: 2rem;
-        }
+		&__text {
+			font-size: 1.8rem;
+			text-transform: capitalize;
+			color: $grey-dark-1;
 
-        &__text {
-            font-size: 1.8rem;
-            text-transform: capitalize;
-            color: $grey-dark-1;
+			display: block;
+			margin: 1.5rem 0;
 
-            display: block;
-            margin: 1.5rem 0;
+			& span {
+				margin: 0 0.5rem;
+			}
 
-            & span {
-                margin: 0 0.5rem;
-            }
+			@include responsive__mode(bp__sm) {
+				font-size: 1.8rem;
+				text-transform: capitalize;
+				color: $grey-dark-1;
 
-            @include responsive__mode(bp__sm) {
-                font-size: 1.8rem;
-                text-transform: capitalize;
-                color: $grey-dark-1;
+				display: inline;
+				margin: 0 2.5rem;
 
-                display: inline;
-                margin: 0 2.5rem;
+				& span {
+					margin: 0 0.5rem;
+				}
+			}
 
-                & span {
-                    margin: 0 0.5rem;
-                }
-            }
-
-            @include responsive__mode(bp__md) {
-                margin: 0 4.5rem;
-            }
-        }
-    }
+			@include responsive__mode(bp__md) {
+				margin: 0 4.5rem;
+			}
+		}
+	}
 }
 
 .services {
-    text-align: center;
-    padding: 0 2rem 4rem 2rem;
+	text-align: center;
+	padding: 0 2rem 4rem 2rem;
 
-    @include responsive__mode(bp__sm){
-        text-align: center;
-        padding: 2.5rem 2rem 4rem 2rem;
-    }
+	@include responsive__mode(bp__sm) {
+		text-align: center;
+		padding: 2.5rem 2rem 4rem 2rem;
+	}
 
-    @include responsive__mode(bp__md){
-        text-align: center;
-        padding: 3rem 3rem 4rem 3rem;
-    }
+	@include responsive__mode(bp__md) {
+		text-align: center;
+		padding: 3rem 3rem 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__lg){
-        text-align: center;
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__lg) {
+		text-align: center;
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__xl){
-        text-align: center;
-        padding: 8rem 6rem;
-    }
+	@include responsive__mode(bp__xl) {
+		text-align: center;
+		padding: 8rem 6rem;
+	}
 
-    &-header {
-        font-size: 3rem;
-        color: $grey-dark-0;
-        text-transform: capitalize;
-        margin-bottom: 1rem;
-        font-weight: 400;
+	&-header {
+		font-size: 3rem;
+		color: $grey-dark-0;
+		text-transform: capitalize;
+		margin-bottom: 1rem;
+		font-weight: 400;
 
-        @include responsive__mode(bp__sm) {
-            font-size: 3.5rem;
-            margin-bottom: 3rem;
-        }
-    }
+		@include responsive__mode(bp__sm) {
+			font-size: 3.5rem;
+			margin-bottom: 3rem;
+		}
+	}
 
-    &-content {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
+	&-content {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: center;
 
-        @include responsive__mode(bp__sm) {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
+		@include responsive__mode(bp__sm) {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			justify-content: center;
+		}
+	}
 
-    &-image {
-        position: relative;
-        width: 100%;
-        margin: 0 auto 2rem auto;
-        cursor: pointer;
-        backface-visibility: hidden;
-        transition: all 0.3s;
+	&-image {
+		position: relative;
+		width: 100%;
+		margin: 0 auto 2rem auto;
+		cursor: pointer;
+		backface-visibility: hidden;
+		transition: all 0.3s;
 
-        @include responsive__mode(bp__sm) {
-            width: 46%;
-            margin: 0 auto 2rem auto;
-        }
+		@include responsive__mode(bp__sm) {
+			width: 46%;
+			margin: 0 auto 2rem auto;
+		}
 
-        @include responsive__mode(bp__md) {
-            width: 48%;
-            margin: 0 auto 1.6rem auto;
-        }
+		@include responsive__mode(bp__md) {
+			width: 48%;
+			margin: 0 auto 1.6rem auto;
+		}
 
-        @include responsive__mode(bp__lg) {
-            width: 30%;
-            margin: 0 auto 4rem auto;
-        }
+		@include responsive__mode(bp__lg) {
+			width: 30%;
+			margin: 0 auto 4rem auto;
+		}
 
-        &__text {
-            @include absolute_centering;
+		&__text {
+			@include absolute_centering;
 
-            color: $grey-light-1;
-            font-size: 2.5rem;
-            width: 100%;
-            font-weight: 300;
+			color: $grey-light-1;
+			font-size: 2.5rem;
+			width: 100%;
+			font-weight: 300;
 
-            @include responsive__mode(bp__sm) {
-                font-size: 2rem;
-            }
+			@include responsive__mode(bp__sm) {
+				font-size: 2rem;
+			}
 
-            @include responsive__mode(bp__xl) {
-                font-size: 2.5rem;
-            }
-        }
+			@include responsive__mode(bp__xl) {
+				font-size: 2.5rem;
+			}
+		}
 
-        
-        & img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+		& img {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
 
-        &::before {
-            @include overlay;
-            background: rgba(0, 0, 0, 0.6);
-        }
+		&::before {
+			@include overlay;
+			background: rgba(0, 0, 0, 0.6);
+		}
 
-        &:hover {
-            box-shadow: none;
-            transform: none;
-        }
+		&:hover {
+			box-shadow: none;
+			transform: none;
+		}
 
-        @include responsive__mode(bp__xl) {
-            &:hover {
-                box-shadow: $shadow-dark;
-                transform: scale(1.05);
-            }
-        }
-    }
+		@include responsive__mode(bp__xl) {
+			&:hover {
+				box-shadow: $shadow-dark;
+				transform: scale(1.05);
+			}
+		}
+	}
 }
 
 .extra {
-    background-image: linear-gradient(to bottom, $grey-dark-1 40%, $grey-dark-4);
+	background-image: linear-gradient(to bottom, $grey-dark-1 40%, $grey-dark-4);
 
-    &-contents {
-        display: block;
-        padding: 3rem 2rem 4rem 2rem;
+	&-contents {
+		display: block;
+		padding: 3rem 2rem 4rem 2rem;
 
-        &__items {
-            width: 100%;
-            text-align: center;
-            margin: 0 0 3rem 0;
+		&__items {
+			width: 100%;
+			text-align: center;
+			margin: 0 0 3rem 0;
 
-            &--icon {
-               width: 10rem;
-               height: 10rem;
-               fill: $primary-color-bright;
-               transition: all 0.3s;
-            }
+			&--icon {
+				width: 10rem;
+				height: 10rem;
+				fill: $primary-color-bright;
+				transition: all 0.3s;
+			}
 
-            &--text {
-                font-size: 1.5rem;
-                text-transform: capitalize;
-                color: $grey-light-2;
-            }
-        }
+			&--text {
+				font-size: 1.5rem;
+				text-transform: capitalize;
+				color: $grey-light-2;
+			}
+		}
 
-        @include responsive__mode(bp__sm) {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 6rem 2rem 4rem 2rem;
+		@include responsive__mode(bp__sm) {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			padding: 6rem 2rem 4rem 2rem;
 
-            &__items {
-                width: 45%;
-                margin: 0 2rem 4rem 0;
+			&__items {
+				width: 45%;
+				margin: 0 2rem 4rem 0;
 
-                &--text {
-                    font-size: 1.7rem;
-                }
-            }
-        }
+				&--text {
+					font-size: 1.7rem;
+				}
+			}
+		}
 
-        @include responsive__mode(bp__lg) {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 6rem 4rem 4rem 4rem;
+		@include responsive__mode(bp__lg) {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			padding: 6rem 4rem 4rem 4rem;
 
-            &__items {
-                width: 30%;
-            }
-        }
+			&__items {
+				width: 30%;
+			}
+		}
 
-        @include responsive__mode(bp__xl) {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 6rem 4rem 4rem 4rem;
+		@include responsive__mode(bp__xl) {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			padding: 6rem 4rem 4rem 4rem;
 
-            &__items {
-                width: 15%;
-                margin: 0 auto;
-                cursor: pointer;
+			&__items {
+				width: 15%;
+				margin: 0 auto;
+				cursor: pointer;
 
-                &:hover &--icon {
-                    fill: $primary-color-dark;
-                }
-            }
-        }
-    }
+				&:hover &--icon {
+					fill: $primary-color-dark;
+				}
+			}
+		}
+	}
 
-    @include responsive__mode(bp__sm) {
-        background-image: linear-gradient(to right, $grey-dark-1 40%, $grey-dark-4);
-    }
+	@include responsive__mode(bp__sm) {
+		background-image: linear-gradient(to right, $grey-dark-1 40%, $grey-dark-4);
+	}
 }

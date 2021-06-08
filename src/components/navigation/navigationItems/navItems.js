@@ -15,8 +15,8 @@ const navigation = {
 
 const authItems = {
 	auth: [
-		{ id: "home", text: "Login", link: "/login", auth: false },
-		{ id: "about", text: "Signup", link: "/signup", auth: false },
+		{ id: "login", text: "Login", link: "/login", auth: false },
+		{ id: "register", text: "Register", link: "/signup", auth: false },
 	],
 };
 
@@ -30,9 +30,9 @@ const NavItems = (props) => {
 					`nav-${props.className}-items__logo`,
 				].join(" ")}
 			>
-				<li>
+				<li id="logo">
 					<NavLink to="/" exact>
-						LOGO
+						grandlane
 					</NavLink>
 				</li>
 			</ul>

@@ -1,33 +1,37 @@
 .drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 80%;
-    background-image: linear-gradient(to right, $primary-color-dark, $primary-color-bright);
-    flex-direction: column;
-    box-shadow: $shadow-dark;
-    transform: translateX(-110%);
-    transition: transform 0.3s;
-    z-index: 102;
-    overflow-y: scroll;
-    @include responsive__mode(bp__sm) {
-        width: 40%;
-    }
-    &-close {
-        cursor: pointer;
-        // position: relative;
-        // width: 100%;
-        &__icon {
-            width: 2rem;
-            height: 2rem;
-            position: absolute;
-            top: 2.7%;
-            right: 5%;
-            fill: $grey-light-1;
-        }
-    }
-    &.open {
-        transform: translateX(0);
-    }
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 80%;
+	background-image: linear-gradient(
+		to right,
+		$primary-color-dark,
+		$primary-color-bright
+	);
+	flex-direction: column;
+	box-shadow: $shadow-dark;
+	transform: translateX(-110%);
+	transition: transform 0.3s;
+	z-index: 102;
+	overflow-y: scroll;
+	@include responsive__mode(bp__sm) {
+		width: 40%;
+	}
+	&-close {
+		cursor: pointer;
+		// position: relative;
+		// width: 100%;
+		&__icon {
+			width: 2rem;
+			height: 2rem;
+			position: absolute;
+			top: 1.7%;
+			right: 5%;
+			fill: $grey-light-1;
+		}
+	}
+	&.open {
+		transform: translateX(0);
+	}
 }
