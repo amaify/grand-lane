@@ -646,9 +646,6 @@ html {
     -webkit-transform: translate(-50.03%, 0);
             transform: translate(-50.03%, 0);
   }
-  .scrolled nav {
-    padding: 0 2.5rem;
-  }
 }
 
 .footer {
@@ -667,7 +664,8 @@ html {
 .footer-logo {
   text-decoration: none;
   color: #ccc;
-  font-size: 3rem;
+  font-family: "Syncopate", sans-serif;
+  font-size: 2.5rem;
 }
 
 .footer-contact {
@@ -3394,7 +3392,7 @@ html {
 }
 
 .contact-form {
-  padding: 4rem 2rem;
+  padding: 4rem 3rem;
   margin: 0 auto;
 }
 
@@ -3425,7 +3423,7 @@ html {
 }
 
 .contact-form__contents {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3488,7 +3486,8 @@ html {
   }
 }
 
-.contact-form__content input, .contact-form__content textarea {
+.contact-form__content input,
+.contact-form__content textarea {
   width: 100%;
   padding: 0.6rem 0.8rem;
   border-radius: 4px;
@@ -3496,18 +3495,21 @@ html {
   border: 1px solid #e5a33f;
 }
 
-.contact-form__content input.touched.invalid, .contact-form__content textarea.touched.invalid {
+.contact-form__content input.touched.invalid,
+.contact-form__content textarea.touched.invalid {
   border-color: red;
   background: #ffc2c2;
 }
 
-.contact-form__content input:focus, .contact-form__content textarea:focus {
+.contact-form__content input:focus,
+.contact-form__content textarea:focus {
   outline: none;
   border-color: #3f80e5;
 }
 
 @media only screen and (min-width: 600px) {
-  .contact-form__content input, .contact-form__content textarea {
+  .contact-form__content input,
+  .contact-form__content textarea {
     width: 70%;
   }
 }
@@ -3597,10 +3599,10 @@ html {
 }
 
 .contact-data__content {
-  width: 70%;
+  width: 80%;
   text-align: center;
-  height: 15rem;
-  padding: 2rem 0.5rem;
+  padding: 5rem 2rem;
+  border-radius: 4px;
   -webkit-box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.1);
   -webkit-transition: -webkit-transform 0.3s;
@@ -3667,10 +3669,11 @@ html {
 
 .contact-data__content--heading {
   text-transform: uppercase;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: #1b1a1a;
   margin-bottom: 1rem;
+  letter-spacing: 0.2rem;
 }
 
 .contact-data__content--text {

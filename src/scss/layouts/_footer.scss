@@ -1,204 +1,204 @@
 .footer {
-    background: $grey-dark-0;
-    text-align: center;
-    padding: 4rem 0 0 0;
+	background: $grey-dark-0;
+	text-align: center;
+	padding: 4rem 0 0 0;
 
-    width: 100%;
+	width: 100%;
 
-    @include responsive__mode(bp__sm) {
-        width: auto;
-    }
+	@include responsive__mode(bp__sm) {
+		width: auto;
+	}
 
-    &-logo {
-        text-decoration: none;
-        color: $grey-light-4;
-        font-size: 3rem;
-    }
+	&-logo {
+		text-decoration: none;
+		color: $grey-light-4;
+		font-family: "Syncopate", sans-serif;
+		font-size: 2.5rem;
+	}
 
-    &-contact {
-        margin-top: 1.5rem;
+	&-contact {
+		margin-top: 1.5rem;
 
-        @include responsive__mode(bp__sm) {
-            margin-top: 3rem;
-        }
-    }
+		@include responsive__mode(bp__sm) {
+			margin-top: 3rem;
+		}
+	}
 
-    &-text {
-        color: $grey-light-4;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+	&-text {
+		color: $grey-light-4;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
 
-        &__icon {
-            display: inline;
-            vertical-align: middle;
-        }
+		&__icon {
+			display: inline;
+			vertical-align: middle;
+		}
 
-        &__desc {
-            display: inline;
-            vertical-align: top;
-            margin-left: 1rem;
-            word-break: break-all;
-        }
+		&__desc {
+			display: inline;
+			vertical-align: top;
+			margin-left: 1rem;
+			word-break: break-all;
+		}
 
-        & a {
-            text-decoration: none;
-            background: #199e7d;
-            padding: 0.5rem 1rem;
-            margin-top: 1rem;
-            text-transform: capitalize;
-            color: $grey-light-3;
-            transition: all 0.3s;
+		& a {
+			text-decoration: none;
+			background: #199e7d;
+			padding: 0.5rem 1rem;
+			margin-top: 1rem;
+			text-transform: capitalize;
+			color: $grey-light-3;
+			transition: all 0.3s;
 
-            @include responsive__mode(bp__md) {
-                &:hover,
-                &:active {
-                    background: #10644f;
-                }
-            }
-        }
-    }
+			@include responsive__mode(bp__md) {
+				&:hover,
+				&:active {
+					background: #10644f;
+				}
+			}
+		}
+	}
 
-    &-social {
-        margin-top: 2.5rem;
+	&-social {
+		margin-top: 2.5rem;
 
-        & svg {
-            margin: 0 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            fill: $grey-light-4;
+		& svg {
+			margin: 0 1.5rem;
+			cursor: pointer;
+			transition: all 0.3s;
+			fill: $grey-light-4;
 
-            &:hover {
-                fill: $secondary-color-bright;
-            }
-        }
-    }
+			&:hover {
+				fill: $secondary-color-bright;
+			}
+		}
+	}
 
-    &-links {
-        margin-top: 2.5rem;
-        
-        &__items {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            list-style: none;
+	&-links {
+		margin-top: 2.5rem;
 
-            @include responsive__mode(bp__sm) {
-                flex-direction: row;
-            }
+		&__items {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			list-style: none;
 
-            & li {
-                margin: 0.8rem 0;
+			@include responsive__mode(bp__sm) {
+				flex-direction: row;
+			}
 
-                & a {
-                    font-size: 1.5rem;
-                    text-decoration: none;
-                    color: $grey-light-4;
-                    transition: all 0.3s;
+			& li {
+				margin: 0.8rem 0;
 
-                    &.active {
-                        color: $primary-color-bright;
-                    }
+				& a {
+					font-size: 1.5rem;
+					text-decoration: none;
+					color: $grey-light-4;
+					transition: all 0.3s;
 
-                    &:hover,
-                    &:active {
-                        color: $primary-color-bright;
-                    }
-                }
+					&.active {
+						color: $primary-color-bright;
+					}
 
-                @include responsive__mode(bp__sm) {
-                    margin: 0 1.5rem;
-                }
-            }
-        }
-    }
+					&:hover,
+					&:active {
+						color: $primary-color-bright;
+					}
+				}
 
-    &-base {
-        background: $grey-dark-4;
-        padding: 0.8rem 0;
-        margin-top: 2.5rem;
+				@include responsive__mode(bp__sm) {
+					margin: 0 1.5rem;
+				}
+			}
+		}
+	}
 
-        &__text {
-            color: $grey-light-4;
-            font-size: 1.5rem;
-        }
-    }
+	&-base {
+		background: $grey-dark-4;
+		padding: 0.8rem 0;
+		margin-top: 2.5rem;
 
-    &-svg {
-        width: 2rem;
-        height: 2rem;
-        fill: $primary-color-bright;
-    }
+		&__text {
+			color: $grey-light-4;
+			font-size: 1.5rem;
+		}
+	}
+
+	&-svg {
+		width: 2rem;
+		height: 2rem;
+		fill: $primary-color-bright;
+	}
 }
 
 .action {
-    text-align: center;
-    background-image: url("../images/timelapse-large.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    padding: 5rem 2rem;
-    position: relative;
-    z-index: 0;
+	text-align: center;
+	background-image: url("../images/timelapse-large.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 5rem 2rem;
+	position: relative;
+	z-index: 0;
 
-    @include responsive__mode(bp__md) {
-        padding: 5rem 0;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 5rem 0;
+	}
 
-    &::before {
-        @include overlay;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: -1;
-    }
+	&::before {
+		@include overlay;
+		background: rgba(0, 0, 0, 0.7);
+		z-index: -1;
+	}
 
-    &-heading {
-        text-transform: capitalize;
-        margin-bottom: 3rem;
-        color: $grey-light-1;
-        font-weight: 300;
-        width: 100%;
+	&-heading {
+		text-transform: capitalize;
+		margin-bottom: 3rem;
+		color: $grey-light-1;
+		font-weight: 300;
+		width: 100%;
 
-        & span {
-            display: block;
-        }
+		& span {
+			display: block;
+		}
 
-        &__main {
-            margin-bottom: 1rem;
-            font-size: 3rem;
+		&__main {
+			margin-bottom: 1rem;
+			font-size: 3rem;
 
-            @include responsive__mode(bp__sm) {
-                font-size: 4rem;
-            }
-            
-        }
+			@include responsive__mode(bp__sm) {
+				font-size: 4rem;
+			}
+		}
 
-        &__sub1 {
-            font-size: 1.5rem;
+		&__sub1 {
+			font-size: 1.5rem;
 
-            @include responsive__mode(bp__md) {
-                font-size: 2rem;
-            }
-        }
+			@include responsive__mode(bp__md) {
+				font-size: 2rem;
+			}
+		}
 
-        &__sub2 {
-            font-size: 1.5rem;
+		&__sub2 {
+			font-size: 1.5rem;
 
-            @include responsive__mode(bp__md) {
-                font-size: 2rem;
-            }
-        }
-    }
+			@include responsive__mode(bp__md) {
+				font-size: 2rem;
+			}
+		}
+	}
 
-    &-call {
-        color: $grey-light-1;
-        font-size: 1.5rem;
-        font-weight: 300;
+	&-call {
+		color: $grey-light-1;
+		font-size: 1.5rem;
+		font-weight: 300;
 
-        @include responsive__mode(bp__sm) {
-            font-size: 2rem;
-        }
-    }
+		@include responsive__mode(bp__sm) {
+			font-size: 2rem;
+		}
+	}
 }
 
 #driver {
-    margin-top: 2rem;
+	margin-top: 2rem;
 }

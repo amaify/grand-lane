@@ -1,277 +1,278 @@
 .contact {
-    background-image: url('../images/contact-medium.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 30px;
-    height: 392.4px;
+	background-image: url("../images/contact-medium.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 30px;
+	height: 392.4px;
 
-    position: relative;
-    z-index: 1;
+	position: relative;
+	z-index: 1;
 
-    &::before {
-        @include overlay;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: -1;
-    }
+	&::before {
+		@include overlay;
+		background: rgba(0, 0, 0, 0.6);
+		z-index: -1;
+	}
 
-    @include responsive__mode(bp__sm) {
-        background-image: url('../images/contact-large.jpg');
-        background-position: 0 25%;
-        height: 50vh;
-    }
+	@include responsive__mode(bp__sm) {
+		background-image: url("../images/contact-large.jpg");
+		background-position: 0 25%;
+		height: 50vh;
+	}
 
-    &-intro {
-        position: absolute;
-        bottom: 8%;
-        left: 7%;
+	&-intro {
+		position: absolute;
+		bottom: 8%;
+		left: 7%;
 
-        &__heading {
-            font-size: 3.5rem;
-            color: $grey-light-1;
-            text-transform: capitalize;
-            font-weight: 300;
-        }
+		&__heading {
+			font-size: 3.5rem;
+			color: $grey-light-1;
+			text-transform: capitalize;
+			font-weight: 300;
+		}
 
-        &__text {
-            font-size: 1.5rem;
-            color: $grey-light-1;
-            text-transform: capitalize;
-        }
-    }
+		&__text {
+			font-size: 1.5rem;
+			color: $grey-light-1;
+			text-transform: capitalize;
+		}
+	}
 }
 
 .contact-form {
-    padding: 4rem 2rem;
-    margin: 0 auto;
+	padding: 4rem 3rem;
+	margin: 0 auto;
 
-    @include responsive__mode(bp__sm) {
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__sm) {
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__md) {
-        padding: 8rem 6rem;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 8rem 6rem;
+	}
 
+	&__heading {
+		text-align: center;
+		color: $grey-dark-0;
+		font-size: 3rem;
+		font-weight: 400;
+		margin-bottom: 3rem;
+	}
 
-    &__heading {
-        text-align: center;
-        color: $grey-dark-0;
-        font-size: 3rem;
-        font-weight: 400;
-        margin-bottom: 3rem;
-    }
+	&__form {
+		//    display: block;
+		//    text-align: center;
+		//    margin: 0 auto;
 
-    &__form {
-    //    display: block;
-    //    text-align: center;
-    //    margin: 0 auto;
+		@include responsive__mode(bp__sm) {
+			text-align: center;
+		}
+	}
 
-       @include responsive__mode(bp__sm) {
-           text-align: center;
-       }
-    }
+	&__contents {
+		width: 100%;
+		margin: 0 auto;
 
-    &__contents {
-        width: 80%;
-        margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+		@include responsive__mode(bp__sm) {
+			width: 60%;
+		}
 
-        @include responsive__mode(bp__sm) {
-            width: 60%;
-        }
+		@include responsive__mode(bp__md) {
+			max-width: 50rem;
+		}
+	}
 
-        @include responsive__mode(bp__md) {
-            max-width: 50rem;
-        }
-    }
+	&__content {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1.5rem;
 
-    &__content {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1.5rem;
+		@include responsive__mode(bp__sm) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
 
-        @include responsive__mode(bp__sm) {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
+		& label {
+			margin-right: 0;
+			margin-bottom: 0.6rem;
+			font-size: 1.5rem;
+			text-align: left;
 
-        & label {
-            margin-right: 0;
-            margin-bottom: 0.6rem;
-            font-size: 1.5rem;
-            text-align: left;
+			@include responsive__mode(bp__sm) {
+				margin-right: auto;
+				margin-bottom: 0;
+				width: 25%;
+			}
+		}
 
-            @include responsive__mode(bp__sm) {
-                margin-right: auto;
-                margin-bottom: 0;
-                width: 25%;
-            }
-        }
+		& input,
+		& textarea {
+			width: 100%;
+			padding: 0.6rem 0.8rem;
+			border-radius: 4px;
 
-        & input, & textarea {
-            width: 100%;
-            padding: 0.6rem 0.8rem;
-            border-radius: 4px;
+			outline: none;
+			border: 1px solid $primary-color-bright;
 
-            outline: none;
-            border: 1px solid $primary-color-bright;
+			&.touched.invalid {
+				border-color: red;
+				background: #ffc2c2;
+			}
 
-            &.touched.invalid {
-                border-color: red;
-                background: #ffc2c2;
-            }
+			&:focus {
+				outline: none;
+				border-color: $secondary-color-bright;
+			}
 
-            &:focus {
-                outline: none;
-                border-color: $secondary-color-bright;
-            }
+			@include responsive__mode(bp__sm) {
+				width: 70%;
+			}
+		}
+	}
 
-            @include responsive__mode(bp__sm) {
-                width: 70%;
-            }
-        }
-    }
-
-    &__button {
-        
-        & button {
-            align-self: flex-end;
-        }
-    }
+	&__button {
+		& button {
+			align-self: flex-end;
+		}
+	}
 }
 
 .contact-data {
-    padding: 4rem 2rem;
+	padding: 4rem 2rem;
 
-    @include responsive__mode(bp__sm) {
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__sm) {
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__md) {
-        padding: 8rem 6rem;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 8rem 6rem;
+	}
 
-    &__heading {
-        font-size: 3rem;
-        color: $grey-dark-0;
-        font-weight: 400;
-        text-align: center;
-        text-transform: capitalize;
-        margin-bottom: 3.5rem;
+	&__heading {
+		font-size: 3rem;
+		color: $grey-dark-0;
+		font-weight: 400;
+		text-align: center;
+		text-transform: capitalize;
+		margin-bottom: 3.5rem;
 
-        @include responsive__mode(bp__sm) {
-            margin-bottom: 2.5rem;
-        }
+		@include responsive__mode(bp__sm) {
+			margin-bottom: 2.5rem;
+		}
 
-        @include responsive__mode(bp__md) {
-            margin-bottom: 3rem;
-        }
-    }
+		@include responsive__mode(bp__md) {
+			margin-bottom: 3rem;
+		}
+	}
 
-    &__contents {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
+	&__contents {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		align-items: center;
 
-        @include responsive__mode(bp__sm) {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
+		@include responsive__mode(bp__sm) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
 
-        @include responsive__mode(bp__md) {
-            justify-content: space-evenly;
-        }
+		@include responsive__mode(bp__md) {
+			justify-content: space-evenly;
+		}
 
-        @include responsive__mode(bp__lg) {
-            justify-content: space-evenly;
-        }
-    }
+		@include responsive__mode(bp__lg) {
+			justify-content: space-evenly;
+		}
+	}
 
-    &__content {
-        width: 70%;
-        text-align: center;
-        height: 15rem;
-        padding: 2rem 0.5rem;
-        box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-    
-        margin-bottom: 3.5rem;
+	&__content {
+		width: 80%;
+		text-align: center;
+		// height: 15rem;
+		padding: 5rem 2rem;
+		border-radius: 4px;
+		box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s;
 
-        @include responsive__mode(bp__sm) {
-            width: 45%;
-            box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.1);
+		margin-bottom: 3.5rem;
 
-            margin: 0 auto 2.5rem auto;
+		@include responsive__mode(bp__sm) {
+			width: 45%;
+			box-shadow: 0 0.2rem 2.5rem 0.1rem rgba(0, 0, 0, 0.1);
 
-            &:hover {
-                transform: none;
-            }
-        }
+			margin: 0 auto 2.5rem auto;
 
-        @include responsive__mode(bp__md) {
-            width: 40%;
-            
-            &:hover {
-                transform: none;
-            }
-        }
+			&:hover {
+				transform: none;
+			}
+		}
 
-        @include responsive__mode(bp__lg) {
-            width: 20%;
+		@include responsive__mode(bp__md) {
+			width: 40%;
 
-            margin-bottom: 0;
+			&:hover {
+				transform: none;
+			}
+		}
 
-            &:hover {
-                transform: none;
-            }
-        }
+		@include responsive__mode(bp__lg) {
+			width: 20%;
 
-        @include responsive__mode(bp__xl) {
-            flex-basis: 20%;
+			margin-bottom: 0;
 
-            &:not(:last-child) {
-                margin-bottom: 0;
-            }
+			&:hover {
+				transform: none;
+			}
+		}
 
-            &:hover {
-                transform: scale(1.02);
-            }
-        }
+		@include responsive__mode(bp__xl) {
+			flex-basis: 20%;
 
-        &--icon {
-            width: 3rem;
-            height: 3rem;
-            fill: $secondary-color-bright;
-            margin-bottom: 1.5rem;
-        }
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
 
-        &--heading {
-            text-transform: uppercase;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: $grey-dark-0;
-            margin-bottom: 1rem;
-        }
+			&:hover {
+				transform: scale(1.02);
+			}
+		}
 
-        &--text {
-            font-size: 1.3rem;
-            word-break: break-all;
-            color: $grey-dark-2;
-        }
-    }
+		&--icon {
+			width: 3rem;
+			height: 3rem;
+			fill: $secondary-color-bright;
+			margin-bottom: 1.5rem;
+		}
+
+		&--heading {
+			text-transform: uppercase;
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: $grey-dark-0;
+			margin-bottom: 1rem;
+			letter-spacing: 0.2rem;
+		}
+
+		&--text {
+			font-size: 1.3rem;
+			word-break: break-all;
+			color: $grey-dark-2;
+		}
+	}
 }
 
 #error-msg {
-    color: red;
-    font-size: 1.5rem;
-    width: 100%;
-    margin: 0 auto;
+	color: red;
+	font-size: 1.5rem;
+	width: 100%;
+	margin: 0 auto;
 
-    @include responsive__mode(bp__sm) {
-        width: 45%;
-    }
+	@include responsive__mode(bp__sm) {
+		width: 45%;
+	}
 }
