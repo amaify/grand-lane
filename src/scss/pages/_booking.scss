@@ -1,726 +1,730 @@
 .booking {
-    background-image: url('../images/booking-medium.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 30px;
-    height: 392.4px;
+	background-image: url("../images/booking-medium.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 30px;
+	height: 392.4px;
 
-    position: relative;
-    z-index: 1;
+	position: relative;
+	z-index: 1;
 
-    &::before {
-        @include overlay;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
-    }
+	&::before {
+		@include overlay;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: -1;
+	}
 
-    @include responsive__mode(bp__sm) {
-        background-image: url('../images/booking-large.jpg');
-        background-position: 0 25%;
-        height: 50vh;
-    }
+	@include responsive__mode(bp__sm) {
+		background-image: url("../images/booking-large.jpg");
+		background-position: 0 25%;
+		height: 50vh;
+	}
 
-    &-intro {
-        position: absolute;
-        bottom: 8%;
-        left: 6%;
+	&-intro {
+		position: absolute;
+		bottom: 8%;
+		left: 6%;
 
-        &__heading {
-            font-size: 3.5rem;
-            color: $grey-light-1;
-            text-transform: capitalize;
-            font-weight: 300;
-        }
+		&__heading {
+			font-size: 3.5rem;
+			color: $grey-light-1;
+			text-transform: capitalize;
+			font-weight: 300;
+		}
 
-        &__text {
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: $grey-light-1;
-            text-transform: capitalize;
-        }
-    }
+		&__text {
+			font-size: 1.8rem;
+			font-weight: 300;
+			color: $grey-light-1;
+			text-transform: capitalize;
+		}
+	}
 
-    &-information {
-        padding: 5rem 2rem;
-        background-color: rgb(228, 227, 227);
+	&-information {
+		padding: 5rem 2rem;
+		background-color: rgb(228, 227, 227);
 
-        @include responsive__mode(bp__sm) {
-            padding: 4rem 3rem;
-        }
+		@include responsive__mode(bp__sm) {
+			padding: 4rem 3rem;
+		}
 
-        @include responsive__mode(bp__md) {
-            padding: 6rem 8rem;
-        }
+		@include responsive__mode(bp__md) {
+			padding: 6rem 8rem;
+		}
 
-        &__heading {
-            text-align: center;
-            font-size: 2.5rem;
-            text-transform: capitalize;
-            font-weight: 400;
-            margin-bottom: 2.5rem;
-        }
-    }
+		&__heading {
+			text-align: center;
+			font-size: 2.5rem;
+			text-transform: capitalize;
+			font-weight: 400;
+			margin-bottom: 2.5rem;
+		}
+	}
 }
 
 .booking-form {
-   display: flex;
-   flex-direction: column;
-   
+	display: flex;
+	flex-direction: column;
 
-   @include responsive__mode(bp__sm) {
-       width: 60%;
-       margin: 0 auto;
-   }
+	@include responsive__mode(bp__sm) {
+		width: 60%;
+		margin: 0 auto;
+	}
 
-   @include responsive__mode(bp__md) {
-       width: 65%;
-       margin: 0 auto;
-   }
-    
-   &__form {
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 1.5rem 2rem;
+	@include responsive__mode(bp__md) {
+		width: 65%;
+		margin: 0 auto;
+	}
 
-        @include responsive__mode(bp__sm) {
-            padding: 1.5rem 2.5rem;
-        }
+	&__form {
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 1.5rem 2rem;
+		width: 90%;
 
-        @include responsive__mode(bp__md) {
-            padding: 1.5rem 3rem;
-        }
-        
-        &--content {
-            margin-bottom: 1rem;
-            
-            & label {
-                display: block;
-                margin-bottom: 0.3rem;
-                font-size: 1.5rem;
-            }
+		@include responsive__mode(bp__sm) {
+			padding: 1.5rem 2.5rem;
+		}
 
-            & input {
-                width: 92%;
-                padding: 0.6rem 1rem;
-                border: 1px solid $primary-color-bright;
-                border-radius: 4px;
-                outline: none;
+		@include responsive__mode(bp__md) {
+			padding: 1.5rem 3rem;
+		}
 
-                &:focus {
-                    border: 1px solid $secondary-color-bright;
-                }
-            }
+		@include responsive__mode(bp__lg) {
+			width: 80%;
+		}
 
-            &  textarea {
-                width: 60%;
-                padding: 0.6rem 1rem;
-                border: 1px solid $primary-color-bright;
-                border-radius: 4px;
-                outline: none;
+		@include responsive__mode(bp__xl) {
+			width: 60%;
+		}
 
-                &:focus {
-                    border: 1px solid $secondary-color-bright;
-                }
-            }
+		&--content {
+			margin-bottom: 1rem;
 
+			& label {
+				display: block;
+				margin-bottom: 0.3rem;
+				font-size: 1.5rem;
+			}
 
-            & select {
-                width: 75%;
-                padding: 0.6rem 1rem;
-                border: 1px solid $primary-color-bright;
-                border-radius: 4px;
-                outline: none;
+			& input {
+				width: 92%;
+				padding: 0.6rem 1rem;
+				border: 1px solid $primary-color-bright;
+				border-radius: 4px;
+				outline: none;
 
-                &:focus {
-                    border: 1px solid $secondary-color-bright;
-                }
-            }
-        }
-    }
+				&:focus {
+					border: 1px solid $secondary-color-bright;
+				}
+			}
 
-    &__button {
-        margin: 0 auto;
-        width: auto;
+			& textarea {
+				width: 60%;
+				padding: 0.6rem 1rem;
+				border: 1px solid $primary-color-bright;
+				border-radius: 4px;
+				outline: none;
 
-        &--btn {
-            padding: 0.6rem 0.8rem;
-            background-color: transparent;
-            border: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-        }
+				&:focus {
+					border: 1px solid $secondary-color-bright;
+				}
+			}
 
-        &--btn2 {
-            background: transparent;
-        }
-    }
+			& select {
+				width: 75%;
+				padding: 0.6rem 1rem;
+				border: 1px solid $primary-color-bright;
+				border-radius: 4px;
+				outline: none;
+
+				&:focus {
+					border: 1px solid $secondary-color-bright;
+				}
+			}
+		}
+	}
+
+	&__button {
+		margin: 0 auto;
+		width: auto;
+
+		&--btn {
+			padding: 0.6rem 0.8rem;
+			background-color: transparent;
+			border: none;
+			font-size: 1.6rem;
+			cursor: pointer;
+		}
+
+		&--btn2 {
+			background: transparent;
+		}
+	}
 }
 
 .booking-info {
-    padding: 2.5rem 2rem;
+	padding: 2.5rem 2rem;
 
-    @include responsive__mode(bp__sm) {
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__sm) {
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__md) {
-        padding: 6rem 8rem;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 6rem 8rem;
+	}
 
+	&__heading {
+		text-transform: capitalize;
+		font-size: 3.5rem;
+		font-weight: 300;
+		color: $grey-dark-0;
+		margin-bottom: 1rem;
+	}
 
-    &__heading {
-        text-transform: capitalize;
-        font-size: 3.5rem;
-        font-weight: 300;
-        color: $grey-dark-0;
-        margin-bottom: 1rem;
-    }
+	&__container {
+		background: $grey-dark-3;
+		padding: 2.5rem;
 
-    &__container {
-        background: $grey-dark-3;
-        padding: 2.5rem;
+		&--list {
+			list-style: none;
 
-        &--list {
-            list-style: none;
+			& li {
+				// margin-bottom: 1.5rem;
+				font-size: 1.4rem;
+				text-transform: capitalize;
 
-            & li {
-                // margin-bottom: 1.5rem;
-                font-size: 1.4rem;
-                text-transform: capitalize;
+				&::after {
+					content: "";
+					width: 100%;
+					height: 1px;
+					display: block;
+					margin: 1.5rem 0;
+					background: #b44c4c;
+				}
 
-                &::after {
-                    content: '';
-                    width: 100%;
-                    height: 1px;
-                    display: block;
-                    margin: 1.5rem 0;
-                    background: #b44c4c;
-                }
+				@include responsive__mode(bp__sm) {
+					font-size: 1.8rem;
+				}
+			}
 
-                @include responsive__mode(bp__sm) {
-                    font-size: 1.8rem;
-                }
-            }
-
-            & span {
-                color: $grey-light-2;
-            }
-        }
-    }
+			& span {
+				color: $grey-light-2;
+			}
+		}
+	}
 }
 
 .booking-details {
-    padding: 2.5rem 2rem;
+	padding: 2.5rem 2rem;
 
-    @include responsive__mode(bp__sm) {
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__sm) {
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__md) {
-        padding: 6rem 8rem;
-    }
-    
-    &__contents {
-        padding: 2rem 0;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 6rem 8rem;
+	}
 
-    &__content {
+	&__contents {
+		padding: 2rem 0;
+	}
 
-        &::after {
-            content: '';
-            width: 100%;
-            height: 1px;
-            margin-top: 0.8rem;
-            display: block;
-            background: $grey-dark-2;
-            opacity: 0.3;
-        }
+	&__content {
+		&::after {
+			content: "";
+			width: 100%;
+			height: 1px;
+			margin-top: 0.8rem;
+			display: block;
+			background: $grey-dark-2;
+			opacity: 0.3;
+		}
 
-        &--desc {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+		&--desc {
+			margin-top: 1.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 
-            @include responsive__mode(bp__sm) {
-                flex-direction: row;
-            }
+			@include responsive__mode(bp__sm) {
+				flex-direction: row;
+			}
 
-            &-list {
-                list-style: none;
-                width: 100%;
+			&-list {
+				list-style: none;
+				width: 100%;
 
-                & li {
-                    font-size: 1.6rem;
-                    margin-bottom: 1rem;
-                    text-transform: capitalize;
-                    color: $grey-dark-2;
-                }
+				& li {
+					font-size: 1.6rem;
+					margin-bottom: 1rem;
+					text-transform: capitalize;
+					color: $grey-dark-2;
+				}
 
-                @include responsive__mode(bp__sm) {
-                    width: 25%;
-                }
-            }
+				@include responsive__mode(bp__sm) {
+					width: 25%;
+				}
+			}
 
-            &-img {
-                width: 100%;
-                align-self: flex-start;
+			&-img {
+				width: 100%;
+				align-self: flex-start;
 
-                & img {
-                    width: 100%;
-                    display: block;
-                }
+				& img {
+					width: 100%;
+					display: block;
+				}
 
-                @include responsive__mode(bp__sm) {
-                    width: 45%;
-                }
-            }
+				@include responsive__mode(bp__sm) {
+					width: 45%;
+				}
+			}
 
-            &-price {
-                width: 14rem;
-                margin-top: 1.5rem;
-                background: $grey-dark-3;
-                text-align: left;
-                padding: 2rem 1.5rem;
+			&-price {
+				width: 14rem;
+				margin-top: 1.5rem;
+				background: $grey-dark-3;
+				text-align: left;
+				padding: 2rem 1.5rem;
 
-                & p {
-                    color: $grey-light-3;
-                    text-align: left;
-                }
+				& p {
+					color: $grey-light-3;
+					text-align: left;
+				}
 
-                & .dets {
-                    font-size: 1.2rem;
-                    margin-bottom: 1.5rem;
-                }
+				& .dets {
+					font-size: 1.2rem;
+					margin-bottom: 1.5rem;
+				}
 
-                & button {
-                    background: $secondary-color-bright;
-                    border: 1px solid $secondary-color-bright;
-                    border-radius: 4px;
-                    font-size: 1.6rem;
-                    padding: 0.5rem 1rem;
-                    color: $grey-light-1;
-                    transition: all 0.3s;
-                    cursor: pointer;
+				& button {
+					background: $secondary-color-bright;
+					border: 1px solid $secondary-color-bright;
+					border-radius: 4px;
+					font-size: 1.6rem;
+					padding: 0.5rem 1rem;
+					color: $grey-light-1;
+					transition: all 0.3s;
+					cursor: pointer;
 
-                    &:hover,
-                    &:active {
-                        background: $secondary-color-dark;
-                        border: 1px solid $secondary-color-dark;
-                    }
-                }
+					&:hover,
+					&:active {
+						background: $secondary-color-dark;
+						border: 1px solid $secondary-color-dark;
+					}
+				}
 
-                @include responsive__mode(bp__sm) {
-                    width: 20%;
-                    align-self: flex-start;
-                }
+				@include responsive__mode(bp__sm) {
+					width: 20%;
+					align-self: flex-start;
+				}
 
-                @include responsive__mode(bp__md) {
-                    width: 15%;
-                    align-self: flex-start;
-                }
-            }
-        }
+				@include responsive__mode(bp__md) {
+					width: 15%;
+					align-self: flex-start;
+				}
+			}
+		}
 
-        &--heading {
-            text-transform: capitalize;
-            font-size: 3rem;
-            color: $grey-dark-0;
-            font-weight: 400;
-        }
+		&--heading {
+			text-transform: capitalize;
+			font-size: 3rem;
+			color: $grey-dark-0;
+			font-weight: 400;
+		}
 
-        &--elements {
-            display: flex;
-        }
+		&--elements {
+			display: flex;
+		}
 
-        &--element {
-            margin-right: 2rem;
+		&--element {
+			margin-right: 2rem;
 
-            &-icon {
-                margin-right: 0.5rem;
+			&-icon {
+				margin-right: 0.5rem;
 
-                & svg {
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    fill: $secondary-color-bright;
-                }
-            }
+				& svg {
+					width: 1.3rem;
+					height: 1.3rem;
+					fill: $secondary-color-bright;
+				}
+			}
 
-            &-text {
-                font-size: 1.5rem;
-                color: $grey-dark-2;
-            }
-        }
-    }
+			&-text {
+				font-size: 1.5rem;
+				color: $grey-dark-2;
+			}
+		}
+	}
 }
 
 //STYLING FOR SELECTING A VEHICLE
 .select-vehicle__form {
+	&--content {
+		display: flex;
+		flex-wrap: wrap;
 
-    &--content {
-        display: flex;
-        flex-wrap: wrap;
+		& .price-value {
+			margin-right: 0.8rem;
+		}
 
-        & .price-value {
-            margin-right: 0.8rem;
-        }
-       
-        & .price {
-            font-size: 2rem;
-        }
-    }
+		& .price {
+			font-size: 2rem;
+		}
+	}
 }
 
 .bookActive {
-    background: #fff;
-    outline: #fff;
+	background: #fff;
+	outline: #fff;
 }
 
-#date, #time, #pickup, #destination {
-    margin-bottom: 0;
+#date,
+#time,
+#pickup,
+#destination {
+	margin-bottom: 0;
 }
 
 .react-datepicker {
+	&-wrapper {
+		margin-bottom: 1rem;
+		width: 100%;
+	}
 
-    &-wrapper {
-        margin-bottom: 1rem;
-        width: 100%;
-    }
+	&__input-container {
+		& input {
+			width: 100%;
+			padding: 0.6rem 1rem;
+			border: 1px solid $primary-color-bright;
+			border-radius: 4px;
+			outline: none;
 
-    &__input-container {
-        & input {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            border: 1px solid $primary-color-bright;
-            border-radius: 4px;
-            outline: none;
-
-            &:focus {
-                border: 1px solid $secondary-color-bright;
-            }
-        }
-    }
+			&:focus {
+				border: 1px solid $secondary-color-bright;
+			}
+		}
+	}
 }
 
-.origin, .destination {
-    margin-bottom: 1rem;
-    
-    width: 100%;
-    padding: 0.6rem 1rem;
-    border: 1px solid $primary-color-bright;
-    border-radius: 4px;
-    outline: none;
+.origin,
+.destination {
+	margin-bottom: 1rem;
 
-    &:focus {
-        border: 1px solid $secondary-color-bright;
-    }
+	width: 100%;
+	padding: 0.6rem 1rem;
+	border: 1px solid $primary-color-bright;
+	border-radius: 4px;
+	outline: none;
+
+	&:focus {
+		border: 1px solid $secondary-color-bright;
+	}
 }
 
 .suggestions-container {
-    background: $grey-dark-2;
-    list-style: none;
+	background: $grey-dark-2;
+	list-style: none;
 
-    &__content {
-        padding: 0.5rem 0.8rem;
-        cursor: pointer;
+	&__content {
+		padding: 0.5rem 0.8rem;
+		cursor: pointer;
 
-        &:hover,
-        &:active {
-            background: $grey-dark-3;
-        }
+		&:hover,
+		&:active {
+			background: $grey-dark-3;
+		}
 
-        & p {
-            color: $grey-light-1;
-            font-size: 1.2rem;
-            
-        }
-    }
+		& p {
+			color: $grey-light-1;
+			font-size: 1.2rem;
+		}
+	}
 }
 
 .additional-info {
-    position: relative;
-    padding: 2.5rem 2rem;
+	position: relative;
+	padding: 2.5rem 2rem;
 
-    @include responsive__mode(bp__sm) {
-        padding: 4rem 3rem;
-    }
+	@include responsive__mode(bp__sm) {
+		padding: 4rem 3rem;
+	}
 
-    @include responsive__mode(bp__md) {
-        padding: 3rem 8rem;
-    }
+	@include responsive__mode(bp__md) {
+		padding: 3rem 8rem;
+	}
 
-    &__content {
-        width: 100%;
-        margin: 0 auto 2.5rem auto;
+	&__content {
+		width: 100%;
+		margin: 0 auto 2.5rem auto;
 
-        &--heading {
-            text-transform: capitalize;
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            color: $grey-dark-0;
+		&--heading {
+			text-transform: capitalize;
+			font-size: 2.5rem;
+			font-weight: 400;
+			margin-bottom: 1rem;
+			color: $grey-dark-0;
 
-            @include responsive__mode(bp__sm) {
-                font-size: 3.5rem;
-            }
-        }
+			@include responsive__mode(bp__sm) {
+				font-size: 3.5rem;
+			}
+		}
 
-        &--text {
-            font-size: 2rem;
-            color: $grey-dark-2;
-        }
+		&--text {
+			font-size: 2rem;
+			color: $grey-dark-2;
+		}
 
-        @include responsive__mode(bp__sm) {
-            width: 80%;
-            margin: 0 auto 1.5rem auto;
-        }
+		@include responsive__mode(bp__sm) {
+			width: 80%;
+			margin: 0 auto 1.5rem auto;
+		}
 
-        @include responsive__mode(bp__md) {
-            width: 70%;
-        }
+		@include responsive__mode(bp__md) {
+			width: 70%;
+		}
 
-        @include responsive__mode(bp__lg) {
-            width: 60%;
-        }
-    }
+		@include responsive__mode(bp__lg) {
+			width: 60%;
+		}
+	}
 
-    &__form {
-        width: 100%;
-        margin: 0 auto;
+	&__form {
+		width: 100%;
+		margin: 0 auto;
 
-        &--heading {
-            font-size: 2.5rem;
-            text-transform: capitalize;
-            color: $grey-dark-0;
-            font-weight: 400;
-            margin: 4.5rem 0 1.5rem 0;
+		&--heading {
+			font-size: 2.5rem;
+			text-transform: capitalize;
+			color: $grey-dark-0;
+			font-weight: 400;
+			margin: 4.5rem 0 1.5rem 0;
 
-            @include responsive__mode(bp__sm) {
-                font-size: 3.5rem;
-            }
-        }
+			@include responsive__mode(bp__sm) {
+				font-size: 3.5rem;
+			}
+		}
 
-        & button {
-            border: none;
-            outline: none;
-            padding: 0.6rem 1.2rem;
-            font-size: 1.8rem;
-            color: $grey-light-3;
-            border-radius: 2px;
-            background: $secondary-color-bright;
-            transition: all 0.3s;
-            cursor: pointer;
+		& button {
+			border: none;
+			outline: none;
+			padding: 0.6rem 1.2rem;
+			font-size: 1.8rem;
+			color: $grey-light-3;
+			border-radius: 2px;
+			background: $secondary-color-bright;
+			transition: all 0.3s;
+			cursor: pointer;
 
-            &:hover,
-            &:active {
-                background: $secondary-color-dark;
-            }
-        }
+			&:hover,
+			&:active {
+				background: $secondary-color-dark;
+			}
+		}
 
-        @include responsive__mode(bp__sm) {
-            width: 80%;
-        }
+		@include responsive__mode(bp__sm) {
+			width: 80%;
+		}
 
-        @include responsive__mode(bp__md) {
-            width: 70%;
-        }
+		@include responsive__mode(bp__md) {
+			width: 70%;
+		}
 
-        @include responsive__mode(bp__lg) {
-            width: 60%;
-        }
-    }
+		@include responsive__mode(bp__lg) {
+			width: 60%;
+		}
+	}
 }
 
 .special-request {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: $grey-dark-1;
+	font-size: 1.5rem;
+	margin-bottom: 2rem;
+	color: $grey-dark-1;
 
-    &::before, &::after {
-        content: '';
-        height: 1px;
-        width: 1.5rem;
-        display: inline-block;
-        vertical-align: middle;
-        background: olivedrab;
-    }
+	&::before,
+	&::after {
+		content: "";
+		height: 1px;
+		width: 1.5rem;
+		display: inline-block;
+		vertical-align: middle;
+		background: olivedrab;
+	}
 
-    &::before {
-        margin-right: 0.3rem;
-    }
+	&::before {
+		margin-right: 0.3rem;
+	}
 
-    &::after {
-        margin-left: 0.3rem;
-    }
+	&::after {
+		margin-left: 0.3rem;
+	}
 }
 
 .reserve-btn {
-    background: $secondary-color-bright;
-    border: 1px solid $secondary-color-bright;
-    color: $grey-light-1;
-    font-size: 1.7rem;
-    padding: 0.8rem 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 4px;
+	background: $secondary-color-bright;
+	border: 1px solid $secondary-color-bright;
+	color: $grey-light-1;
+	font-size: 1.7rem;
+	padding: 0.8rem 1.2rem;
+	cursor: pointer;
+	transition: all 0.3s;
+	border-radius: 4px;
 
-    &:hover,
-    &:active {
-        background: $secondary-color-dark;
-        border-color: $secondary-color-dark;
-    }
+	&:hover,
+	&:active {
+		background: $secondary-color-dark;
+		border-color: $secondary-color-dark;
+	}
 }
 
 .resetPassword-success {
-    padding: 2rem;
-    margin: 10rem auto 0 auto;
-    text-align: center;
-    width: 100%;
+	padding: 2rem;
+	margin: 10rem auto 0 auto;
+	text-align: center;
+	width: 100%;
 
-    &__icon {
-        width: 13rem;
-        height: 13rem;
-        fill: #004225;
-    }
+	&__icon {
+		width: 13rem;
+		height: 13rem;
+		fill: #004225;
+	}
 
-    &__text {
-        color: $grey-dark-1;
+	&__text {
+		color: $grey-dark-1;
 
-        & span {
-            display: block;
-        }
+		& span {
+			display: block;
+		}
 
-        &--big {
-            font-size: 3.5rem;
-            font-weight: 300;
-        }
+		&--big {
+			font-size: 3.5rem;
+			font-weight: 300;
+		}
 
-        &--small {
-            font-size: 2.5rem;
-            color: $grey-dark-3;
-            font-weight: 400;
-        }
-    }
+		&--small {
+			font-size: 2.5rem;
+			color: $grey-dark-3;
+			font-weight: 400;
+		}
+	}
 
-    @include responsive__mode(bp__md) {
-        margin: 7rem auto 0 auto;
-        width: 60%;
+	@include responsive__mode(bp__md) {
+		margin: 7rem auto 0 auto;
+		width: 60%;
 
-        &__text {            
-    
-            &--big {
-                font-size: 4rem;
-            }
-    
-            &--small {
-                font-size: 2rem;
-            }
-        }
-    }
+		&__text {
+			&--big {
+				font-size: 4rem;
+			}
 
-    @include responsive__mode(bp__xl) {
-        margin: 7rem auto 0 auto;
-        width: 60%;
+			&--small {
+				font-size: 2rem;
+			}
+		}
+	}
 
-        &__text {
-        
-            &--big {
-                font-size: 6rem;
-            }
-    
-            &--small {
-                font-size: 3rem;
-            }
-        }
-    }
+	@include responsive__mode(bp__xl) {
+		margin: 7rem auto 0 auto;
+		width: 60%;
+
+		&__text {
+			&--big {
+				font-size: 6rem;
+			}
+
+			&--small {
+				font-size: 3rem;
+			}
+		}
+	}
 }
 
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-    width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 0.5rem;
+	width: 100%;
 
-    &-item {
-        width: 10%;
-        margin-right: 0.2rem;        
-        & img {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-    }
+	&-item {
+		width: 10%;
+		margin-right: 0.2rem;
+		& img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
 
 .options {
-    position: relative;
+	position: relative;
 
-    &-content {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #ffffff;
-        z-index: 100000;
-        width: 90%;
-        text-align: center;
-        padding: 2rem 1.5rem 1rem 1.5rem;
+	&-content {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: #ffffff;
+		z-index: 100000;
+		width: 90%;
+		text-align: center;
+		padding: 2rem 1.5rem 1rem 1.5rem;
 
-        @include responsive__mode(bp__sm) {
-            width: 70%;
-        }
+		@include responsive__mode(bp__sm) {
+			width: 70%;
+		}
 
-        @include responsive__mode(bp__md) {
-            width: 60%;
-        }
+		@include responsive__mode(bp__md) {
+			width: 60%;
+		}
 
+		&__text {
+			font-size: 2rem;
+			margin-bottom: 1.5rem;
 
-        &__text {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+			@include responsive__mode(bp__sm) {
+				font-size: 3rem;
+			}
 
-            @include responsive__mode(bp__sm) {
-                font-size: 3rem;
-            }
+			// @include responsive__mode(bp__md) {
+			//     font-size: 3.5rem;
+			// }
+		}
 
-            // @include responsive__mode(bp__md) {
-            //     font-size: 3.5rem;
-            // }
-        }
+		&__btn {
+			border: none;
+			outline: none;
+			border-radius: 2px;
+			padding: 0.6rem 1.2rem;
+			transition: all 0.3s;
+			cursor: pointer;
+			margin-right: 1.2rem;
+			color: #fff;
+			font-size: 1.8rem;
 
-        &__btn {
-            border: none;
-            outline: none;
-            border-radius: 2px;
-            padding: 0.6rem 1.2rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            margin-right: 1.2rem;
-            color: #fff;
-            font-size: 1.8rem;
+			&--1 {
+				background: #199e7d;
+				margin-bottom: 0.8rem;
 
-            &--1 {
-                background: #199e7d;
-                margin-bottom: 0.8rem;
+				&:hover,
+				&:active {
+					background: #0d503f;
+				}
 
-                &:hover,
-                &:active {
-                    background: #0d503f;
-                }
+				@include responsive__mode(bp__sm) {
+					margin-bottom: 0;
+				}
+			}
 
-                @include responsive__mode(bp__sm) {
-                    margin-bottom: 0;
-                }
-            }
+			&--2 {
+				background: #5d2999;
 
-            &--2 {
-                background: #5d2999;
-
-                &:hover,
-                &:active {
-                    background: #38195c;
-                }
-            }
-        }
-    }
+				&:hover,
+				&:active {
+					background: #38195c;
+				}
+			}
+		}
+	}
 }

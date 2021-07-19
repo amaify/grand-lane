@@ -64,10 +64,21 @@ class App extends Component {
 	submitLocationHandler = (e, locationData) => {
 		e.preventDefault();
 		this.props.loading();
+
+		let destination;
+
+		if (!locationData.destination) {
+			destination = null;
+		} else {
+			destination = locationData.destination;
+		}
 		const data = {
 			origin: locationData.origin,
 			destination: locationData.destination,
 		};
+
+		localStorage.setItem("destination", destination);
+
 		const timeData = {
 			date: locationData.date,
 			time: locationData.time,
@@ -99,7 +110,7 @@ class App extends Component {
 					localStorage.setItem("sedanHour", resData.sedanHour);
 					localStorage.setItem("vanHour", resData.vanHour);
 					localStorage.setItem("fixedPrice", resData.fixedPrice);
-					localStorage.setItem('distanceValue', resData.distValue);
+					localStorage.setItem("distanceValue", resData.distValue);
 					localStorage.setItem("distance", JSON.stringify(this.state.distance));
 					localStorage.setItem("date", this.state.pickupDate);
 					localStorage.setItem("time", this.state.pickupTime);

@@ -1186,7 +1186,7 @@ html {
 }
 
 .about-intro::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1343,10 +1343,10 @@ html {
 
 .about-desc__text {
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 400;
   color: #777;
-  line-height: 3rem;
+  line-height: 3.5rem;
 }
 
 .about-highlight {
@@ -1416,6 +1416,7 @@ html {
 @media only screen and (min-width: 920px) {
   .about-highlight__text {
     width: 60%;
+    font-size: 2rem;
   }
 }
 
@@ -1581,7 +1582,7 @@ html {
 }
 
 .about-testimonial__content--name::before {
-  content: '';
+  content: "";
   display: inline-block;
   vertical-align: middle;
   width: 4rem;
@@ -1591,7 +1592,7 @@ html {
 }
 
 .about-testimonial__content--name::after {
-  content: '';
+  content: "";
   display: inline-block;
   vertical-align: middle;
   width: 4rem;
@@ -2244,6 +2245,7 @@ html {
   margin: 0 auto;
   background-color: #fff;
   padding: 1.5rem 2rem;
+  width: 90%;
 }
 
 @media only screen and (min-width: 600px) {
@@ -2255,6 +2257,18 @@ html {
 @media only screen and (min-width: 780px) {
   .booking-form__form {
     padding: 1.5rem 3rem;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .booking-form__form {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .booking-form__form {
+    width: 60%;
   }
 }
 
@@ -2360,7 +2374,7 @@ html {
 }
 
 .booking-info__container--list li::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   display: block;
@@ -2399,7 +2413,7 @@ html {
 }
 
 .booking-details__content::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   margin-top: 0.8rem;
@@ -2570,7 +2584,10 @@ html {
   outline: #fff;
 }
 
-#date, #time, #pickup, #destination {
+#date,
+#time,
+#pickup,
+#destination {
   margin-bottom: 0;
 }
 
@@ -2591,7 +2608,8 @@ html {
   border: 1px solid #3f80e5;
 }
 
-.origin, .destination {
+.origin,
+.destination {
   margin-bottom: 1rem;
   width: 100%;
   padding: 0.6rem 1rem;
@@ -2600,7 +2618,8 @@ html {
   outline: none;
 }
 
-.origin:focus, .destination:focus {
+.origin:focus,
+.destination:focus {
   border: 1px solid #3f80e5;
 }
 
@@ -2744,7 +2763,7 @@ html {
 }
 
 .special-request::before, .special-request::after {
-  content: '';
+  content: "";
   height: 1px;
   width: 1.5rem;
   display: inline-block;

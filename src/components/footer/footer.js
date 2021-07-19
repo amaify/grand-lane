@@ -21,23 +21,23 @@ const Footer = () => {
 			<div className="footer-contact">
 				<p
 					className="footer-text"
-					data-aos="fade-up"
-					data-aos-duration="2000"
-					data-aos-delay="500"
+					// data-aos="fade-up"
+					// data-aos-duration="2000"
+					// data-aos-delay="500"
 				>
 					<span className="footer-text__icon">
 						<SVGIcon name="location" className="footer-svg" />
 					</span>
 					<span className="footer-text__desc">
-						airport drive, melbourne airport VIC, australia
+						Airport Drive, Melbourne Airport VIC, Australia
 					</span>
 				</p>
 
 				<p
 					className="footer-text"
-					data-aos="fade-right"
-					data-aos-duration="2000"
-					data-aos-delay="500"
+					// data-aos="fade-right"
+					// data-aos-duration="2000"
+					// data-aos-delay="500"
 				>
 					<span className="footer-text__icon">
 						<SVGIcon name="phone" className="footer-svg" />
@@ -47,9 +47,9 @@ const Footer = () => {
 
 				<p
 					className="footer-text"
-					data-aos="fade-left"
-					data-aos-duration="2000"
-					data-aos-delay="500"
+					// data-aos="fade-left"
+					// data-aos-duration="2000"
+					// data-aos-delay="500"
 				>
 					<span className="footer-text__icon">
 						<SVGIcon name="mail" className="footer-svg" />
@@ -62,9 +62,9 @@ const Footer = () => {
 				<p
 					className="footer-text"
 					id="driver"
-					data-aos="zoom-in"
-					data-aos-duration="2000"
-					data-aos-delay="500"
+					// data-aos="zoom-in"
+					// data-aos-duration="2000"
+					// data-aos-delay="500"
 				>
 					<a href="tel:+2348139544732">call now to become a driver</a>
 				</p>
@@ -72,9 +72,9 @@ const Footer = () => {
 
 			<div
 				className="footer-social"
-				data-aos="fade-down"
-				data-aos-duration="2000"
-				data-aos-delay="500"
+				// data-aos="fade-down"
+				// data-aos-duration="2000"
+				// data-aos-delay="500"
 			>
 				<Link to="facebook">
 					<SVGIcon name="facebook" className="footer-svg" />
