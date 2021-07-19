@@ -4150,8 +4150,6 @@ html {
   .services-image:hover {
     -webkit-box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
             box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
-    -webkit-transform: scale(1.05);
-            transform: scale(1.05);
   }
 }
 
@@ -4238,7 +4236,6 @@ html {
   .extra-contents__items {
     width: 15%;
     margin: 0 auto;
-    cursor: pointer;
   }
   .extra-contents__items:hover .extra-contents__items--icon {
     fill: #aa7017;

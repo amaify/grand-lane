@@ -79,37 +79,10 @@
 	}
 
 	&-items {
-		// @include absolute_centering;
-		// position: absolute;
-		// top: 0;
-		// left: 0;
 		text-align: center;
 		padding: 0 2rem;
 		width: 100%;
 		height: 100%;
-
-		// &__img {
-		//     width: 100%;
-		//     height: 100%;
-		// }
-
-		// &__carousel {
-		//     // width: 100%;
-		//     // height: 100%;
-
-		//     & img {
-		//         width: 100%;
-		//         height: 100%;
-		//         // display: block;
-		//         object-fit: cover;
-		//     }
-
-		//     &::before{
-		//         // @include overlay;
-		//         background: rgba(0, 0, 0, 0.7);
-		//         z-index: 1;
-		//     }
-		// }
 
 		&__texts {
 			// @include absolute_centering;
@@ -385,7 +358,6 @@
 		@include responsive__mode(bp__xl) {
 			&:hover {
 				box-shadow: $shadow-dark;
-				transform: scale(1.05);
 			}
 		}
 	}
@@ -453,7 +425,6 @@
 			&__items {
 				width: 15%;
 				margin: 0 auto;
-				cursor: pointer;
 
 				&:hover &--icon {
 					fill: $primary-color-dark;
