@@ -3722,21 +3722,9 @@ html {
   z-index: 1;
 }
 
-@media only screen and (min-width: 600px) {
-  .intro {
-    height: 75vh;
-  }
-}
-
-@media only screen and (min-width: 780px) {
-  .intro {
-    height: 90vh;
-  }
-}
-
 @media only screen and (min-width: 1050px) {
   .intro {
-    height: 80vh;
+    height: 640px;
   }
 }
 
@@ -3789,21 +3777,15 @@ html {
   z-index: 2;
 }
 
-@media only screen and (min-width: 600px) {
-  .intro__carousel--items {
-    height: 75vh;
-  }
-}
-
 @media only screen and (min-width: 780px) {
   .intro__carousel--items {
-    height: 90vh;
+    height: 540px;
   }
 }
 
 @media only screen and (min-width: 1050px) {
   .intro__carousel--items {
-    height: 85vh;
+    height: 640px;
   }
 }
 
@@ -3882,13 +3864,13 @@ html {
 
 @media only screen and (min-width: 780px) {
   .desc {
-    padding: 6rem 3rem;
+    padding: 12rem 3rem;
   }
 }
 
 @media only screen and (min-width: 920px) {
   .desc {
-    padding: 4rem 3rem;
+    padding: 12rem 3rem;
   }
 }
 

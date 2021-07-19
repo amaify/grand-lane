@@ -10,16 +10,17 @@
 
 	z-index: 1;
 
-	@include responsive__mode(bp__sm) {
-		height: 75vh;
-	}
+	// @include responsive__mode(bp__sm) {
+	// 	height: 75vh;
+	// }
 
-	@include responsive__mode(bp__md) {
-		height: 90vh;
-	}
+	// @include responsive__mode(bp__md) {
+	// 	height: 90vh;
+	// }
 
 	@include responsive__mode(bp__xl) {
-		height: 80vh;
+		// height: 80vh;
+		height: 640px;
 	}
 
 	// &::before{
@@ -64,16 +65,16 @@
 				z-index: 2;
 			}
 
-			@include responsive__mode(bp__sm) {
-				height: 75vh;
-			}
+			// @include responsive__mode(bp__sm) {
+			// 	height: 75vh;
+			// }
 
 			@include responsive__mode(bp__md) {
-				height: 90vh;
+				height: 540px;
 			}
 
 			@include responsive__mode(bp__xl) {
-				height: 85vh;
+				height: 640px;
 			}
 		}
 	}
@@ -158,11 +159,11 @@
 	}
 
 	@include responsive__mode(bp__md) {
-		padding: 6rem 3rem;
+		padding: 12rem 3rem;
 	}
 
 	@include responsive__mode(bp__lg) {
-		padding: 4rem 3rem;
+		padding: 12rem 3rem;
 	}
 
 	@include responsive__mode(bp__xl) {
