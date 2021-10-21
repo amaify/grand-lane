@@ -51,9 +51,10 @@ class SelectVehicle extends Component {
 				const vehicleType =
 					btn.parentElement.parentElement.parentElement.firstChild.children[0]
 						.innerText;
-				const vehicleImage = btn.parentElement.parentElement.children[1].firstChild.getAttribute(
-					"src"
-				);
+				const vehicleImage =
+					btn.parentElement.parentElement.children[1].firstChild.getAttribute(
+						"src"
+					);
 				this.submitFinalValue(priceValue, vehicleType, vehicleImage);
 			});
 		});
@@ -71,7 +72,7 @@ class SelectVehicle extends Component {
 			sedanPrice = localStorage.getItem("sedanPrice");
 			vanPrice = localStorage.getItem("vanPrice");
 
-			if (distanceValue <= 15) {
+			if (distanceValue <= 20) {
 				sedanPrice = fixedPrice;
 				vanPrice = fixedPrice;
 			}

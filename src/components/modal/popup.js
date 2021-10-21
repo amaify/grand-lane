@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "../button/button";
+// import Button from "../button/button";
 import CountdownTimer from "../countdown/countdown";
 
 function Popup({ onClick }) {
@@ -20,7 +20,8 @@ function Popup({ onClick }) {
 					</span>
 				</h3>
 
-				<Button btnName="Book Now" theme="primary" link="/reservation" />
+				{/* <Button btnName="Call Now" theme="primary" link="tel:+61403008329" /> */}
+				<a href="tel:+61403008329">call now</a>
 			</div>
 		</div>
 	);

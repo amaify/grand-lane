@@ -516,6 +516,23 @@ html {
   z-index: 12;
 }
 
+.popup-content a {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 12;
+  text-decoration: none;
+  border: 1px solid #f0eeee;
+  color: #f0eeee;
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+  background: transparent;
+}
+
 @media only screen and (min-width: 600px) {
   .popup-content {
     position: fixed;
@@ -530,13 +547,12 @@ html {
   .popup-content__text {
     font-size: 3rem;
   }
-  .popup-content .button-primary {
+  .popup-content a {
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, 150%);
             transform: translate(-50%, 150%);
-    z-index: 12;
   }
 }
 
@@ -586,12 +602,19 @@ html {
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
   }
-  .popup-content .button-primary {
+  .popup-content a {
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 76%;
+    font-size: 2.5rem;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .popup-content a:hover {
+    background: #aa7017;
+    border: 1px solid #aa7017;
   }
 }
 
