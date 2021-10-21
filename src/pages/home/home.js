@@ -25,7 +25,7 @@ function Home() {
 	useEffect(() => {
 		setTimeout(() => {
 			setShow(true);
-		}, 5000);
+		}, 2000);
 	}, []);
 
 	const removeModal = () => {
