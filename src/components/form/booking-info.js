@@ -32,7 +32,7 @@ const bookingInfo = () => {
             destination &mdash;{" "}
             <span>{details.distance.destination_addresses}</span>
           </li> */}
-						{transferType !== "Hourly Service" ? (
+						{!hours ? (
 							<li>
 								duration &amp; distance &mdash;
 								<span>

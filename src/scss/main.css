@@ -3696,7 +3696,7 @@ html {
 }
 
 .contact-data__content--text {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   word-break: break-all;
   color: #777;
 }
@@ -4121,6 +4121,10 @@ html {
   background: rgba(0, 0, 0, 0.6);
 }
 
+.services-image__blank::before {
+  background: transparent;
+}
+
 .services-image:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -4132,6 +4136,16 @@ html {
   .services-image:hover {
     -webkit-box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
             box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
+  }
+  .services-image__blank {
+    cursor: initial;
+  }
+  .services-image__blank::before {
+    background: transparent;
+  }
+  .services-image__blank:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 }
 

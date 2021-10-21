@@ -280,14 +280,14 @@ class Contact extends Component {
 							<SVGIcon name="mail" className="contact-data__content--icon" />
 							<h3 className="contact-data__content--heading">email</h3>
 							<p className="contact-data__content--text">
-								booking&#64;grandlane.com.au
+								bookings&#64;grandlane.com.au
 							</p>
 						</div>
 
 						<div className="contact-data__content">
 							<SVGIcon name="phone" className="contact-data__content--icon" />
 							<h3 className="contact-data__content--heading">phone number</h3>
-							<p className="contact-data__content--text">+61403088329</p>
+							<p className="contact-data__content--text">+61403008329</p>
 						</div>
 
 						<div className="contact-data__content">

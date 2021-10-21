@@ -38,7 +38,7 @@ const Action = () => {
 				// data-aos-duration="2000"
 				// data-aos-delay="500"
 			>
-				call now <span>(1800)-222-333-4444</span>
+				call now <span>+61403008329</span>
 			</h3>
 
 			<div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">

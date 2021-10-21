@@ -351,6 +351,12 @@
 			background: rgba(0, 0, 0, 0.6);
 		}
 
+		&__blank {
+			&::before {
+				background: transparent;
+			}
+		}
+
 		&:hover {
 			box-shadow: none;
 			transform: none;
@@ -359,6 +365,18 @@
 		@include responsive__mode(bp__xl) {
 			&:hover {
 				box-shadow: $shadow-dark;
+			}
+
+			&__blank {
+				cursor: initial;
+
+				&::before {
+					background: transparent;
+				}
+
+				&:hover {
+					box-shadow: none;
+				}
 			}
 		}
 	}

@@ -42,7 +42,7 @@ const Footer = () => {
 					<span className="footer-text__icon">
 						<SVGIcon name="phone" className="footer-svg" />
 					</span>
-					<span className="footer-text__desc">(1800)-222-333-4444</span>
+					<span className="footer-text__desc">+61403008329</span>
 				</p>
 
 				<p
@@ -55,7 +55,7 @@ const Footer = () => {
 						<SVGIcon name="mail" className="footer-svg" />
 					</span>
 					<span className="footer-text__desc">
-						booking&#64;grandlane.com.au
+						bookings&#64;grandlane.com.au
 					</span>
 				</p>
 
@@ -66,11 +66,11 @@ const Footer = () => {
 					// data-aos-duration="2000"
 					// data-aos-delay="500"
 				>
-					<a href="tel:+2348139544732">call now to become a driver</a>
+					<a href="tel:+61403008329">call now to become a driver</a>
 				</p>
 			</div>
 
-			<div
+			{/* <div
 				className="footer-social"
 				// data-aos="fade-down"
 				// data-aos-duration="2000"
@@ -82,7 +82,7 @@ const Footer = () => {
 				<Link to="instagram">
 					<SVGIcon name="instagram" className="footer-svg" />
 				</Link>
-			</div>
+			</div> */}
 
 			<div className="footer-links">
 				<ul className="footer-links__items">

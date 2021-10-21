@@ -150,6 +150,8 @@ class App extends Component {
 			backDrop = <Backdrop />;
 		}
 
+		console.log("app re-rendered");
+
 		/////////////////// CODE FOR LOADABLE COMPONENT ///////////
 		const style = {
 			position: "absolute",
@@ -372,6 +374,7 @@ class App extends Component {
 				ResetPassword={ResetPassword}
 			/>
 		);
+
 		return (
 			<div className="App">
 				<Fragment>

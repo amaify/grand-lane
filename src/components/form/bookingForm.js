@@ -126,7 +126,14 @@ function BookingForm(props) {
 							name="select-service"
 							id="service"
 						/>
-					) : null}
+					) : (
+						<Input
+							control="hourlyService"
+							label="Type of Service"
+							name="select-service"
+							id="service"
+						/>
+					)}
 
 					{showHours ? (
 						<Input

@@ -13,6 +13,7 @@ class Booking extends Component {
 
 		if (document.querySelector("#hour")) {
 			hour = document.getElementById("hour").value;
+			service = document.querySelector("#service").value;
 		} else {
 			service = document.querySelector("#service").value;
 		}
