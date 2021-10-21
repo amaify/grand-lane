@@ -29,6 +29,7 @@ export const handlePaymentSubmit = (ownProps, token) => {
 		const notes = localStorage.getItem("notes");
 		const distanceDetails = JSON.parse(localStorage.getItem("distance"));
 		const billingEmail = localStorage.getItem("billingEmail");
+		const billingName = localStorage.getItem("billingName");
 
 		if (serviceType) {
 			service = localStorage.getItem("serviceType");
@@ -59,6 +60,7 @@ export const handlePaymentSubmit = (ownProps, token) => {
             pickupSign: "${pickupSign}",
             phoneNumber: "${phoneNumber}",
             billingEmail: "${billingEmail}",
+			billingName: "${billingName}",
             notes: "${notes}"
           }){
             _id

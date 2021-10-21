@@ -1,12 +1,203 @@
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    margin: 0 auto;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	margin: 0 auto;
 
-    background: $grey-light-1;
-    padding: 2rem;
-    z-index: 2000;
+	background: $grey-light-1;
+	padding: 2rem;
+	z-index: 2000;
+}
+
+.popup {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	// transform: translate(-50%, -50%);
+	z-index: 10;
+
+	&-content {
+		position: fixed;
+		width: 95%;
+		height: 60%;
+		// border-radius: 8px;
+
+		// background: pink;
+		background-image: url(../images/melbourne-cup.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 11;
+
+		&::after {
+			content: "";
+			background: rgba(0, 0, 0, 0.1);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: block;
+		}
+
+		&__heading {
+			font-size: 3rem;
+			font-family: "Rye", cursive;
+			text-transform: uppercase;
+			text-align: center;
+
+			// position: absolute;
+			// top: 0;
+			// right: 0;
+
+			& span:first-child {
+				display: block;
+			}
+		}
+
+		&__text {
+			font-size: 2.5rem;
+			font-family: "Rye", cursive;
+			// color: rgb(216, 56, 83);
+			color: rgb(42, 148, 219);
+			font-weight: 700;
+			text-transform: uppercase;
+			text-align: center;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			transform: translate(-50%, -50%);
+
+			& span:first-child {
+				display: block;
+			}
+		}
+
+		& .button-primary {
+			position: absolute;
+			top: 70%;
+			left: 50%;
+
+			transform: translate(-50%, -50%);
+			z-index: 12;
+
+			// border: 3px solid $grey-dark-4;
+			// color: $grey-dark-4;
+		}
+
+		@include responsive__mode(bp__sm) {
+			position: fixed;
+			width: 90%;
+			height: 60%;
+
+			&__heading {
+				font-size: 4rem;
+
+				text-align: center;
+				color: rgb(68, 134, 255);
+			}
+
+			&__text {
+				font-size: 3rem;
+			}
+
+			& .button-primary {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+
+				transform: translate(-50%, 150%);
+				z-index: 12;
+			}
+		}
+
+		@include responsive__mode(bp__md) {
+			&__heading {
+				font-size: 4.5rem;
+			}
+
+			&__text {
+				font-size: 3rem;
+			}
+		}
+
+		@include responsive__mode(bp__lg) {
+			// position: fixed;
+			width: 80%;
+			height: 80%;
+
+			&__heading {
+				font-size: 5rem;
+
+				text-align: center;
+			}
+		}
+
+		@include responsive__mode(bp__xl) {
+			width: 80%;
+			height: 80%;
+
+			&__heading {
+				font-size: 6.5rem;
+
+				text-align: center;
+				color: black;
+
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				& span:first-child {
+					display: block;
+				}
+			}
+
+			&__text {
+				font-size: 4rem;
+				color: rgb(216, 56, 83);
+
+				position: absolute;
+				top: 50%;
+				left: 76%;
+				width: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			& .button-primary {
+				position: absolute;
+				top: 70%;
+				left: 76%;
+
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+}
+
+.countdown {
+	position: absolute;
+	bottom: 5%;
+	left: 2%;
+
+	font-size: 2.3rem;
+	font-family: "Rye", cursive;
+
+	@include responsive__mode(bp__sm) {
+		position: absolute;
+		bottom: 5%;
+		left: 2%;
+
+		font-size: 2.8rem;
+		font-family: "Rye", cursive;
+	}
 }

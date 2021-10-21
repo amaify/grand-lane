@@ -63,6 +63,7 @@ export const paymentReducer = (state = initialState, action) => {
 			localStorage.removeItem("phoneNumber");
 			localStorage.removeItem("notes");
 			localStorage.removeItem("billingEmail");
+			localStorage.removeItem("billingName");
 			localStorage.removeItem("vehicleImage");
 			localStorage.removeItem("fixedPrice");
 			localStorage.removeItem("distanceValue");

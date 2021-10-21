@@ -150,8 +150,6 @@ class App extends Component {
 			backDrop = <Backdrop />;
 		}
 
-		console.log("app re-rendered");
-
 		/////////////////// CODE FOR LOADABLE COMPONENT ///////////
 		const style = {
 			position: "absolute",

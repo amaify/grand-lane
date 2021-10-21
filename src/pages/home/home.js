@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -8,6 +8,7 @@ import SVGIcon from "../../components/svgIcons/svg";
 import Button from "../../components/button/button";
 import Footer from "../../components/footer/footer";
 import Action from "../../components/footer/action";
+import Popup from "../../components/modal/popup";
 
 import HomeLarge from "../../images/home-large.jpg";
 import Woman from "../../images/services-image-medium.jpg";
@@ -18,12 +19,25 @@ import Event from "../../images/events-2-medium.jpg";
 import Tour from "../../images/testimonial-2-medium.jpg";
 // import WeddingTransfer from "../../images/events-medium.jpg";
 
-const Home = () => {
+function Home() {
+	const [show, setShow] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setShow(true);
+		}, 5000);
+	}, []);
+
+	const removeModal = () => {
+		setShow(false);
+	};
+
 	return (
 		<Fragment>
 			<Helmet>
 				<title>GrandLane | Melbourne Chauffeur Service</title>
 			</Helmet>
+			{show ? <Popup onClick={removeModal} /> : ""}
 			<section className="intro">
 				<Header />
 				{/* <div className="intro-items"> */}
@@ -270,6 +284,6 @@ const Home = () => {
 			<Footer />
 		</Fragment>
 	);
-};
+}
 
 export default Home;

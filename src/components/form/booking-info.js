@@ -3,7 +3,7 @@ import React from "react";
 const bookingInfo = () => {
 	let date = localStorage.getItem("date");
 	let time = localStorage.getItem("time");
-	let transferType = localStorage.getItem("serviceType");
+	// let transferType = localStorage.getItem("serviceType");
 	let hours = localStorage.getItem("hours");
 	let details = JSON.parse(localStorage.getItem("distance"));
 	let destination = localStorage.getItem("destination");
