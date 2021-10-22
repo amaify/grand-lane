@@ -23,9 +23,15 @@ function Home() {
 	const [show, setShow] = useState(false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setShow(true);
-		}, 2000);
+		const date = new Date();
+
+		if (date > new Date("2021-11-02T01:02:03")) {
+			return;
+		} else {
+			setTimeout(() => {
+				setShow(true);
+			}, 2000);
+		}
 	}, []);
 
 	const removeModal = () => {
