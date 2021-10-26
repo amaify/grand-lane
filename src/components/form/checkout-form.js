@@ -109,22 +109,25 @@ const CheckoutForm = (props) => {
 			return;
 		}
 
-		const { paymentMethod } = await stripe.createPaymentMethod({
+		const { paymentMethod, error } = await stripe.createPaymentMethod({
 			type: "card",
 			card: elements.getElement(CardNumberElement),
 			billing_details: billingDetails,
 		});
-		if (paymentMethod === undefined) {
+
+		if (error) {
 			setPayment(false);
 			setError(true);
-			setMessage("Oops! Something went wrong! Payment method not found!");
+			setMessage(error.message);
 			return;
 		}
+
 		const result = await stripe.confirmCardPayment(clientSecret, {
 			payment_method: paymentMethod.id,
 			receipt_email: productData.product.email,
 			setup_future_usage: "off_session",
 		});
+
 		const history = props.history;
 		const token = props.token;
 		if (!result.error) {

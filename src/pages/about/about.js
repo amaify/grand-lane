@@ -17,6 +17,12 @@ const About = (props) => {
 		<Fragment>
 			<Helmet>
 				<title>About - GrandLane Services</title>
+				<meta
+					name="description"
+					content="GrandLane Chauffeurs has been taking people places for years. 
+					We specialize in airport transfers, corporate transfers, live concerts, 
+					sight- seeing tours and a variety of other related services."
+				/>
 			</Helmet>
 			<section className="about-intro">
 				<Header />
@@ -44,14 +50,13 @@ const About = (props) => {
 						data-aos-duration="2000"
 						data-aos-delay="500"
 					>
-						GrandLane Chauffeurs has been taking people places for years. We
-						specialize in airport transfers, corporate transfers, weddings, live
-						concerts, sight- seeing tours and a variety of other related
-						services. We keep customer satisfaction at the forefront of our
-						priorities. You can rely on us for a prompt and efficient service.
-						All our chauffeurs are licensed and hired after rigorous background
-						checks. They have extensive knowledge of the shortest routes to
-						take.
+						Grandlane Chauffeurs has been taking people places for years. We
+						specialize in airport transfers, corporate transfers, live concerts,
+						sight-seeing tours and a variety of other related services. We keep
+						customer satisfaction at the forefront of our priorities. You can
+						rely on us for a prompt and efficient service. All our chauffeurs
+						are licensed and hired after rigorous background checks. They have
+						extensive knowledge of the shortest routes to take.
 					</p>
 				</div>
 				<div
@@ -81,9 +86,9 @@ const About = (props) => {
 					data-aos-duration="2000"
 					data-aos-delay="500"
 				>
-					GrandLane Chauffeurs is Melbourne’s most trusted and professional
-					chauffeur service offering chauffeured luxury cars for all occasions
-					and airport transfer services.
+					Grandlane Chauffeurs is Melbourne’s most trusted and professional
+					chauffeur service offering chauffeured luxury cars for special
+					occasions and airport transfer services.
 				</p>
 				<div className="about-highlight__qualities">
 					<div

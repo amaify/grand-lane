@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import * as actionType from "../../store/actions/actionType";
 
 const backdrop = ({ removeBackdrop, click }) => (
-  <div className="backdrop" onClick={click || removeBackdrop} />
+	<div className="backdrop" onClick={click || removeBackdrop} />
 );
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    removeBackdrop: () => dispatch({ type: actionType.DRAWER_CLOSE }),
-  };
+	return {
+		removeBackdrop: () => dispatch({ type: actionType.DRAWER_TOGGLE }),
+	};
 };
 
 export default connect(null, mapDispatchToProps)(backdrop);

@@ -12,12 +12,16 @@ function SideDrawer(props) {
 	}
 
 	useEffect(() => {
-		window.onload = () => props.closeDrawer();
+		window.onload = () => {
+			if (props.openDrawer) {
+				return props.drawerToggle();
+			}
+		};
 	}, [props]);
 
 	return (
 		<div className={drawerClass}>
-			<div className="drawer-close" onClick={props.closeDrawer}>
+			<div className="drawer-close" onClick={props.drawerToggle}>
 				<SVGIcon name="cancel" className="drawer-close__icon" />
 			</div>
 			<NavItems className="side" />
@@ -33,7 +37,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		closeDrawer: () => dispatch({ type: actionType.DRAWER_CLOSE }),
+		// closeDrawer: () => dispatch({ type: actionType.DRAWER_CLOSE }),
+		drawerToggle: () => dispatch({ type: actionType.DRAWER_TOGGLE }),
 	};
 };
 

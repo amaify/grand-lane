@@ -17,7 +17,7 @@ function MobileToggle(props) {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		drawerToggle: () => dispatch({ type: actionType.DRAWER_OPEN }),
+		drawerToggle: () => dispatch({ type: actionType.DRAWER_TOGGLE }),
 	};
 };
 

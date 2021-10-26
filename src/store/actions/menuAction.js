@@ -1,14 +1,19 @@
 import * as actionType from "./actionType";
-import { useMemo } from "react";
 
-export const drawerOpen = () => {
-	return {
-		type: actionType.DRAWER_OPEN,
-	};
-};
+// export const drawerOpen = () => {
+// 	return {
+// 		type: actionType.DRAWER_OPEN,
+// 	};
+// };
 
-export const drawerClose = () => {
+// export const drawerClose = () => {
+// 	return {
+// 		type: actionType.DRAWER_CLOSE,
+// 	};
+// };
+
+export const drawerToggle = () => {
 	return {
-		type: actionType.DRAWER_CLOSE,
+		type: actionType.DRAWER_TOGGLE,
 	};
 };

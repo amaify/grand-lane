@@ -28,7 +28,7 @@ function Home() {
 		if (date > new Date("2021-11-02T01:02:03")) {
 			return;
 		} else {
-			setTimeout(() => {
+			return setTimeout(() => {
 				setShow(true);
 			}, 2000);
 		}
@@ -41,7 +41,12 @@ function Home() {
 	return (
 		<Fragment>
 			<Helmet>
-				<title>GrandLane | Melbourne Chauffeur Service</title>
+				<title>GrandLane - Melbourne Chauffeur Service</title>
+				<meta
+					name="description"
+					content="Home of Grandlane Chauffeurs, we specialize in airport transfers, corporate transfers, 
+					live concerts, sight-seeing tours and a variety of other related services"
+				/>
 			</Helmet>
 			{show ? <Popup onClick={removeModal} /> : ""}
 			<section className="intro">

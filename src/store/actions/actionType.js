@@ -16,8 +16,9 @@ export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 
 //SIDEDRAWER ACTIONS
-export const DRAWER_OPEN = "DRAWER_OPEN";
-export const DRAWER_CLOSE = "DRAWER_CLOSE";
+// export const DRAWER_OPEN = "DRAWER_OPEN";
+// export const DRAWER_CLOSE = "DRAWER_CLOSE";
+export const DRAWER_TOGGLE = "DRAWER_TOGGLE";
 export const SHOW_ERROR = "SHOW_ERROR";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 

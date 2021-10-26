@@ -176,7 +176,11 @@ class Contact extends Component {
 		return (
 			<Fragment>
 				<Helmet>
-					<title>Contact Us - GrandLane Services</title>
+					<title>Contact Us - Grandlane Services</title>
+					<meta
+						name="description"
+						content="Get in touch with Grandlane Chauffeur service for any inquiries."
+					/>
 				</Helmet>
 				<section className="contact">
 					<Header />
@@ -205,7 +209,7 @@ class Contact extends Component {
 								type="text"
 								control="input"
 								id="name"
-								placeholder="James Madisson"
+								placeholder="John Doe"
 								onChange={this.inputChangeHandler}
 								onBlur={this.inputBlurHandler.bind(this, "name")}
 								value={contactForm["name"].value}
@@ -218,7 +222,7 @@ class Contact extends Component {
 								type="email"
 								control="input"
 								id="email"
-								placeholder="james.madisson@aedc.com"
+								placeholder="e.g. email@example.com"
 								onChange={this.inputChangeHandler}
 								onBlur={this.inputBlurHandler.bind(this, "email")}
 								value={contactForm["email"].value}

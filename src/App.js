@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
+// import memoize from "memoize-one";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionType from "./store/actions/actionType";
-import loadable from "@loadable/component";
-import Loader from "react-loader-spinner";
+// import loadable from "@loadable/component";
+// import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -38,7 +39,7 @@ class App extends Component {
 		}
 
 		if (new Date(expiryDate) <= new Date()) {
-			this.logoutHandler();
+			this.props.logoutHandler();
 			return;
 		}
 
@@ -52,7 +53,7 @@ class App extends Component {
 		const { location } = this.props;
 
 		if (location !== prevProps.location && this.props.sideDrawerOpen) {
-			this.props.drawerClose();
+			this.props.drawerToggle();
 		}
 
 		if (location !== prevProps.location) {
@@ -151,233 +152,276 @@ class App extends Component {
 		}
 
 		/////////////////// CODE FOR LOADABLE COMPONENT ///////////
-		const style = {
-			position: "absolute",
-			top: "50%",
-			left: "50%",
-			transform: "translate(-50%, -50%)",
-		};
-		const HomePage = loadable(() => import("./pages/home/home"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const style = {
+		// 	position: "absolute",
+		// 	top: "50%",
+		// 	left: "50%",
+		// 	transform: "translate(-50%, -50%)",
+		// };
+		// const HomePage = loadable(() => import("./pages/home/home"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const AboutPage = loadable(() => import("./pages/about/about"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const AboutPage = loadable(() => import("./pages/about/about"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const ServicePage = loadable(() => import("./pages/service/service"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const ServicePage = loadable(() => import("./pages/service/service"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const Contact = loadable(() => import("./pages/contact/contact"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const Contact = loadable(() => import("./pages/contact/contact"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const BookingPage = loadable(() => import("./pages/booking/booking"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const BookingPage = loadable(() => import("./pages/booking/booking"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const Login = loadable(() => import("./pages/auth/login"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const Login = loadable(() => import("./pages/auth/login"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const Signup = loadable(() => import("./pages/auth/signup"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const Signup = loadable(() => import("./pages/auth/signup"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const SelectVehicle = loadable(
-			() => import("./pages/booking/select-vehicle"),
-			{
-				fallback: (
-					<Loader
-						type="Rings"
-						color="#3f80e5"
-						height={100}
-						width={100}
-						style={style}
-					/>
-				),
-			}
-		);
+		// const SelectVehicle = loadable(
+		// 	() => import("./pages/booking/select-vehicle"),
+		// 	{
+		// 		fallback: (
+		// 			<Loader
+		// 				type="Rings"
+		// 				color="#3f80e5"
+		// 				height={100}
+		// 				width={100}
+		// 				style={style}
+		// 			/>
+		// 		),
+		// 	}
+		// );
 
-		const Options = loadable(() => import("./pages/booking/options"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const Options = loadable(() => import("./pages/booking/options"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const Checkout = loadable(() => import("./pages/checkout/checkout"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const Checkout = loadable(() => import("./pages/checkout/checkout"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const Orders = loadable(() => import("./pages/orders/orders"), {
-			fallback: (
-				<Loader
-					type="Rings"
-					color="#3f80e5"
-					height={100}
-					width={100}
-					style={style}
-				/>
-			),
-		});
+		// const Orders = loadable(() => import("./pages/orders/orders"), {
+		// 	fallback: (
+		// 		<Loader
+		// 			type="Rings"
+		// 			color="#3f80e5"
+		// 			height={100}
+		// 			width={100}
+		// 			style={style}
+		// 		/>
+		// 	),
+		// });
 
-		const SingleOrder = loadable(
-			() => import("./pages/orders/singleOrder/singleOrder"),
-			{
-				fallback: (
-					<Loader
-						type="Rings"
-						color="#3f80e5"
-						height={100}
-						width={100}
-						style={style}
-					/>
-				),
-			}
-		);
+		// const SingleOrder = loadable(
+		// 	() => import("./pages/orders/singleOrder/singleOrder"),
+		// 	{
+		// 		fallback: (
+		// 			<Loader
+		// 				type="Rings"
+		// 				color="#3f80e5"
+		// 				height={100}
+		// 				width={100}
+		// 				style={style}
+		// 			/>
+		// 		),
+		// 	}
+		// );
 
-		const ForgotPassword = loadable(
-			() => import("./pages/auth/forgot-password"),
-			{
-				fallback: (
-					<Loader
-						type="Rings"
-						color="#3f80e5"
-						height={100}
-						width={100}
-						style={style}
-					/>
-				),
-			}
-		);
+		// const ForgotPassword = loadable(
+		// 	() => import("./pages/auth/forgot-password"),
+		// 	{
+		// 		fallback: (
+		// 			<Loader
+		// 				type="Rings"
+		// 				color="#3f80e5"
+		// 				height={100}
+		// 				width={100}
+		// 				style={style}
+		// 			/>
+		// 		),
+		// 	}
+		// );
 
-		const ResetPassword = loadable(
-			() => import("./pages/auth/reset-password"),
-			{
-				fallback: (
-					<Loader
-						type="Rings"
-						color="#3f80e5"
-						height={100}
-						width={100}
-						style={style}
-					/>
-				),
-			}
-		);
+		// const ResetPassword = loadable(
+		// 	() => import("./pages/auth/reset-password"),
+		// 	{
+		// 		fallback: (
+		// 			<Loader
+		// 				type="Rings"
+		// 				color="#3f80e5"
+		// 				height={100}
+		// 				width={100}
+		// 				style={style}
+		// 			/>
+		// 		),
+		// 	}
+		// );
 
-		const BookingSuccess = loadable(
-			() => import("./pages/booking/booking-successful"),
-			{
-				fallback: (
-					<Loader
-						type="Rings"
-						color="#3f80e5"
-						height={100}
-						width={100}
-						style={style}
-					/>
-				),
-			}
-		);
+		// const BookingSuccess = loadable(
+		// 	() => import("./pages/booking/booking-successful"),
+		// 	{
+		// 		fallback: (
+		// 			<Loader
+		// 				type="Rings"
+		// 				color="#3f80e5"
+		// 				height={100}
+		// 				width={100}
+		// 				style={style}
+		// 			/>
+		// 		),
+		// 	}
+		// );
+
+		// const HomePage = loadable(() => import("./pages/home/home"));
+
+		// const AboutPage = loadable(() => import("./pages/about/about"));
+
+		// const ServicePage = loadable(() => import("./pages/service/service"));
+
+		// const Contact = loadable(() => import("./pages/contact/contact"));
+
+		// const BookingPage = loadable(() => import("./pages/booking/booking"));
+
+		// const Login = loadable(() => import("./pages/auth/login"));
+
+		// const Signup = loadable(() => import("./pages/auth/signup"));
+
+		// const SelectVehicle = loadable(() =>
+		// 	import("./pages/booking/select-vehicle")
+		// );
+
+		// const Options = loadable(() => import("./pages/booking/options"));
+
+		// const Checkout = loadable(() => import("./pages/checkout/checkout"));
+
+		// const Orders = loadable(() => import("./pages/orders/orders"));
+
+		// const SingleOrder = loadable(() =>
+		// 	import("./pages/orders/singleOrder/singleOrder")
+		// );
+
+		// const ForgotPassword = loadable(() =>
+		// 	import("./pages/auth/forgot-password")
+		// );
+
+		// const ResetPassword = loadable(() => import("./pages/auth/reset-password"));
+
+		// const BookingSuccess = loadable(() =>
+		// 	import("./pages/booking/booking-successful")
+		// );
+
+		// let routes = (
+		// 	<RouteComponent
+		// 		submitLocationHandler={this.submitLocationHandler}
+		// 		HomePage={HomePage}
+		// 		AboutPage={AboutPage}
+		// 		ServicePage={ServicePage}
+		// 		Contact={Contact}
+		// 		Orders={Orders}
+		// 		BookingPage={BookingPage}
+		// 		Options={Options}
+		// 		SelectVehicle={SelectVehicle}
+		// 		BookingSuccess={BookingSuccess}
+		// 		Login={Login}
+		// 		Signup={Signup}
+		// 		SingleOrder={SingleOrder}
+		// 		Checkout={Checkout}
+		// 		ForgotPassword={ForgotPassword}
+		// 		ResetPassword={ResetPassword}
+		// 	/>
+		// );
 
 		let routes = (
-			<RouteComponent
-				submitLocationHandler={this.submitLocationHandler}
-				HomePage={HomePage}
-				AboutPage={AboutPage}
-				ServicePage={ServicePage}
-				Contact={Contact}
-				Orders={Orders}
-				BookingPage={BookingPage}
-				Options={Options}
-				SelectVehicle={SelectVehicle}
-				BookingSuccess={BookingSuccess}
-				Login={Login}
-				Signup={Signup}
-				SingleOrder={SingleOrder}
-				Checkout={Checkout}
-				ForgotPassword={ForgotPassword}
-				ResetPassword={ResetPassword}
-			/>
+			<RouteComponent submitLocationHandler={this.submitLocationHandler} />
 		);
 
 		return (
 			<div className="App">
 				<Fragment>
 					{routes}
-					<SideDrawer />
+					{this.props.sideDrawerOpen && <SideDrawer />}
+
 					{this.props.locationError ? (
 						<div className="booking-error">
 							<Backdrop click={this.props.closeModal} />
@@ -415,7 +459,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		drawerClose: () => dispatch({ type: actionType.DRAWER_CLOSE }),
+		drawerToggle: () => dispatch({ type: actionType.DRAWER_TOGGLE }),
+		logoutHandler: () => dispatch({ type: actionType.LOGOUT }),
 		loading: () => dispatch({ type: actionType.LOGIN_PENDING }),
 		loadingCompleted: () => dispatch({ type: actionType.SIGNUP_SUCCESS }),
 		submitLocationError: () => dispatch({ type: actionType.SHOW_ERROR }),
