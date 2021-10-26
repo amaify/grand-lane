@@ -44,9 +44,9 @@ function Home() {
 				<title>Grandlane - Melbourne Chauffeur Service</title>
 				<meta
 					name="description"
-					content="Grandlane Chauffeurs is the most trusted and professional chauffeur service in Melbourne. 
-					we specialize in airport transfers, corporate transfers, live concerts, sight-seeing tours and a 
-					variety of other related services. Book with us at the touch of a button."
+					content="Grandlane Chauffeurs is the most trusted and professional chauffeur service in 
+					Melbourne. We specialize in airport transfers, corporate transfers, live concerts, sight-seeing 
+					tours and a variety of other related services. Book with us at the touch of a button."
 				/>
 			</Helmet>
 			{show ? <Popup onClick={removeModal} /> : ""}
