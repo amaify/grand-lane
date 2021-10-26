@@ -22,7 +22,7 @@ const BookingSuccess = (props) => {
 	return (
 		<Fragment>
 			<Helmet>
-				<title>Booking Successful | GrandLane Chauffeur Services</title>
+				<title>Booking Successful - Grandlane Chauffeur Services</title>
 			</Helmet>
 			<section className="forgotPassword">
 				<Header />

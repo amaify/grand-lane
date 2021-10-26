@@ -13,174 +13,174 @@ import Button from "../../components/button/button";
 import { required, length, email } from "../../util/validators";
 
 class Login extends Component {
-  state = {
-    loginForm: {
-      email: {
-        value: "",
-        valid: false,
-        touched: false,
-        validators: [required, email],
-      },
+	state = {
+		loginForm: {
+			email: {
+				value: "",
+				valid: false,
+				touched: false,
+				validators: [required, email],
+			},
 
-      password: {
-        value: "",
-        valid: false,
-        touched: false,
-        validators: [required, length({ min: 5 })],
-      },
-    },
-    formIsValid: false,
-  };
+			password: {
+				value: "",
+				valid: false,
+				touched: false,
+				validators: [required, length({ min: 5 })],
+			},
+		},
+		formIsValid: false,
+	};
 
-  validateForm = () => {
-    const { loginForm } = this.state;
-    this.setState({
-      formIsValid: loginForm.email.valid && loginForm.password.valid,
-    });
-  };
+	validateForm = () => {
+		const { loginForm } = this.state;
+		this.setState({
+			formIsValid: loginForm.email.valid && loginForm.password.valid,
+		});
+	};
 
-  inputChangeHandler = (input, value) => {
-    this.setState((prevState) => {
-      let isValid = true;
-      for (const validator of prevState.loginForm[input].validators) {
-        isValid = isValid && validator(value);
-      }
-      const updatedForm = {
-        ...prevState.loginForm,
-        [input]: {
-          ...prevState.loginForm[input],
-          valid: isValid,
-          value: value,
-        },
-      };
-      let formIsValid = true;
-      for (const inputName in updatedForm) {
-        formIsValid = formIsValid && updatedForm[inputName].valid;
-      }
-      return {
-        loginForm: updatedForm,
-        formIsValid: formIsValid,
-      };
-    });
-  };
+	inputChangeHandler = (input, value) => {
+		this.setState((prevState) => {
+			let isValid = true;
+			for (const validator of prevState.loginForm[input].validators) {
+				isValid = isValid && validator(value);
+			}
+			const updatedForm = {
+				...prevState.loginForm,
+				[input]: {
+					...prevState.loginForm[input],
+					valid: isValid,
+					value: value,
+				},
+			};
+			let formIsValid = true;
+			for (const inputName in updatedForm) {
+				formIsValid = formIsValid && updatedForm[inputName].valid;
+			}
+			return {
+				loginForm: updatedForm,
+				formIsValid: formIsValid,
+			};
+		});
+	};
 
-  inputBlurHandler = (input) => {
-    this.setState((prevState) => {
-      return {
-        loginForm: {
-          ...prevState.loginForm,
-          [input]: {
-            ...prevState.loginForm[input],
-            touched: true,
-          },
-        },
-      };
-    });
-  };
+	inputBlurHandler = (input) => {
+		this.setState((prevState) => {
+			return {
+				loginForm: {
+					...prevState.loginForm,
+					[input]: {
+						...prevState.loginForm[input],
+						touched: true,
+					},
+				},
+			};
+		});
+	};
 
-  render() {
-    const { loginForm, formIsValid } = this.state;
-    const { error } = this.props;
-    return (
-      <Fragment>
-        <Helmet>
-          <title>Login | GrandLane Chauffeur Services</title>
-        </Helmet>
-        <section className="login">
-          <Header />
-          <div className="login-intro">
-            <h2 className="login-intro__heading">login</h2>
-            <p className="login-intro__text">login to your account</p>
-          </div>
-        </section>
+	render() {
+		const { loginForm, formIsValid } = this.state;
+		const { error } = this.props;
+		return (
+			<Fragment>
+				<Helmet>
+					<title>Login | Grandlane Chauffeur Services</title>
+				</Helmet>
+				<section className="login">
+					<Header />
+					<div className="login-intro">
+						<h2 className="login-intro__heading">login</h2>
+						<p className="login-intro__text">login to your account</p>
+					</div>
+				</section>
 
-        <section className="contact-form">
-          <div className="auth-wrapper">
-            <h2 className="auth-wrapper__heading">account login</h2>
-            {error ? (
-              <div className="error-message">
-                <p>{error.message}</p>
-              </div>
-            ) : null}
-            <form
-              className="contact-form__contents auth-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const optionsRoute = this.props.optionsRoute;
-                this.props.login(
-                  loginForm.email.value,
-                  loginForm.password.value,
-                  optionsRoute
-                );
-              }}
-            >
-              <Input
-                control="input"
-                type="email"
-                label="Email"
-                id="email"
-                placeholder="james.madisson@aedc.com"
-                onChange={this.inputChangeHandler}
-                onBlur={this.inputBlurHandler.bind(this, "email")}
-                value={loginForm["email"].value}
-                valid={loginForm["email"].valid}
-                touched={loginForm["email"].touched}
-                message="Please Enter a valid email"
-              />
+				<section className="contact-form">
+					<div className="auth-wrapper">
+						<h2 className="auth-wrapper__heading">account login</h2>
+						{error ? (
+							<div className="error-message">
+								<p>{error.message}</p>
+							</div>
+						) : null}
+						<form
+							className="contact-form__contents auth-form"
+							onSubmit={(e) => {
+								e.preventDefault();
+								const optionsRoute = this.props.optionsRoute;
+								this.props.login(
+									loginForm.email.value,
+									loginForm.password.value,
+									optionsRoute
+								);
+							}}
+						>
+							<Input
+								control="input"
+								type="email"
+								label="Email"
+								id="email"
+								placeholder="james.madisson@aedc.com"
+								onChange={this.inputChangeHandler}
+								onBlur={this.inputBlurHandler.bind(this, "email")}
+								value={loginForm["email"].value}
+								valid={loginForm["email"].valid}
+								touched={loginForm["email"].touched}
+								message="Please Enter a valid email"
+							/>
 
-              <Input
-                control="input"
-                type="password"
-                label="Password"
-                id="password"
-                placeholder="Password"
-                onChange={this.inputChangeHandler}
-                onBlur={this.inputBlurHandler.bind(this, "password")}
-                value={loginForm["password"].value}
-                valid={loginForm["password"].valid}
-                touched={loginForm["password"].touched}
-                message="Password must contain at least 5 characters"
-              />
+							<Input
+								control="input"
+								type="password"
+								label="Password"
+								id="password"
+								placeholder="Password"
+								onChange={this.inputChangeHandler}
+								onBlur={this.inputBlurHandler.bind(this, "password")}
+								value={loginForm["password"].value}
+								valid={loginForm["password"].valid}
+								touched={loginForm["password"].touched}
+								message="Password must contain at least 5 characters"
+							/>
 
-              <Button
-                type="submit"
-                theme="auth"
-                btnName="LOGIN"
-                disabled={!formIsValid}
-              ></Button>
-              <div className="login-items">
-                <ul className="login-item">
-                  <li className="login-item__link">
-                    <Link to="/signup">Create an Account</Link>
-                  </li>
-                  <li className="login-item__link">
-                    <Link to="forgot-password">Forgot Password?</Link>
-                  </li>
-                </ul>
-              </div>
-            </form>
-          </div>
-        </section>
-        <Footer />
-      </Fragment>
-    );
-  }
+							<Button
+								type="submit"
+								theme="auth"
+								btnName="LOGIN"
+								disabled={!formIsValid}
+							></Button>
+							<div className="login-items">
+								<ul className="login-item">
+									<li className="login-item__link">
+										<Link to="/signup">Create an Account</Link>
+									</li>
+									<li className="login-item__link">
+										<Link to="forgot-password">Forgot Password?</Link>
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+				</section>
+				<Footer />
+			</Fragment>
+		);
+	}
 }
 
 const mapStateToProps = (state) => {
-  return {
-    error: state.authentication.error,
-    optionsRoute: state.route.optionsRoute,
-  };
+	return {
+		error: state.authentication.error,
+		optionsRoute: state.route.optionsRoute,
+	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) =>
-  bindActionCreators(
-    {
-      login: (email, password, optionsRoute) =>
-        loginHandler(email, password, ownProps, optionsRoute),
-    },
-    dispatch
-  );
+	bindActionCreators(
+		{
+			login: (email, password, optionsRoute) =>
+				loginHandler(email, password, ownProps, optionsRoute),
+		},
+		dispatch
+	);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

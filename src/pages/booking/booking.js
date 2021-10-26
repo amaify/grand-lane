@@ -39,7 +39,7 @@ class Booking extends Component {
 		return (
 			<Fragment>
 				<Helmet>
-					<title>New Reservation - GrandLane Services</title>
+					<title>New Reservation - Grandlane Services</title>
 				</Helmet>
 				<section className="booking">
 					<Header />

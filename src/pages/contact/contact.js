@@ -176,7 +176,7 @@ class Contact extends Component {
 		return (
 			<Fragment>
 				<Helmet>
-					<title>Contact Us - Grandlane Services</title>
+					<title>Contact Us - Grandlane Chauffeur Services</title>
 					<meta
 						name="description"
 						content="Get in touch with Grandlane Chauffeur service for any inquiries."

@@ -84,7 +84,7 @@ class SelectVehicle extends Component {
 		let selectVehicle = (
 			<Fragment>
 				<Helmet>
-					<title>Select a Ride - GrandLane Services</title>
+					<title>Select a Ride - Grandlane Chauffeur Services</title>
 				</Helmet>
 				<BookingInfo />
 

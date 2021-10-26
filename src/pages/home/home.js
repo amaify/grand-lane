@@ -41,7 +41,7 @@ function Home() {
 	return (
 		<Fragment>
 			<Helmet>
-				<title>GrandLane - Melbourne Chauffeur Service</title>
+				<title>Grandlane - Melbourne Chauffeur Service</title>
 				<meta
 					name="description"
 					content="Home of Grandlane Chauffeurs, we specialize in airport transfers, corporate transfers, 

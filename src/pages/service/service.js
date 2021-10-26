@@ -15,7 +15,7 @@ const Service = (props) => {
 	return (
 		<Fragment>
 			<Helmet>
-				<title>Services | GrandLane Chauffeur Services</title>
+				<title>Services - Grandlane Chauffeur Services</title>
 			</Helmet>
 			<section className="service-intro">
 				<Header drawerToggle={props.sideDrawerToggle} isAuth={props.isAuth} />

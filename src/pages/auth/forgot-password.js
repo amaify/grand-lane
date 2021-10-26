@@ -162,7 +162,7 @@ class ForgotPassword extends Component {
 		return (
 			<Fragment>
 				<Helmet>
-					<title>Forgot Password - GrandLane Services</title>
+					<title>Forgot Password - Grandlane Chauffeur Services</title>
 				</Helmet>
 				<section className="forgotPassword">
 					<Header />

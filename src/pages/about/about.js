@@ -16,7 +16,7 @@ const About = (props) => {
 	return (
 		<Fragment>
 			<Helmet>
-				<title>About - GrandLane Services</title>
+				<title>About - Grandlane Chauffeur Services</title>
 				<meta
 					name="description"
 					content="GrandLane Chauffeurs has been taking people places for years. 
