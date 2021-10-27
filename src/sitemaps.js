@@ -8,7 +8,7 @@ const Sitemap = require("react-router-sitemap").default;
 function generateSitemap() {
 	return new Sitemap(router)
 		.build("https://grandlane.com.au/")
-		.save("./public/sitemap.xml");
+		.save("../public/sitemap.xml");
 }
 
 generateSitemap();
